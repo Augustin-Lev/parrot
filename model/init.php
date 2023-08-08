@@ -38,10 +38,21 @@
                     prenom VARCHAR(100),
                     email VARCHAR (100),
                     motDePasse VARCHAR (100))') !== null){
-                        echo "<li>table créée</li><br/>";
-                    }else{
+                        echo "<li>table Salarié créée</li><br/>";
+                }else{
                         echo '<li>echec de création de la table</li><br/>';
-                    }
+                }
+
+                if($tablePDO -> exec('CREATE TABLE temoignage (
+                    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+                    etoile int(5),
+                    nom VARCHAR(100),
+                    prenom VARCHAR(100),
+                    commentaire VARCHAR (100))') !== null){
+                        echo "<li>table témoignage créée</li><br/>";
+                }else{
+                        echo '<li>echec de création de la table</li><br/>';
+                }
                 
             }else{
                 echo '<li>echec de la création de la table</li><br/>';
@@ -49,10 +60,11 @@
         }else{
             echo '<li>erreur de suppression de la table</li><br/>';
         }
-    echo ' </ul>
-    </div>
+    
+        echo ' </ul>
+        </div>
+        </body>';
 
-    </body>';
     }else{ 
    
         header("Location: ../controller/index.php"); 

@@ -179,3 +179,57 @@ header>.headerTitre{
     flex :1;
     margin: 5% 10% 0 10%;
 }
+
+footer{
+    display: flex;
+    color:#FFEDC1;
+    align-items: center;
+}
+footer>img{
+    
+    height: fit-content;
+    width: 25vw;
+
+}
+footer>div{
+    flex :3;
+
+
+}
+.ligne{
+    background-color: #FF9100;
+    height: 2px;
+    
+    margin: 0 10% 0 10%;
+}
+
+.footerContainerOne{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.footerContainerTwo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footerContainerGlobal{
+    display: flex;
+    flex-direction: row;
+    margin: 10%;
+    justify-content: space-around;
+}
+.horraires{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.horraires>h3{
+    text-align: center;
+}
+.footerContainerGlobal>div>a{
+    margin :  5% 0 5% 0;
+}
