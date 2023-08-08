@@ -1,12 +1,13 @@
-<div>
-    <div>Service</div>
-    <div>Occasion</div>
+<div class=containerTwoImg>
+    <div style="background-image: url(../image/service.jpg)">Services</div>
+    <div style="background-image: url(../image/occasion.jpg)">Occasion</div>
 </div>
-<div>
+
+<div class=containerIndex>
     <h2>Que souhaitez vous ?</h2>
-    <div>
+    <div class= troisServices>
         <div>
-            <svg width="20" height="20" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <svg width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <clipPath id="clip-0">
                 <path d="M 4 9 C 4 9.77 3.167 10.251 2.5 9.866 C 2.191 9.688 2 9.357 2 9 C 2 8.23 2.834 7.749 3.5 8.134 C 3.81 8.313 4 8.643 4 9 Z M 14 9 C 14 9.77 13.167 10.251 12.5 9.866 C 12.191 9.688 12 9.357 12 9 C 12 8.23 12.834 7.749 13.5 8.134 C 13.81 8.313 14 8.643 14 9 Z M 6 8 C 5.23 8 4.749 8.834 5.134 9.5 C 5.313 9.81 5.643 10 6 10 L 10 10 C 10.77 10 11.251 9.167 10.866 8.5 C 10.688 8.191 10.358 8 10 8 L 6 8 Z M 4.862 4.276 L 3.906 6.19 C 3.735 6.543 4.01 6.95 4.402 6.921 C 4.402 6.921 4.403 6.921 4.403 6.921 C 5.313 6.848 6.753 6.751 8 6.751 C 9.247 6.751 10.688 6.848 11.597 6.921 C 11.989 6.95 12.265 6.545 12.095 6.191 C 12.095 6.191 12.094 6.191 12.094 6.19 L 11.138 4.277 C 11.054 4.108 10.881 4 10.691 4 L 5.309 4 C 5.12 4 4.947 4.107 4.862 4.276 Z" style="transform-box: fill-box; transform-origin: 50% 50%;"/>
@@ -36,34 +37,57 @@
             </svg>
         </div>
     </div>
-    <div>
-        <h2>Il témoignent</h2>
+    <h2 id=temoignage>Il témoignent</h2>
+    <div class=temoignages>
+        
         <?php for ($i = 0; $i<3; $i++ ){ ?>
-            <div>
-                <div>
-                    <?php for ($j = 0; $j<3; $j++ ){ ?>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(255, 145, 0)" class="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                    <?php } ?>
-                </div>
+            <div class=temoignage>
+                <div class=enTete>
+                    <div>
 
-                <div>
-                    le 30/02/2023
+                        <?php 
+                        $nbStar = 3;
+                        for ($j = 0; $j<$nbStar; $j++ ){ ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(255, 145, 0)" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+
+                            
+                           
+                        <?php }
+                       
+                        for ($j = 0; $j< (5-$nbStar); $j++ ){ ?>
+                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg " width="16" height="16">
+                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" style="fill: rgb(255, 145, 0);" transform="matrix(1, 0, 0, 1, 2.220446049250313e-16, 2.220446049250313e-16)"/>
+                            </svg>  
+                        <?php } ?>
+                        
+                    </div>
+
+                    <div>
+                        le 30/02/2023
+                    </div>
+                    <div>
+                        <p> Virginie Aublet
+                        <p>
+                    </div>
+
                 </div>
+                
                
                 <div>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit eligendi voluptates reprehenderit obcaecati, eaque quisquam quia vero minima quos quasi laboriosam. Nemo laborum autem labore dolorem sit, recusandae neque! Ratione.
                     </p>
                 </div>
-                <div>
-                    <p> Virginie Aublet
-                    <p>
-                </div>
+
             </div>
 
         <?php } ?>
-        
+       
+    </div>
+    <div class="footerTemoignage">
+            <a class="boutton" href="">Voire plus</a>
+            <a class="boutton" href="">Donner son avi</a>
     </div>
     <div>
         <h2>Nous contacter</h2>

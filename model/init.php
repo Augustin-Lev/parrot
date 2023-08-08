@@ -33,6 +33,7 @@
                 }
                 if($tablePDO -> exec('CREATE TABLE salaries (
                     id INT(11) PRIMARY KEY AUTO_INCREMENT,
+                    statu VARCHAR(100),
                     nom VARCHAR(100),
                     prenom VARCHAR(100),
                     email VARCHAR (100),

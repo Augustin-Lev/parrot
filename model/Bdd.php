@@ -8,15 +8,13 @@ try {
 
 
 function VerifierMdpBdd($PDO,$email,$motDePasse){
-    foreach ($PDO-> query('SELECT email, motDePasse FROM salaries', PDO::FETCH_ASSOC) as $user){
+    foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statu FROM salaries', PDO::FETCH_ASSOC) as $user){
         //var_dump($user);
         if ($user['email'] === $email &&
             $user['motDePasse'] === $motDePasse){
             
-                return 1;
+            return $user;
         }
     }
     return 0;
 }
-
-

@@ -14,12 +14,8 @@
         require "../model/sendcode.php";
         require "../view/header.php";
 
-        session_start();
+     
 
-        echo "POST";
-        var_dump($_POST);
-        echo "SESSION";
-        var_dump($_SESSION);
 
         if (isset($_POST["action"])){
             
@@ -51,11 +47,20 @@
             }
             if($_GET["login"]=="verif"){
 
-            
-                if (VerifierMdpBdd($PDO,$_POST['id'],$_POST['mdp'])){
+                $user = VerifierMdpBdd($PDO,$_POST['id'],$_POST['mdp']);
+                if ($user != 0 ){
                     echo "mot de passe correct";
+                    var_dump ($user);
+                    $_SESSION["login"] = 1;
+                    $_SESSION["nom"] = $user["nom"];
+                    $_SESSION["prenom"] = $user["prenom"];
+                    $_SESSION["statu"] = $user["statu"];
+                    
+                    require '../view/index.php';
+
                 }else{
                     echo "mot de passe incorrecte";
+                    $_SESSION["login"] = 0;
                 }             
                
             }
