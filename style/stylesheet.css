@@ -99,6 +99,8 @@ header>.headerTitre{
     color: #FFEDC1;
     flex-direction: column;
     margin: 0 2% 0 0;
+    flex:1;
+    text-decoration: none;
 }
 .poste{
     font-family: "BeautifullyDeliciousSans",'Arial';
@@ -308,4 +310,7 @@ h1{
 .validation>a{
     margin: 2px 0rem 2px 0rem;
     padding: 0.75rem 1rem 0.75rem 1rem;
+}
+.temoignageMessage{
+    width: 100%;
 }

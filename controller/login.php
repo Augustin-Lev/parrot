@@ -56,11 +56,13 @@
                     $_SESSION["prenom"] = $user["prenom"];
                     $_SESSION["statu"] = $user["statu"];
                     
-                    require '../view/index.php';
+                    header('Location:../controller/index.php');
 
                 }else{
                     // echo "mot de passe incorrecte";
                     $_SESSION["login"] = 0;
+                    $_SESSION["statu"] = "visiteur";
+                    header('Location:../controller/index.php');
                 }             
                
             }

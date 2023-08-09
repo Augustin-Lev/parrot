@@ -67,13 +67,15 @@ function newMdp($PDO, $mail, $motDePasse){
 function TroisCommentaires($PDO){
     $TroisCommentaire = array();
     $compteur = 3; 
-    foreach ($PDO-> query('SELECT parution, etoile, nom, prenom, commentaire FROM temoignage', PDO::FETCH_ASSOC) as $temoignage){
+    foreach ($PDO-> query('SELECT id, parution,valide, etoile, nom, prenom, commentaire FROM temoignage', PDO::FETCH_ASSOC) as $temoignage){
         //var_dump($temoignage);
         if ($compteur > 0){
             $compteur --;
 
             $Commentaire = array(
+                "id" => $temoignage["id"],
                 "parution" => $temoignage["parution"],
+                "valide" => $temoignage["valide"],
                 "etoile" => $temoignage["etoile"],
                 "nom" => $temoignage ["nom"],
                 "prenom" => $temoignage ["prenom"],
@@ -88,24 +90,24 @@ function TroisCommentaires($PDO){
 }
 
 function allCommentaires($PDO){
-    $TroisCommentaire = array();
-    $compteur = 3; 
-    foreach ($PDO-> query('SELECT parution, etoile, nom, prenom, commentaire FROM temoignage', PDO::FETCH_ASSOC) as $temoignage){
+    $Commentaires = array();
+
+    foreach ($PDO-> query('SELECT id, parution,valide, etoile, nom, prenom, commentaire FROM temoignage', PDO::FETCH_ASSOC) as $temoignage){
         //var_dump($temoignage);
-        if ($compteur > 0){
-            $compteur --;
+     
+        $Commentaire = array(
+            "id" => $temoignage["id"],
+            "parution" => $temoignage["parution"],
+            "valide" => $temoignage["valide"],
+            "etoile" => $temoignage["etoile"],
+            "nom" => $temoignage ["nom"],
+            "prenom" => $temoignage ["prenom"],
+            "commentaire" => $temoignage ["commentaire"]
+        );
+        array_push($Commentaires, $Commentaire);
 
-            $Commentaire = array(
-                "parution" => $temoignage["parution"],
-                "etoile" => $temoignage["etoile"],
-                "nom" => $temoignage ["nom"],
-                "prenom" => $temoignage ["prenom"],
-                "commentaire" => $temoignage ["commentaire"]
-            );
-            array_push($TroisCommentaire, $Commentaire);
-
-        }
+        
     }
-    return $TroisCommentaire;
+    return $Commentaires;
 
 }

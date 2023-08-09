@@ -127,12 +127,15 @@
 
     <h3>En attentes</h3>
     <div>
-        <?php for($i=0; $i<3;$i++){?>
+        <?php 
+       
+        foreach($Commentaires as $commentaire){
+            if ($commentaire["valide"] == 0){ ?>
             <div class=temoignage>
                 <div class=enTete>
                     <div> 
                         <?php 
-                        $nbStar = 3;
+                        $nbStar = $commentaire["etoile"];
                         for ($j = 0; $j<$nbStar; $j++ ){ ?>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(255, 145, 0)" class="bi bi-star-fill" viewBox="0 0 16 16">
                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
@@ -148,19 +151,18 @@
                     </div>
 
                     <div>
-                        le 30/02/2023
+                        le <?php echo $commentaire["parution"]; ?> 
                     </div>
                     <div>
-                        <p> Virginie Aublet
-                        <p>
+                        <p> <?php echo $commentaire["nom"]." ".$commentaire["prenom"]; ?> </p> 
                     </div>
 
                 </div> 
                 <div class=corpsCommentaire>
-                    <div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit eligendi voluptates reprehenderit obcaecati, eaque quisquam quia vero minima quos quasi laboriosam. Nemo laborum autem labore dolorem sit, recusandae neque! Ratione.
-                        </p>
+                    <div class="temoignageMessage">
+                        <p ><?php echo $commentaire["commentaire"]; ?> </p>
                     </div>
+
                     <div class=validation>
                         <a class="boutton" href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
@@ -176,20 +178,22 @@
                 </div> 
 
             </div>
-        <?php }?>
+        <?php }}?>
         
     </div>
     
     <h3>Déjà validés</h3>
     <form>
         <select name="stillValidate" id="CommStillValidate">
-            <option value="">--Choisissez un commentaire--</option>
-            <?php for($k=0; $k<3; $k++){?>
-                <option value="dog">Dog</option>
-            <?php } ?>
+        <option value="">--Choisissez un commentaire--</option>
+        
+            <?php foreach($Commentaires as $commentaire){
+                if ($commentaire["valide"] == 1){ ?>
+                <option value=<?php echo $commentaire["id"]; ?>><?php echo $commentaire["parution"]." ".$commentaire["prenom"]." ".$commentaire["nom"]; ?></option>
+            <?php } }?>
         </select>
-        <button type=submit >Supprimer</button>
-        <button type=submit >Mettre en attente</button>
+        <button class="boutton" type=submit name='action' value='supprimer' >Supprimer</button>
+        <button class="boutton" type=submit name='action' value='attente'>Mettre en attente</button>
     </form>
 </div>
 <div>

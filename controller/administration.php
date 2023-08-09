@@ -13,6 +13,8 @@
     <?php
         require "../model/Bdd.php";
         require "../view/header.php";
+        $Commentaires = allCommentaires($PDO);
+        
         require_once "../view/administration.php";
         require "../view/footer.php";
     ?>

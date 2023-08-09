@@ -3,9 +3,9 @@ session_start();
 ?>
 
 <header>
-        <div class=headerLogo>
+        <a class=headerLogo href="../controller/index.php">
             <img  src="../image/logoBlack.png">
-        </div>
+        </a>
         <h2 class=headerTitre>Garage Toulousain</h2>
 
         <?php if ($_SESSION["login"] == 0){ ?>
@@ -13,10 +13,10 @@ session_start();
                 <a class="boutton" href="login.php">login</a>
             </div>
         <?php }else{
-            echo '<div class="headerLoger">';
+            echo '<a href="../controller/login.php" class="headerLoger">';
             echo '<p class="poste">'.$_SESSION['statu'].'</p>';
             echo '<p class="nom">'.$_SESSION['nom']." ".$_SESSION['prenom'].'</p>';
-            echo '</div>'; 
+            echo '</a>'; 
         } ?>
       
 </header>
