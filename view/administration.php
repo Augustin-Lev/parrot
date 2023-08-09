@@ -1,8 +1,8 @@
 <div style="background-color:white">
 
-<div class="headerAdmin">
-    <a class="boutton" href="">Nouvel employé</a>
-</div>
+<form class="headerAdmin" action='../controller/administration.php' method=POST>
+    <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>
+</form>
 <div>
     <h2>Que souhaitez-vous modifier ?</h2>
     <div class= troisServices>

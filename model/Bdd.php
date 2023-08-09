@@ -8,7 +8,7 @@ try {
 
 
 function VerifierMdpBdd($PDO,$email,$motDePasse){
-    foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statu FROM salaries', PDO::FETCH_ASSOC) as $user){
+    foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statut FROM salaries', PDO::FETCH_ASSOC) as $user){
         //var_dump($user);
         if ($user['email'] === $email &&
             $user['motDePasse'] === $motDePasse){
@@ -21,12 +21,12 @@ function VerifierMdpBdd($PDO,$email,$motDePasse){
 
 function newMdp($PDO, $mail, $motDePasse){
     //verification de la validité du mot de passe
-    foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statu, id FROM salaries', PDO::FETCH_ASSOC) as $user){
+    foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statut, id FROM salaries', PDO::FETCH_ASSOC) as $user){
         //var_dump($user);
         if ($user['email'] === $mail){
 
             $id = $user['id'];
-            $statu = $user['statu'];
+            $statut = $user['statut'];
             $nom = $user['nom'];
             $prenom = $user['prenom'];
             $email = $user['email'];
@@ -41,11 +41,11 @@ function newMdp($PDO, $mail, $motDePasse){
             }  
           
             
-            $sql ='INSERT INTO salaries (id, statu, nom, prenom, email, motDePasse) VALUES (:id, :statu, :nom, :prenom, :email, :motDePasse);';
+            $sql ='INSERT INTO salaries (id, statut, nom, prenom, email, motDePasse) VALUES (:id, :statut, :nom, :prenom, :email, :motDePasse);';
             $pdoStatement= $PDO->prepare($sql);
 
             $pdoStatement->bindValue(':id',$id, PDO::PARAM_STR);
-            $pdoStatement->bindValue(':statu',$statu,PDO::PARAM_STR);
+            $pdoStatement->bindValue(':statut',$statut,PDO::PARAM_STR);
             $pdoStatement->bindValue(':nom',$nom,PDO::PARAM_STR);
             $pdoStatement->bindValue(':prenom',$prenom,PDO::PARAM_STR);
             $pdoStatement->bindValue(':email',$email,PDO::PARAM_STR);
@@ -109,5 +109,21 @@ function allCommentaires($PDO){
         
     }
     return $Commentaires;
+
+}
+
+function AjouterEmploye($PDO, $nom, $prenom, $email, $mdp){
+    $sql ='INSERT INTO salaries (statut, nom, prenom, email, motDePasse) VALUES ( :statut, :nom, :prenom, :email, :motDePasse);';
+    $pdoStatement= $PDO->prepare($sql);
+    $pdoStatement->bindValue(':statut',"salarié", PDO::PARAM_STR);
+    $pdoStatement->bindValue(':nom',$nom,PDO::PARAM_STR);
+    $pdoStatement->bindValue(':prenom',$prenom,PDO::PARAM_STR);
+    $pdoStatement->bindValue(':email',$email,PDO::PARAM_STR);
+    $pdoStatement->bindValue(':motDePasse',$mdp,PDO::PARAM_STR);
+    
+    if($pdoStatement -> execute()) { 
+        return "1";                
+    }
+    return "0";
 
 }
