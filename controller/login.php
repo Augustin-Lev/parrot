@@ -33,7 +33,7 @@
                 }
             }
             if($_POST["action"]=="nouveau-mpd"){
-                newMdp($_SESSION["mail"],$_POST["mdp"]);
+                newMdp($PDO, $_SESSION["mail"],$_POST["mdp"]);
                 // require "../view/index.php";
                 
             }
@@ -49,8 +49,8 @@
 
                 $user = VerifierMdpBdd($PDO,$_POST['id'],$_POST['mdp']);
                 if ($user != 0 ){
-                    echo "mot de passe correct";
-                    var_dump ($user);
+                    // echo "mot de passe correct";
+                    // var_dump ($user);
                     $_SESSION["login"] = 1;
                     $_SESSION["nom"] = $user["nom"];
                     $_SESSION["prenom"] = $user["prenom"];
@@ -59,13 +59,13 @@
                     require '../view/index.php';
 
                 }else{
-                    echo "mot de passe incorrecte";
+                    // echo "mot de passe incorrecte";
                     $_SESSION["login"] = 0;
                 }             
                
             }
             
-        }else{
+        }elseif(isset($_POST["action"]) == 0){
             require "../view/login.php";
         }
       

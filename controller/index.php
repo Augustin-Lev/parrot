@@ -12,7 +12,9 @@
 
     <body>
     <?php
+        require "../model/Bdd.php";
         require "../view/header.php";
+        $TroisCommentaires = TroisCommentaires($PDO);
         require_once "../view/index.php";
         require "../view/footer.php";
     ?>

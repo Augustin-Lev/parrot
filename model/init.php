@@ -45,10 +45,11 @@
 
                 if($tablePDO -> exec('CREATE TABLE temoignage (
                     id INT(11) PRIMARY KEY AUTO_INCREMENT,
+                    parution VARCHAR(10 ),
                     etoile int(5),
                     nom VARCHAR(100),
                     prenom VARCHAR(100),
-                    commentaire VARCHAR (100))') !== null){
+                    commentaire TEXT (1000))') !== null){
                         echo "<li>table témoignage créée</li><br/>";
                 }else{
                         echo '<li>echec de création de la table</li><br/>';

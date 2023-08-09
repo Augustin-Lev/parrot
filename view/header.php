@@ -1,17 +1,27 @@
+<?php 
+session_start();
+?>
+
 <header>
         <div class=headerLogo>
             <img  src="../image/logoBlack.png">
         </div>
         <h2 class=headerTitre>Garage Toulousain</h2>
-        <div class="headerLogin">
-            <a class="boutton" href="login.php">login</a>
-        </div>
+
+        <?php if ($_SESSION["login"] == 0){ ?>
+            <div class="headerLogin">
+                <a class="boutton" href="login.php">login</a>
+            </div>
+        <?php }else{
+            echo '<div class="headerLoger">';
+            echo '<p class="poste">'.$_SESSION['statu'].'</p>';
+            echo '<p class="nom">'.$_SESSION['nom']." ".$_SESSION['prenom'].'</p>';
+            echo '</div>'; 
+        } ?>
       
 </header>
 
-<?php 
-session_start();
-if ($_SESSION["statu"] == "patron" || $_SESSION["statu"] == "salarie" ){ ?>
+<?php if ($_SESSION["statu"] == "patron" || $_SESSION["statu"] == "salarie" ){ ?>
     <div class="headerAdmin">
         <a  class="boutton" href="administration.php">Administrer</a>
     </div>
