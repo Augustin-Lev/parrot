@@ -6,7 +6,7 @@
 <div class=containerIndex>
     <h2>Que souhaitez vous ?</h2>
     <div class= troisServices>
-        <div>
+        <a href="../controller/service.php">
             <svg width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <clipPath id="clip-0">
@@ -21,21 +21,21 @@
             <rect x="0.718" y="3.484" width="14.086" height="3.974" style="stroke: rgb(0, 0, 0); clip-path: url(#clip-0); fill: rgb(255, 145, 0); isolation: isolate; mix-blend-mode: saturation;"/>
             <rect x="4.694" y="7.791" width="6.604" height="3.779" style="stroke: rgb(0, 0, 0); paint-order: stroke; clip-path: url(#clip-1); fill: rgb(255, 145, 0);"/>
             </svg>
-        </div>
-        <div>
+        </a>
+        <a href="../controller/service.php">
             <svg width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <rect x="10.742" y="-4.249" width="2.518" height="3.35" style="stroke: rgb(0, 0, 0); paint-order: stroke; fill-rule: nonzero; fill: rgb(255, 145, 0); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0.939693, -0.34202, -0.34202, -0.939693, -2.517996, 8.498002)"/>
             <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z" style="fill: rgb(255, 145, 0);"/>
             <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" style="fill: rgb(0, 0, 0);"/>
             </svg>
-        </div>
-        <div>
+        </a>
+        <a href="../controller/service.php">
             <svg width="16" height="16" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" style="fill: rgb(0, 0, 0);"/>
             <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" style="fill: rgb(0, 0, 0);"/>
             <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" style="fill: rgb(255, 145, 0);"/>
             </svg>
-        </div>
+        </a>
     </div>
     <h2 id=temoignage>Il témoignent</h2>
     <div class=temoignages>

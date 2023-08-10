@@ -164,7 +164,7 @@ header>.headerTitre{
     align-content: center;
 }
 
-.troisServices>div>svg{
+.troisServices>a>svg{
     height: 20vh;
     width: 20vh;
 }

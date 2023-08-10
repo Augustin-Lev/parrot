@@ -127,3 +127,27 @@ function AjouterEmploye($PDO, $nom, $prenom, $email, $mdp){
     return "0";
 
 }
+
+function modifierService($PDO, $service, $content){
+
+    $sql ='DELETE FROM `contenu` WHERE `services`LIKE :services';
+    $pdoStatement= $PDO->prepare($sql);
+    $pdoStatement->bindValue(':services',$service,PDO::PARAM_STR);
+    if($pdoStatement -> execute()) {                        
+    }
+    else{
+        echo  'ERREUR au niveau de la suppression du contenu';
+    }  
+  
+    $sql ='INSERT INTO `contenu` (services,contenu, modificateur, parution) VALUES (:services,:contenu, :modificateur, :parution);';
+    $pdoStatement = $POD->prepare($sql);
+    $pdoStatement->bindValue(':services', $services);
+    $pdoStatement->bindValue(':contenu', $content);
+    $pdoStatement->bindValue(':modificateur', $_SESSION["nom"].' '.$_SESSION["prenom"]);
+    $pdoStatement->bindValue(':parution', "METTRE LA DATE");
+
+    if($pdoStatement -> execute()) { 
+        return "1";                
+    }
+    return "0";
+}
