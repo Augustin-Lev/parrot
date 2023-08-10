@@ -54,14 +54,14 @@
                     $_SESSION["login"] = 1;
                     $_SESSION["nom"] = $user["nom"];
                     $_SESSION["prenom"] = $user["prenom"];
-                    $_SESSION["statu"] = $user["statu"];
+                    $_SESSION["statut"] = $user["statut"];
                     
                     header('Location:../controller/index.php');
 
                 }else{
                     // echo "mot de passe incorrecte";
                     $_SESSION["login"] = 0;
-                    $_SESSION["statu"] = "visiteur";
+                    $_SESSION["statut"] = "visiteur";
                     header('Location:../controller/index.php');
                 }             
                

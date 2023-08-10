@@ -1,6 +1,6 @@
 <div class=containerTwoImg>
-    <div style="background-image: url(../image/service.jpg)">Services</div>
-    <div style="background-image: url(../image/occasion.jpg)">Occasion</div>
+    <a href="../controller/service.php" style="background-image: url(../image/service.jpg)">Services</a>
+    <a href="../controller/occasion.php" style="background-image: url(../image/occasion.jpg)">Occasion</a>
 </div>
 
 <div class=containerIndex>

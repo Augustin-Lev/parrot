@@ -1,8 +1,11 @@
 <div style="background-color:white">
 
-<form class="headerAdmin" action='../controller/administration.php' method=POST>
-    <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>
-</form>
+<?php if ($_SESSION["statut"] == "patron"){?>
+    <form class="headerAdmin" action='../controller/administration.php' method=POST>
+        <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>
+    </form>
+<?php } ?>
+
 <div>
     <h2>Que souhaitez-vous modifier ?</h2>
     <div class= troisServices>

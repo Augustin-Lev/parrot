@@ -18,7 +18,8 @@ h2{
     font-family: "BeautifullyDeliciousSans",'Arial';
     text-transform:uppercase;
     text-align: center;
-    margin-top: 20vh;
+    
+    font-size: 30px;
 }
 
 a{
@@ -114,16 +115,18 @@ header>.headerTitre{
 
 .containerTwoImg{
     display: flex;
-    height: 30vw;
+    height: 85vh;
     justify-content: space-around;
+    align-items: center;
     font-family: "Lucidity";
    
 }
 
-.containerTwoImg>div{
+.containerTwoImg>a{
     margin-top: 2vh;
     margin-bottom: 2vh;
     width: 40vw;
+    height: 30vw;
    
     background-size: 120%;
     background-position: center;
@@ -138,7 +141,7 @@ header>.headerTitre{
     border-radius: 5px 5px;
 
 }
-.containerTwoImg>div:hover{
+.containerTwoImg>a:hover{
     background-size: 160%; 
     opacity: 0.7;
 }
@@ -204,6 +207,7 @@ footer{
     display: flex;
     color:#FFEDC1;
     align-items: center;
+    margin-bottom: 10vh;
 }
 footer>img{
     
@@ -327,4 +331,54 @@ h1{
 .new_employee>div{
     display: flex;
     flex-direction: column;
+}
+
+
+/* ----------------Service-------------------- */
+.service{
+    background-color: #FFEDC1;
+}
+
+.bandeau1, .bandeau2, .bandeau3{
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    position: sticky;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.bandeau1{
+    background-image: url(../image/bandeau1.jpg); 
+}
+.bandeau2{
+    background-image: url(../image/bandeau2.jpg); 
+}
+.bandeau3{
+    background-image: url(../image/bandeau3.jpg); 
+}
+
+.service>div>h2{
+    margin-top: 10%;
+}
+
+.groupeService{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.groupeService>svg{
+    flex:1;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+}
+.groupeService>p{
+    flex:3;
+    padding: 0 10% 0 10%;
+}
+
+h1{
+    background-color: black;
+    color: #FF9100;
+    padding-bottom: 40px;
 }

@@ -14,14 +14,14 @@ session_start();
             </div>
         <?php }else{
             echo '<a href="../controller/login.php" class="headerLoger">';
-            echo '<p class="poste">'.$_SESSION['statu'].'</p>';
+            echo '<p class="poste">'.$_SESSION['statut'].'</p>';
             echo '<p class="nom">'.$_SESSION['nom']." ".$_SESSION['prenom'].'</p>';
             echo '</a>'; 
         } ?>
       
 </header>
 
-<?php if ($_SESSION["statu"] == "patron" || $_SESSION["statu"] == "salarie" ){ ?>
+<?php if ($_SESSION["statut"] == "patron" || $_SESSION["statut"] == "salarié" ){ ?>
     <div class="headerAdmin">
         <a  class="boutton" href="administration.php">Administrer</a>
     </div>
