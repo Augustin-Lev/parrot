@@ -4,7 +4,7 @@
         <input style="display:none" name="action" id="action" value="envoyer">
 
         <label for="mail">Adresse mail</label>
-        <input type="text" id="mail" name="mail">
+        <input type="text" id="mail" name="mail" required="">
 
         <p>Un code valable pendant 1 heure va vous être envoyé à votre adresse mail</p>
 

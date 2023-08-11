@@ -3,10 +3,10 @@
 
     <form class="loginForm" action="../controller/login.php?login=verif" method="POST">
         <label for="id">Identifiant</label>
-        <input type="text" id="id" name="id">
+        <input type="text" id="id" name="id" required="">
 
         <label for="mpd">Mot de passe</label>
-        <input type="password" id="mdp" name="mdp">
+        <input type="password" id="mdp" name="mdp" required="">
 
         <a href="../controller/login?login=forget ">mot de passe oublié ou inexistant</a>
         <a href="../controller/index.php">retour au site</a>

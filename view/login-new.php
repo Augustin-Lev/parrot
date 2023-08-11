@@ -4,10 +4,10 @@
         <input style="display:none" name="action" id="action" value="nouveau-mpd">
 
         <label for="mdp">Nouveau mot de passe</label>
-        <input type="password" id="mdp" name="mdp">
+        <input type="password" id="mdp" name="mdp" required="">
 
         <label for="confirm">Confirmation du mot de passe</label>
-        <input type="password" id="confirm" name="confirm">
+        <input type="password" id="confirm" name="confirm" required="">
 
 
         <p>Votre mot de passe doit contenir : <br/>
