@@ -4,13 +4,14 @@
 
         <div class="footerContainerGlobal">
             <div class=footerContainerOne>
-                <a href="">Prendre rendez-vous</a>
-                <a href="">Réparation carroserie</a>
+                <a href="../controller/index.php#formulaire">Prendre rendez-vous</a>
+                <a href="../controller/service.php#carrosserie">Réparation carroserie</a>
                 <a href="">Véhicule d'occasion</a>
             </div>
             <div class=footerContainerTwo>
-                <a href="">Mécanique</a>
-                <a href="">Entretien</a>
+                <a href="../controller/service.php#moteur">Mécanique</a>
+                <a href="../controller/service.php#entretien">Entretien</a>
+                <a href="">Témoignage</a>
             </div>
         </div>
         

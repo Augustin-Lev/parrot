@@ -128,6 +128,24 @@ function AjouterEmploye($PDO, $nom, $prenom, $email, $mdp){
 
 }
 
+function allEmploye($PDO){
+    $employes = array();
+    
+    foreach ($PDO-> query('SELECT statut, nom, prenom, email, motDePasse FROM salaries', PDO::FETCH_ASSOC) as $people){
+        //var_dump($people);
+    
+        $employe = array(
+            "statut" => $people["statut"],
+            "nom" => $people["nom"],
+            "prenom" => $people["prenom"],
+            "email" => $people["email"],
+            "motDePasse" => $people ["motDePasse"],
+
+        );
+        array_push($employes, $employe);
+    }
+    return $employes;
+}
 function modifierService($PDO, $service, $content){
 
     $sql ='DELETE FROM `contenu` WHERE `services`LIKE :services';

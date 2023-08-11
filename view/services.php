@@ -2,7 +2,7 @@
     <h1>Services</h1>
 
     
-    <div>
+    <div id="carrosserie">
         <h2>
             Réparation de la carrosserie
         </h2>
@@ -26,7 +26,7 @@
     </div>
     <div class="bandeau3">  </div>
     
-    <div>
+    <div id="moteur">
         <h2>
             Pannes moteurs
         </h2>
@@ -43,7 +43,7 @@
     </div>
     <div class="bandeau2"></div>
  
-    <div>
+    <div id="entretien">
         <h2>
             Entretien
         </h2>

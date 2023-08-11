@@ -16,6 +16,17 @@
         require "../view/header.php";
         $TroisCommentaires = TroisCommentaires($PDO);
         require_once "../view/index.php";
+        if(isset($_POST["message"])){
+            $employes = allEmploye($PDO);
+            foreach($employes as $employe){
+                if ($employe["statut"] == "patron"){
+                    $message = "nom : ".$_POST["nom"]."<br/> prenom : ".$_POST["prenom"]."<br/> tel : ".$_POST["tel"]."<br/> message : ".$_POST["message"];
+                    mail($employe["email"],"Message Client Site Internet",$message);
+                }
+            }
+            echo "<script>alert('le message a bien été envoyé') </script>";
+        }
+       
         require "../view/footer.php";
     ?>
   </body>

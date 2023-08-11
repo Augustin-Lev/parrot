@@ -87,7 +87,7 @@
 
                 $sql ='INSERT INTO salaries (statut, nom, prenom, email, motDePasse) VALUES ( :statut, :nom, :prenom, :email, :motDePasse);';
                     $pdoStatement= $PDO->prepare($sql);
-                    $pdoStatement->bindValue(':statut',"Patron", PDO::PARAM_STR);
+                    $pdoStatement->bindValue(':statut',"patron", PDO::PARAM_STR);
                     $pdoStatement->bindValue(':nom',"Parrot",PDO::PARAM_STR);
                     $pdoStatement->bindValue(':prenom',"Vincent",PDO::PARAM_STR);
                     $pdoStatement->bindValue(':email',"vp@garrage.fr",PDO::PARAM_STR);
