@@ -7,12 +7,13 @@
     </div>
   
     <div class="caracteristiqueGlobal">
-        <h2>Caractéristique</h2>
+        <h2>Caractéristiques</h2>
         <div>
             <?php 
             $passer = 1;
             reset($voiture);
             while ($caracteristique = current($voiture)) {
+                
                 if($passer == 0){ 
                     if( key($voiture) == "options"){ 
                         end($voiture);
@@ -22,8 +23,8 @@
                         <p><?php echo key($voiture) ?></p>
                         <p><?php echo $caracteristique ?></p>
                     </div>
-                <?php 
-                    }
+                    <?php 
+                        }
                 }   
                 else{
                     if(key($voiture) == "caracteristiques"){

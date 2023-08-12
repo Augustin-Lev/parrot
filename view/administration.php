@@ -202,6 +202,21 @@
 </div>
 <div>
     <h2>Gestion des voitures d'occasion</h2>
+    <form class="headerAdmin" action='../controller/administration.php' method=POST>
+        <button class="boutton" name="action" value="new-occasion">Nouvel occasion</button>
+    </form>
+    <form>
+        <select name="stillValidate" id="CommStillValidate">
+        <option value="">--Choisissez un véhicule--</option>
+        
+            <?php foreach($occasions as $occasion){
+                ?>
+                <option value=<?php echo $occasion["id"]; ?>><?php echo $occasion["id"]." ".$occasion["marque"]." ".$occasion["model"]; ?></option>
+            <?php } ?>
+        </select>
+        <button class="boutton" type=submit name='action' value='supprimer' >Supprimer</button>
+        <button class="boutton" type=submit name='action' value='attente'>Modifier</button>     
+    </form>
 
 </div>
 

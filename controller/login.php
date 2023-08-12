@@ -55,6 +55,7 @@
                     $_SESSION["nom"] = $user["nom"];
                     $_SESSION["prenom"] = $user["prenom"];
                     $_SESSION["statut"] = $user["statut"];
+                    $_SESSION["email"] = $user["email"];
                     
                     header('Location:../controller/index.php');
 

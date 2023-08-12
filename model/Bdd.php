@@ -221,3 +221,47 @@ function occasion($PDO, $id){
     return $occasion;
 
 }
+
+function AjouterOccasion($PDO, $tableau){
+    $tableau["imageClef"] = "../image/occasion/voiture1.jpg ";
+
+    $champ = "modificateur";
+    $binValue =":modificateur";
+
+
+    foreach($tableau as $parametre){
+        
+        // var_dump($parametre);
+        if (key($tableau) != 'action'){
+            $champ = $champ.",".key($tableau);
+            $binValue = $binValue.",:".key($tableau);
+        }    
+        next($tableau);   
+    }
+    // $champ[-1]=" ";
+    // $binValue[-1]=" ";
+    // $binValue[-2]=" ";
+
+    $sql ='INSERT INTO occasion ('.$champ.') VALUES ('.$binValue.');';
+    $pdoStatement= $PDO->prepare($sql);
+
+    // echo $sql.'<br/>';
+
+    reset($tableau);
+    $pdoStatement->bindValue(':modificateur',$_SESSION["email"], PDO::PARAM_STR);
+    foreach($tableau as $parametre){
+        if (key($tableau) != 'action'){      
+            $pdoStatement->bindValue(':'.key($tableau),$parametre, PDO::PARAM_STR);
+            // echo ':'.key($tableau).'--------'.$parametre.'<br/>';
+        }
+        next($tableau);
+    }      
+    
+    if($pdoStatement -> execute()) { 
+        return "1";                
+    }
+    return "0";
+
+}
+
+
