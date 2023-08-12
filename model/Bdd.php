@@ -169,3 +169,55 @@ function modifierService($PDO, $service, $content){
     }
     return "0";
 }
+
+function allOccasions($PDO){
+    $occasions = array();
+
+    foreach ($PDO-> query('SELECT id, modificateur,marque, model, prix, descriptions,miseEnCirculation,Kilometrage, imageClef FROM occasion', PDO::FETCH_ASSOC) as $vehicule){
+        //var_dump($vehicule);
+
+        $occasion = array(
+            "id" => $vehicule["id"],
+            "modificateur" => $vehicule["modificateur"],
+            "marque" => $vehicule["marque"],
+            "model" => $vehicule["model"],
+            "prix" => $vehicule ["prix"],
+            "descriptions" => $vehicule ["descriptions"],
+            "miseEnCirculation" => $vehicule ["miseEnCirculation"],
+            "Kilometrage" => $vehicule ["Kilometrage"],
+            "imageClef" => $vehicule ["imageClef"]
+            
+        );
+        array_push($occasions, $occasion);
+
+        
+    }
+    return $occasions;
+
+}
+
+function occasion($PDO, $id){
+    foreach ($PDO-> query('SELECT id, modificateur,miseEnCirculation, imageClef,descriptions,caracteristiques, marque, model, prix,Kilometrage,options,galette_de_Secour FROM occasion WHERE id LIKE '.$id , PDO::FETCH_ASSOC) as $vehicule){
+        //var_dump($vehicule);
+
+        $occasion = array(
+            "id" => $vehicule["id"],
+            "modificateur" => $vehicule["modificateur"],
+            "miseEnCirculation" => $vehicule ["miseEnCirculation"],
+            "imageClef" => $vehicule ["imageClef"],
+            "descriptions" => $vehicule ["descriptions"],
+
+            "caracteristiques" => $vehicule["caracteristiques"],
+            "marque" => $vehicule["marque"],
+            "model" => $vehicule["model"],
+            "prix" => $vehicule ["prix"],
+            "Kilometrage" => $vehicule ["Kilometrage"],
+
+            "options" => $vehicule["options"],
+            "galette_de_Secour" => $vehicule["galette_de_Secour"]
+            
+        );
+    }
+    return $occasion;
+
+}

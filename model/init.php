@@ -67,6 +67,26 @@
                 }else{
                         echo '<li>echec de création de la table contenu</li><br/>';
                 }
+
+                if($tablePDO -> exec('CREATE TABLE occasion (
+                    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+                    modificateur VARCHAR(12),
+                    miseEnCirculation VARCHAR(100),
+                    imageClef VARCHAR(100),
+                    descriptions VARCHAR(100),
+                        caracteristiques VARCHAR(100),
+                    marque VARCHAR(1000),
+                    model VARCHAR(100),
+                    prix VARCHAR(100),
+                    Kilometrage VARCHAR(100),
+                        options VARCHAR(100),
+                    galette_de_Secour VARCHAR(100)
+                        
+                    )') !== null){
+                        echo "<li>table occasion créée</li><br/>";
+                }else{
+                        echo '<li>echec de création de la table occasion</li><br/>';
+                }
                 
             }else{
                 echo '<li>echec de la création de la table</li><br/>';
@@ -210,10 +230,11 @@
             echo'
                 <form action="" method=POST>
                     <input name="action" value="fillBdd" style="display:none">
-                    <button type=submit class="boutton">Remplir la base de donnée</a>
+                    <button type=submit class="boutton">Remplir la base de donnée</button>
                 </form>';
         }
         echo '
+        <a href="../controller/index.php"> Menu </a>
         </div>
         </body>';
 

@@ -80,7 +80,7 @@ header>.headerTitre{
     height: 4.5rem;
     display: flex;
     align-content: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .boutton{
     font-size: inherit;
@@ -311,7 +311,9 @@ h1{
     font-family: "BeautifullyDeliciousSans",'Arial';
     text-transform:uppercase;
     text-align: center;
-    margin-top: 0;
+    margin:inherit;
+    min-height: 5vh;
+    padding: 2% 0 2% 0;
 }
 
 .loginForm{
@@ -383,7 +385,7 @@ h1{
 
 .bandeau1, .bandeau2, .bandeau3{
     width: 100%;
-    height: 20vh;
+    height: 50vh;
     overflow: hidden;
     position: sticky;
     background-size: cover;
@@ -422,7 +424,6 @@ h1{
 h1{
     background-color: black;
     color: #FF9100;
-    padding-bottom: 40px;
 }
 
 /* -------------Témoignage---------------- */
@@ -434,4 +435,66 @@ h1{
     flex-direction: column;
     text-align: center;
     align-items: center;
+}
+/* -----------Occasion-------------- */
+.occasionVoiture{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    border: #FF9100;
+    background-color: #FFEDC1;
+    margin-bottom: 2rem;
+}
+.occasionInfos{
+    flex:3;
+}
+.occasionVoiture>img{
+    flex:1;
+
+    width: 25%;
+}
+
+.occasionInfos>div{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+}
+.occasionInfos>div>p{
+    flex:1;
+}
+.occasionBoutton{
+    flex:1;
+    width: 100%;
+}
+
+/* --------------Occasion plus ----------------- */
+
+.occasionPlus{
+    color: #FFEDC1;
+}
+
+.occasionEnTete{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 85vh;
+    justify-content: space-evenly;
+
+}
+.occasionEnTete>img{
+    max-width: 50vw;
+    max-height: 50vh;
+}
+.caracteristique{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+.caracteristique>p{
+    flex:1;
+}
+.bouttonReserver{
+    text-align: center;
+    margin: 5% 0 5% 0;
 }
