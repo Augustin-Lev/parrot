@@ -467,6 +467,18 @@ h1{
     width: 100%;
 }
 
+.filtreOccasion{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: #FFEDC1;
+    padding: 2% 0 5% 0;
+}
+
+.filtreOccasion>div{
+    flex:1;
+    padding: 0 5% 0 5%;
+}
 /* --------------Occasion plus ----------------- */
 
 .occasionPlus{
