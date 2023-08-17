@@ -263,5 +263,12 @@ function AjouterOccasion($PDO, $tableau){
     return "0";
 
 }
+function supprimerOccasion($PDO, $id){
+    $sql = 'DELETE FROM occasion WHERE id like '.$id.';';
+    $pdoStatement= $PDO->prepare($sql);
+    if($pdoStatement -> execute()) { 
+        return "1";                
+    }
+    return "0";
 
-
+}

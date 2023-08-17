@@ -13,8 +13,11 @@
     <?php
         require "../model/Bdd.php";
         require "../view/header.php";
+        require "../view/bandeau.php";
+
         $Commentaires = allCommentaires($PDO);
         $occasions = occasion($PDO,"1");
+        $allOccasions = allOccasions($PDO);
         if (isset($_POST["action"])){
             if($_POST["action"] == "new-salarie"){
                 require "../view/new-salarie.php";
@@ -35,6 +38,12 @@
                 AjouterOccasion($PDO, $newOccasion);  
                 require_once "../view/administration.php";
             }
+            if($_POST["action"] == "supprimerOccasion"){
+                supprimerOccasion($PDO, $_POST["id"]);
+                bandeau("Voiture ".$_POST["id"]." bien supprimée");
+                require_once "../view/administration.php";
+            }
+           
            
         }
         if (isset($_POST["action"])){

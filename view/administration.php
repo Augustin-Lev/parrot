@@ -205,17 +205,17 @@
     <form class="headerAdmin" action='../controller/administration.php' method=POST>
         <button class="boutton" name="action" value="new-occasion">Nouvel occasion</button>
     </form>
-    <form>
-        <select name="stillValidate" id="CommStillValidate">
+    <form action='../controller/administration.php' method=POST>
+        <select name="id">
         <option value="">--Choisissez un véhicule--</option>
         
-            <?php foreach($occasions as $occasion){
+            <?php foreach($allOccasions as $occasion){
                 ?>
                 <option value=<?php echo $occasion["id"]; ?>><?php echo $occasion["id"]." ".$occasion["marque"]." ".$occasion["model"]; ?></option>
             <?php } ?>
         </select>
-        <button class="boutton" type=submit name='action' value='supprimer' >Supprimer</button>
-        <button class="boutton" type=submit name='action' value='attente'>Modifier</button>     
+        <button class="boutton" type=submit name='action' value='supprimerOccasion' >Supprimer</button>
+        <button class="boutton" type=submit name='action' value='modifierOccasion'>Modifier</button>     
     </form>
 
 </div>
