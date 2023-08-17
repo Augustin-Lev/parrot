@@ -13,8 +13,23 @@
     <?php
         require "../model/Bdd.php";
         require "../view/header.php";
+        require "../view/bandeau.php";
+
         $commentaire = allCommentaires($PDO);
-        require_once "../view/temoignage.php";
+        if (isset($_POST["action"])){
+            if ($_POST["action"]=="newTemoignage"){
+                require "../view/new-temoignage.php";
+            }
+            if ($_POST["action"]=="enregistrer"){
+                nouveauTemoignage($PDO, $_POST["valide"], $_POST["Nom"], $_POST["prenom"], $_POST["Etoile"], $_POST["commentaire"]);
+                bandeau("Votre témoignage a bien été ajouté");
+                require_once "../view/temoignage.php";
+            }
+            
+        }else{
+            require_once "../view/temoignage.php";
+        }
+        
         require "../view/footer.php";
     ?>
   </body>

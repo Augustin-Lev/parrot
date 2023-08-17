@@ -272,3 +272,22 @@ function supprimerOccasion($PDO, $id){
     return "0";
 
 }
+
+function nouveauTemoignage($PDO, $valide, $Nom,  $Prenom, $Etoile, $Commentaire){
+    $sql ='INSERT INTO temoignage (parution, etoile, valide, nom, prenom, commentaire) VALUES (:parution, :etoile, :valide, :nom, :prenom, :commentaire);';
+    $pdoStatement= $PDO->prepare($sql);
+    $pdoStatement->bindValue(':parution', date("d/m/Y"), PDO::PARAM_STR);
+    $pdoStatement->bindValue(':etoile', $Etoile, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':valide', $valide, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':nom', $Nom, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':prenom', $Prenom, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':commentaire', $Commentaire , PDO::PARAM_STR);
+
+   
+    if($pdoStatement -> execute()) { 
+        return "1";          
+    }
+    return "0";
+
+}
+          

@@ -84,10 +84,11 @@
         <?php } ?>
        
     </div>
-    <div class="footerTemoignage">
+    <form action ="../controller/temoignage.php" method="POST" class="footerTemoignage">
+            <input type="text" name="valide" value="0" style="display:none;">
             <a class="boutton" href="../controller/temoignage.php">Voire plus</a>
-            <a class="boutton" href="">Donner son avi</a>
-    </div>
+            <button type ="submit" class="boutton" name="action" value="newTemoignage">Donner son avi</button>
+    </form>
     <div class="formulaire" id="formulaire">
         <div>
             <h2>Nous contacter</h2>
