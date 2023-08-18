@@ -98,9 +98,11 @@
 
 <div>
     <h2>Témoignage</h2>
-    <div class="headerAdmin">
-        <a class="boutton">Ajouter un nouveau Témoignage</a>
-    </div>
+    <form action='../controller/temoignage.php' method="POST" class="headerAdmin">
+        <input type="hidden" name="action" value="newTemoignage">
+        <input type="hidden" name="valide" value="1">
+        <button type="submit" class="boutton" >Ajouter un nouveau Témoignage</button>
+    </form>
     
 
     <h3>En attentes</h3>
