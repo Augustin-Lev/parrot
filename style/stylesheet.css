@@ -42,9 +42,17 @@ header{
     justify-content: space-between;
 }
 
-header>.headerLogo{
+.headerLogo{
     flex : 1;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+.headerLogo>h2{
+    color:white;
+    margin: auto 5% auto 0;
+    font-size: small;
 }
 header>.headerLogo>img{
     height: 100%;
@@ -252,17 +260,18 @@ footer{
     align-items: center;
     margin-bottom: 10vh;
 }
-footer>img{
-    
-    height: fit-content;
-    width: 25vw;
+footer>a{
+    flex:1;
+}
 
+footer>a>img{
+    width: 25vw;
 }
 footer>div{
     flex :3;
-
-
 }
+
+
 .ligne{
     background-color: #FF9100;
     height: 2px;
@@ -270,24 +279,22 @@ footer>div{
     margin: 0 10% 0 10%;
 }
 
-.footerContainerOne{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.footerContainerTwo{
+.footerContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
 
+
 .footerContainerGlobal{
     display: flex;
     flex-direction: row;
     margin: 10%;
     justify-content: space-around;
+}
+.footerContainerGlobal>div>a{
+    text-decoration: none;
 }
 .horraires{
     display: flex;

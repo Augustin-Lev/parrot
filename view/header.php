@@ -5,8 +5,9 @@ session_start();
 <header>
         <a class=headerLogo href="../controller/index.php">
             <img  src="../image/logoBlack.png">
+            <h2>Menu<h2>
         </a>
-        <h2 class=headerTitre>Garage Toulousain</h2>
+        <h2 class=headerTitre>Garage V.Parrot</h2>
 
         <?php if ($_SESSION["login"] == 0){ ?>
             <div class="headerLogin">
@@ -27,8 +28,8 @@ session_start();
     </div>
 
 <?php }
-echo "POST";
-var_dump($_POST);
-echo "SESSION";
-var_dump($_SESSION);
+// echo "POST";
+// var_dump($_POST);
+// echo "SESSION";
+// var_dump($_SESSION);
  ?> 

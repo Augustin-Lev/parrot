@@ -1,17 +1,24 @@
 <footer>
-    <img src="../image/logoBlack.png" alt="Logo Garrage Parrot">
+    <a  href="../controller/index.php">
+        <img src="../image/logoBlack.png" alt="Logo Garrage Parrot">
+    </a>
     <div>
 
         <div class="footerContainerGlobal">
-            <div class=footerContainerOne>
+            <div class=footerContainer>
                 <a href="../controller/index.php#formulaire">Prendre rendez-vous</a>
                 <a href="../controller/service.php#carrosserie">Réparation carroserie</a>
-                <a href="">Véhicule d'occasion</a>
+                
             </div>
-            <div class=footerContainerTwo>
+            <div class=footerContainer>
                 <a href="../controller/service.php#moteur">Mécanique</a>
                 <a href="../controller/service.php#entretien">Entretien</a>
-                <a href="">Témoignage</a>
+                <a href="../controller/index.php">Menu</a>
+                
+            </div>
+            <div class=footerContainer>
+                <a href="../controller/occasion.php">Véhicule d'occasion</a>
+                <a href="../temoignage.php">Témoignage</a>
             </div>
         </div>
         
