@@ -143,18 +143,20 @@
                         <p ><?php echo $commentaire["commentaire"]; ?> </p>
                     </div>
 
-                    <div class=validation>
-                        <a class="boutton" href="">
+                    <form class=validation method='POST'>
+                        <input type="hidden" name="action" value="validerTemoignage">
+                        <input type="hidden" name="id" value="<?php echo $commentaire["id"]; ?>">
+                        <button type="submit" class="boutton" name="valide" value="1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
                             <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
                             </svg>
-                        </a>
-                        <a class="boutton" href="">
+                        </button>
+                        <button type="submit" class="boutton"  name="valide" value="2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                             </svg>
-                        </a>
-                    </div>
+                        </button>
+                    </form>
                 </div> 
 
             </div>
@@ -162,9 +164,11 @@
         
     </div>
     
-    <h3>Déjà validés</h3>
-    <form>
-        <select name="stillValidate" id="CommStillValidate">
+    <h3 id="CommStillValidate">Déjà validés</h3>
+    <form method="POST" action="../controller/administration#CommStillValidate">
+        <input type="hidden" name="action" value="validerTemoignage">
+
+        <select name="id">
         <option value="">--Choisissez un commentaire--</option>
         
             <?php foreach($Commentaires as $commentaire){
@@ -172,8 +176,8 @@
                 <option value=<?php echo $commentaire["id"]; ?>><?php echo $commentaire["parution"]." ".$commentaire["prenom"]." ".$commentaire["nom"]; ?></option>
             <?php } }?>
         </select>
-        <button class="boutton" type=submit name='action' value='supprimer' >Supprimer</button>
-        <button class="boutton" type=submit name='action' value='attente'>Mettre en attente</button>
+        <button class="boutton" type=submit name='valide' value='2' >Supprimer</button>
+        <button class="boutton" type=submit name='valide' value='0'>Mettre en attente</button>
     </form>
 </div>
 <div>

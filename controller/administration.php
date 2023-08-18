@@ -52,7 +52,10 @@
                 require_once "../view/administration.php";
                 
             }
-           
+            if($_POST["action"] == "validerTemoignage"){
+                validerTemoignage($PDO, $_POST["id"], $_POST["valide"]);
+                echo("<meta http-equiv='refresh' content='1'>");
+            }
            
         }
         if (isset($_POST["action"])){

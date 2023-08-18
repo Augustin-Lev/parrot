@@ -380,3 +380,9 @@ function changerHoraire($PDO, $tableau){
     $pdoStatement -> execute();
 
 }
+
+function validerTemoignage($PDO, $id, $valide){
+    $sql = "UPDATE `temoignage` SET `valide` = '".$valide."' WHERE `temoignage`.`id` = ".$id.";";
+    $pdoStatement = $PDO->prepare($sql);
+    $pdoStatement -> execute();
+}
