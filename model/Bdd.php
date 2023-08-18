@@ -391,3 +391,17 @@ function validerTemoignage($PDO, $id, $valide){
     $pdoStatement = $PDO->prepare($sql);
     $pdoStatement -> execute();
 }
+
+function mailGestion($PDO){
+    foreach($PDO-> query("SELECT email FROM salaries", PDO::FETCH_ASSOC) as $mail){
+        if (isset($liste)==0){
+            $liste = $mail["email"];
+        }else{
+            $liste = $liste.','.$mail["email"];
+        }
+    }
+
+    return $liste;
+   
+  
+}

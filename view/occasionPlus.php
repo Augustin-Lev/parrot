@@ -1,10 +1,12 @@
 
 <div class="occasionPlus">
-    <div class="occasionEnTete">
+    <form action="../controller/occasion.php" method="POST" class="occasionEnTete">
         <img src=" <?php echo $voiture["imageClef"] ?> ">
         <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["model"]."  -  ".$voiture["prix"]."€"?></h2>
-        <a class="boutton" href="">Reserver</a>
-    </div>
+        
+        <input type="hidden" name="id" value="<?php echo $voiture["id"] ?>">
+        <button class="boutton " type="submit" name="action" value="demandeRenseignement">Reserver</button>
+    </form>
   
     <div class="caracteristiqueGlobal">
         <h2>Caractéristiques</h2>
@@ -56,11 +58,11 @@
                 next($voiture);
             } ?>
         </div>
-        <div class="bouttonReserver">
-            <a class="boutton " href="">Reserver</a>
+        <form action="../controller/occasion.php" method="POST" class="bouttonReserver">
+            <input type="hidden" name="id" value="<?php echo $voiture["id"] ?>">
+            <button class="boutton " type="submit" name="action" value="demandeRenseignement">Reserver</button>
             <p>Pour toute demande d'information suplémentaire, n'hésitez pas à nous contacter au 07 66 55 44 33 </p>
-        
-        </div>
+        </form>
         
         <div class="formulaire" id="formulaire">
         <div>
