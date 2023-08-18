@@ -86,8 +86,8 @@
     </div>
     <form action ="../controller/temoignage.php" method="POST" class="footerTemoignage">
             <input type="text" name="valide" value="0" style="display:none;">
-            <a class="boutton" href="../controller/temoignage.php">Voire plus</a>
-            <button type ="submit" class="boutton" name="action" value="newTemoignage">Donner son avi</button>
+            <a class="boutton" href="../controller/temoignage.php">Voir plus</a>
+            <button type ="submit" class="boutton" name="action" value="newTemoignage">Donner son avis</button>
     </form>
     <div class="formulaire" id="formulaire">
         <div>

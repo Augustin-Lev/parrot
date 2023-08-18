@@ -43,8 +43,9 @@
     </div>
 </div>
 
-<form>
-    <h2>Horraires</h2>
+<form action = "../controller/administration.php#formulaireHoraire" method="POST" id="formulaireHoraire">
+    <input type="hidden" name="action" value="changerHoraire">
+    <h2>Horaires</h2>
     <table class="horrairesModif">
         <thead>
             <th></th>
@@ -54,70 +55,43 @@
             <th></th>
             <th>Après-midi</th>
         </thead>
-        <tr>
-            <th>Lundi</th>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>      
-        </tr>
-        <tr>
-            <th>Mardi</th>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>      
-        </tr>
-        <tr>
-            <th>Mercredi</th>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>      
-        </tr>
-        <tr>
-            <th>Jeudi</th>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>      
-        </tr>
-        <tr>
-            <th>Vendredi</th>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>      
-        </tr>
-        <tr>
-            <th>Samedi</th>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>      
-        </tr>
-        <tr>
-            <th>Dimanche</th>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>
-            <td><input type=time></td>
-            <td class="accent">à</td>
-            <td><input type=time></td>      
-        </tr>
 
+        <?php $horaire =  getHoraires($PDO);
+        //var_dump($horaire);
+        
+
+        $Jour = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+        $jour = ["lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"];
+        reset($horaire[0]);
+        next($horaire[0]);
+        next($horaire[0]);
+        reset($horaire[1]);
+        next($horaire[1]);
+        next($horaire[1]);
+
+        for($i=0; $i<7; $i++){
+            $text1 = $jour[$i]."1";
+            $text2 = $jour[$i]."2";
+            echo ' 
+            <tr>
+                <th>'.$Jour[$i].'</th>
+                <td><input type=time name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text1].'"></td>';
+                next($horaire[0]);
+            echo'
+                <td class="accent">à</td>
+                <td><input type=time name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text2].'"></td>';
+                next($horaire[0]);
+            echo'
+                <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text1].'"></td>';
+                next($horaire[1]);
+            echo'
+                <td class="accent">à</td>
+                <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text2].'"></td> ';
+                next($horaire[1]);
+            echo'     
+            </tr>';
+        }
+?>
     </table>
     <button class="boutton bouttonHorraire" type="submit">Changer</button>
 </form>

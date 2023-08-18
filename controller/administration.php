@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="..\style\stylesheet.css">
+        
         <title>Administration Parrot</title>
         <meta name= "description" content="
         Administration, do not import on web.
@@ -10,6 +11,7 @@
     </head>
 
     <body >
+       
     <?php
         require "../model/Bdd.php";
         require "../view/header.php";
@@ -43,6 +45,13 @@
                 bandeau("Voiture ".$_POST["id"]." bien supprimée");
                 require_once "../view/administration.php";
             }
+            if($_POST["action"] == "changerHoraire"){
+                $horaires=$_POST;
+                // var_dump($horaires);
+                changerHoraire($PDO, $horaires);
+                require_once "../view/administration.php";
+                
+            }
            
            
         }
@@ -56,6 +65,8 @@
       
         require "../view/footer.php";
     ?>
+    <script src="../model\code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../model/submitHorraire.js"></script>
   </body>
 
 </html>

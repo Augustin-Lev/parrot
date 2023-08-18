@@ -15,12 +15,11 @@
             </div>
         </div>
         
-       
         <div class="ligne"></div>
 
         <div class="horraires">
-            <h3>Horraires</h3>
-            <table>
+            <h3>Horaires</h3>
+            <table class="horaireTableau">
                 <thead>
                     <th>Lundi</th>
                     <th>Mardi</th>
@@ -30,26 +29,53 @@
                     <th>Samedi</th>
                     <th>Dimanche</th>
                 </thead>
-                <tr>
-                    <td>8 h-11h</td>
-                    <td>8 h-11h</td>
-                    <td>8 h-11h</td>
-                    <td>8 h-11h</td>
-                    <td>8 h-11h</td>
-                    <td>8 h-11h</td>
-                    <td>8 h-11h</td>      
-                </tr>
-
-                <tr>
-                    <td>13h-17h</td>
-                    <td>13h-17h</td>
-                    <td>13h-17h</td>
-                    <td>13h-17h</td>
-                    <td>13h-17h</td>
-                    <td>13h-17h</td>
-                    <td>13h-17h</td>
-                </tr>
         
+        <?php $horaire =  getHoraires($PDO);
+        // var_dump($horaire);
+        foreach($horaire as $ligne){
+            if($ligne["id"]== 1){
+            echo ' <tr>';           
+            reset($ligne);
+            $i = 1;
+            foreach($ligne as $valeur){
+                if (key($ligne) != 'id' && key($ligne) != 'journee' ){
+                    $i ++;
+                    if (($i%2) == 0){
+                       echo'<td>'.$valeur.' - ';
+                    }
+                    else{
+                        echo $valeur.'</td>';
+                    }
+                }
+            next($ligne);
+           
+            }
+            echo ' </tr>';
+            }
+        }
+        foreach($horaire as $ligne){
+            if($ligne["id"]== 2){
+            echo ' <tr>';           
+            reset($ligne);
+            $i = 1;
+            foreach($ligne as $valeur){
+                if (key($ligne) != 'id' && key($ligne) != 'journee' ){
+                    $i ++;
+                    if (($i%2) == 0){
+                       echo'<td>'.$valeur.' - ';
+                    }
+                    else{
+                        echo $valeur.'</td>';
+                    }
+                }
+            next($ligne);
+           
+            }
+            echo ' </tr>';
+            }
+        }
+
+        ?>
             </table>
         </div>
     </div>

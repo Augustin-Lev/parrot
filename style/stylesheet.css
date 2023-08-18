@@ -196,8 +196,9 @@ header>.headerTitre{
     align-items: center;
     align-content: center;
 }
-.footerTemoignage>a{
+.footerTemoignage>a, .footerTemoignage>button{
     width: auto;
+    min-width: 20%;
     flex :1;
     margin: 5% 10% 0 10%;
 }
@@ -299,7 +300,10 @@ footer>div{
 .footerContainerGlobal>div>a{
     margin :  5% 0 5% 0;
 }
-
+.horaireTableau{
+    text-align: center;
+    margin: 2% 2% 0 0;
+}
 /* ------------- Login ----------------------- */
 
 .login{
@@ -532,12 +536,13 @@ h1{
 .headerBandeau{
     width: calc(100%-8px);
     background-color : #99ff9d;
-    height: 4.5rem;
+    min-height: 4.5rem;
     display: flex;
     align-content: center;
     justify-content: space-evenly;
     color: #1a531c;
 
+    
     border: #befbc0 solid 4px;
 
     border-radius: 5px 5px; ;

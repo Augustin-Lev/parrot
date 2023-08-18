@@ -218,8 +218,11 @@ function occasion($PDO, $id){
             
         );
     }
-    return $occasion;
+    if(isset($occasion)){
+        return $occasion;
 
+    }
+  
 }
 
 function AjouterOccasion($PDO, $tableau){
@@ -290,4 +293,90 @@ function nouveauTemoignage($PDO, $valide, $Nom,  $Prenom, $Etoile, $Commentaire)
     return "0";
 
 }
-          
+
+function getHoraires($PDO){
+    $horaires = array();
+
+    foreach ($PDO-> query('SELECT id, journee,lundi1,lundi2,mardi1,mardi2,mercredi1,mercredi2,jeudi1,jeudi2,vendredi1,vendredi2,samedi1,samedi2,dimanche1,dimanche2 FROM horaire', PDO::FETCH_ASSOC) as $ligne){
+        //var_dump($ligne);
+     
+        $horaire = array(
+            'id' => $ligne["id"],
+            'journee' => $ligne["journee"],
+            'lundi1' => $ligne["lundi1"],
+            'lundi2' => $ligne["lundi2"],
+            'mardi1' => $ligne["mardi1"],
+            'mardi2' => $ligne["mardi2"],
+            'mercredi1' => $ligne["mercredi1"],
+            'mercredi2' => $ligne["mercredi2"],
+            'jeudi1' => $ligne["jeudi1"],
+            'jeudi2' => $ligne["jeudi2"],
+            'vendredi1' => $ligne["vendredi1"],
+            'vendredi2' => $ligne["vendredi2"],
+            'samedi1' => $ligne["samedi1"],
+            'samedi2' => $ligne["samedi2"],
+            'dimanche1' => $ligne["dimanche1"],
+            'dimanche2' => $ligne["dimanche2"]
+        );
+        if( $ligne["id"]== "1"){
+            $horaires[0]= $horaire;
+        }else{
+            $horaires[1]= $horaire;
+        }
+       
+    }
+    return $horaires;
+}
+
+function changerHoraire($PDO, $tableau){
+    $sql = 'DELETE FROM horaire WHERE id like 1';
+    $pdoStatement= $PDO->prepare($sql);
+    $pdoStatement -> execute();
+    $sql = 'DELETE FROM horaire WHERE id like 2';
+    $pdoStatement= $PDO->prepare($sql);
+    $pdoStatement -> execute();
+
+    $sql ='INSERT INTO `horaire` (id, journee,lundi1,lundi2,mardi1,mardi2,mercredi1,mercredi2,jeudi1,jeudi2,vendredi1,vendredi2,samedi1,samedi2,dimanche1,dimanche2) VALUES (:id, :journee,:lundi1,:lundi2,:mardi1,:mardi2,:mercredi1,:mercredi2,:jeudi1,:jeudi2,:vendredi1,:vendredi2,:samedi1,:samedi2,:dimanche1,:dimanche2);';
+    $pdoStatement = $PDO->prepare($sql);
+    
+    $pdoStatement->bindValue(':id', 1,PDO::PARAM_STR);
+    $pdoStatement->bindValue(':journee','matin',PDO::PARAM_STR);
+    $pdoStatement->bindValue(':lundi1',$tableau["matin-lundi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':lundi2',$tableau["matin-lundi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mardi1',$tableau["matin-mardi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mardi2',$tableau["matin-mardi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mercredi1',$tableau["matin-mercredi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mercredi2',$tableau["matin-mercredi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':jeudi1',$tableau["matin-jeudi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':jeudi2',$tableau["matin-jeudi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':vendredi1',$tableau["matin-vendredi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':vendredi2',$tableau["matin-vendredi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':samedi1',$tableau["matin-samedi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':samedi2',$tableau["matin-samedi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':dimanche1',$tableau["matin-dimanche1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':dimanche2',$tableau["matin-dimanche2"],PDO::PARAM_STR);
+   
+    $pdoStatement -> execute();
+
+    $sql ='INSERT INTO `horaire` (id, journee,lundi1,lundi2,mardi1,mardi2,mercredi1,mercredi2,jeudi1,jeudi2,vendredi1,vendredi2,samedi1,samedi2,dimanche1,dimanche2) VALUES (:id, :journee,:lundi1,:lundi2,:mardi1,:mardi2,:mercredi1,:mercredi2,:jeudi1,:jeudi2,:vendredi1,:vendredi2,:samedi1,:samedi2,:dimanche1,:dimanche2);';
+    $pdoStatement = $PDO->prepare($sql);
+    $pdoStatement->bindValue(':id', 2,PDO::PARAM_STR);
+    $pdoStatement->bindValue(':journee','aprem',PDO::PARAM_STR);
+    $pdoStatement->bindValue(':lundi1',$tableau["aprem-lundi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':lundi2',$tableau["aprem-lundi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mardi1',$tableau["aprem-mardi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mardi2',$tableau["aprem-mardi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mercredi1',$tableau["aprem-mercredi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':mercredi2',$tableau["aprem-mercredi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':jeudi1',$tableau["aprem-jeudi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':jeudi2',$tableau["aprem-jeudi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':vendredi1',$tableau["aprem-vendredi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':vendredi2',$tableau["aprem-vendredi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':samedi1',$tableau["aprem-samedi1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':samedi2',$tableau["aprem-samedi2"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':dimanche1',$tableau["aprem-dimanche1"],PDO::PARAM_STR);
+    $pdoStatement->bindValue(':dimanche2',$tableau["aprem-dimanche2"],PDO::PARAM_STR);
+   
+    $pdoStatement -> execute();
+
+}

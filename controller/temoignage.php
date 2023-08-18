@@ -22,7 +22,7 @@
             }
             if ($_POST["action"]=="enregistrer"){
                 nouveauTemoignage($PDO, $_POST["valide"], $_POST["Nom"], $_POST["prenom"], $_POST["Etoile"], $_POST["commentaire"]);
-                bandeau("Votre témoignage a bien été ajouté");
+                bandeau("Votre témoignage a bien été ajouté, il sera ajouté au site après validation d'un opérateur");
                 require_once "../view/temoignage.php";
             }
             
