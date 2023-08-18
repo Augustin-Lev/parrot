@@ -37,7 +37,8 @@
                 }    
                 // var_dump($newOccasion);
               
-                AjouterOccasion($PDO, $newOccasion);  
+                AjouterOccasion($PDO, $newOccasion);
+                echo("<meta http-equiv='refresh' content='1'>"); 
                 require_once "../view/administration.php";
             }
             if($_POST["action"] == "supprimerOccasion"){
@@ -45,6 +46,13 @@
                 bandeau("Voiture ".$_POST["id"]." bien supprimée");
                 require_once "../view/administration.php";
             }
+            if($_POST["action"] == "modifierOccasion"){
+                $voiture = occasion($PDO, $_POST["id"]);
+                require_once "../view/new-occasion.php";
+            }
+
+
+
             if($_POST["action"] == "changerHoraire"){
                 $horaires=$_POST;
                 // var_dump($horaires);

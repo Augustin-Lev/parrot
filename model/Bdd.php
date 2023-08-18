@@ -231,6 +231,11 @@ function AjouterOccasion($PDO, $tableau){
     $champ = "modificateur";
     $binValue =":modificateur";
 
+    if(isset($tableau["id"])){  
+        $sql ='DELETE FROM `occasion` WHERE `id`LIKE '.$tableau["id"].";";
+        $pdoStatement= $PDO->prepare($sql);
+        $pdoStatement -> execute();
+    }
 
     foreach($tableau as $parametre){
         
