@@ -13,7 +13,9 @@
     <body>
     <?php
         require "../model/Bdd.php";
+        require "../view/bandeau.php";
         require "../view/header.php";
+       
         $TroisCommentaires = TroisCommentaires($PDO);
         require_once "../view/index.php";
         if(isset($_POST["message"])){
@@ -24,7 +26,7 @@
                     mail($employe["email"],"Message Client Site Internet",$message);
                 }
             }
-            echo "<script>alert('le message a bien été envoyé') </script>";
+            bandeau("le message a bien été envoyé");
         }
        
         require "../view/footer.php";

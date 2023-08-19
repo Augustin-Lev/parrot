@@ -11,6 +11,7 @@
     <body>
     <?php
         require "../model/Bdd.php";
+        require '../view/bandeau.php';
         require "../model/sendcode.php";
         require "../view/header.php";
 
@@ -28,7 +29,7 @@
                 if (verifier($_POST["verif"]) == 1){
                     require "../view/login-new.php";
                 }else{
-                    echo '<script>alert("le code n est pas bon") </script>';
+                    erreur("le code n'est pas bon");
                     require "../view/login-sent.php";
                 }
             }
