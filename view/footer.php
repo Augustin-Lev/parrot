@@ -18,7 +18,7 @@
             </div>
             <div class=footerContainer>
                 <a href="../controller/occasion.php">Véhicule d'occasion</a>
-                <a href="../temoignage.php">Témoignage</a>
+                <a href="../controller/temoignage.php">Témoignage</a>
             </div>
         </div>
         
