@@ -8,21 +8,32 @@ session_start();
             <h2>Menu<h2>
         </a>
         <h2 class=headerTitre>Garage V.Parrot</h2>
-
-        <?php if ($_SESSION["login"] == 0){ ?>
+        
+        <?php 
+        if(isset($_SESSION)==0){
+            session_start();
+            $_SESSION["login"] = 0;
+            $_SESSION["nom"] = "";
+            $_SESSION["prenom"] = "";
+            $_SESSION["statut"] = "";
+            $_SESSION["email"] = "";
+        }
+        
+        if ($_SESSION["login"] == 0){ ?>
             <div class="headerLogin">
                 <a class="boutton" href="login.php">login</a>
             </div>
         <?php }else{
-            echo '<a href="../controller/login.php" class="headerLoger">';
+            echo '<div href="../controller/login.php" class="headerLoger">';
             echo '<p class="poste">'.$_SESSION['statut'].'</p>';
             echo '<p class="nom">'.$_SESSION['nom']." ".$_SESSION['prenom'].'</p>';
-            echo '</a>'; 
+            echo '<a class="headerCache" href="../controller/index.php?action=unlog">Se deconnecter</a>';
+            echo '</div>'; 
         } ?>
       
 </header>
 
-<?php if ($_SESSION["statut"] == "patron" || $_SESSION["statut"] == "salarié" ){ ?>
+<?php if ($_SESSION["statut"] == "Gérant" || $_SESSION["statut"] == "salarié" ){ ?>
     <div class="headerAdmin">
         <a  class="boutton" href="administration.php">Administrer</a>
     </div>

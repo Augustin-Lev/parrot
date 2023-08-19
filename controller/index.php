@@ -17,6 +17,16 @@
         require "../view/header.php";
        
         $TroisCommentaires = TroisCommentaires($PDO);
+        if(isset($_GET["action"])){
+            if($_GET["action"]=='unlog'){
+                $_SESSION["login"] = 0;
+                $_SESSION["nom"] = "";
+                $_SESSION["prenom"] = "";
+                $_SESSION["statut"] = "";
+                $_SESSION["email"] = "";
+                bandeau("Vous êtes bien déconnecté");
+            }
+        }
         require_once "../view/index.php";
         if(isset($_POST["message"])){
             $employes = allEmploye($PDO);
@@ -28,6 +38,7 @@
             }
             bandeau("le message a bien été envoyé");
         }
+      
        
         require "../view/footer.php";
     ?>

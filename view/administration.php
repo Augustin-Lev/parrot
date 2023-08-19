@@ -1,6 +1,6 @@
 <div class="administrtion-view">
 
-<?php if ($_SESSION["statut"] == "patron"){?>
+<?php if ($_SESSION["statut"] == "Gérant"){?>
     <form class="headerAdmin" action='../controller/administration.php' method=POST>
         <a class="boutton" href="../model/init.php?admin=au">Reinitialiser la Base</a>
         <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>

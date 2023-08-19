@@ -73,7 +73,7 @@
                     modificateur VARCHAR (50),
                     miseEnCirculation VARCHAR(100),
                     imageClef VARCHAR(100),
-                    descriptions TEXT(1000),
+                    descriptions VARCHAR(10000),
                     caracteristiques VARCHAR(10),
                     marque VARCHAR(1000),
                     model VARCHAR(100),
@@ -129,7 +129,7 @@
 
                 $sql ='INSERT INTO salaries (statut, nom, prenom, email, motDePasse) VALUES ( :statut, :nom, :prenom, :email, :motDePasse);';
                     $pdoStatement= $PDO->prepare($sql);
-                    $pdoStatement->bindValue(':statut',"patron", PDO::PARAM_STR);
+                    $pdoStatement->bindValue(':statut',"Gérant", PDO::PARAM_STR);
                     $pdoStatement->bindValue(':nom',"Parrot",PDO::PARAM_STR);
                     $pdoStatement->bindValue(':prenom',"Vincent",PDO::PARAM_STR);
                     $pdoStatement->bindValue(':email',"vp@garrage.fr",PDO::PARAM_STR);
@@ -300,29 +300,50 @@
                         echo "<li>ECHEC de l'inscription de l'horaire aprem </li><br/>";
                     }
 
+                    $sql = "INSERT INTO occasion (id, modificateur, miseEnCirculation,imageClef,descriptions,caracteristiques,marque,model,prix,Kilometrage,options,galette_de_Secour) 
+                    VALUES (1, 
+                    'jean',
+                    '2003',
+                    '../image/occasion/voiture1.jpg',
+                    'Je vends ma voiture pour acheter une familiale ! Et oui, notre famille grandit mais cette voiture était encore très bien',
+                    '1',
+                    'Renaud',
+                    'Capture',
+                    '120 000',
+                    '140 000',
+                    '1',
+                    '1');";
+                    $pdoStatement = $PDO->prepare($sql);
+                    if($pdoStatement -> execute()) { 
+                        echo "<li>véhivule 1 bien inscrit </li><br/>";                
+                    }else
+                    {
+                        echo "<li>ECHEC de l'inscription du véhicule 1</li><br/>";
+                    }
 
-                    // $sql ='INSERT INTO `occasion` (id, modificateur, miseEnCirculation, imageClef, descriptions, caracteristiques, marque, model, prix, Kilometrage, options, galette_de_Secour) VALUES (:id, :modificateur, :miseEnCirculation, :imageClef, :descriptions, :caracteristiques, :marque, :model, :prix, :Kilometrage, :options, :galette_de_Secour);';
-                    // $pdoStatement = $PDO->prepare($sql);
-                    
-                    // $pdoStatement->bindValue(':id', 1,PDO::PARAM_STR);             
-                    // $pdoStatement->bindValue(':modificateur','administateur@gerome.com',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':miseEnCirculation','2000',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':imageClef','../image/occasion/voiture1.jpg',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':descriptions','Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, id. Neque cumque non aperiam nulla porro unde enim, nesciunt quidem corrupti commodi veniam odio veritatis vitae, dicta aliquam suscipit quo.',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':caracteristiques','1',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':marque ','Porsch',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':model','Cayene',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':prix','400 000',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':Kilometrage','100 000',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':options','1',PDO::PARAM_STR);
-                    // $pdoStatement->bindValue(':galette_de_Secour','1',PDO::PARAM_STR);
 
-                    // if($pdoStatement -> execute()) { 
-                    //     echo "<li>occasion bien inscrit </li><br/>";                
-                    // }else
-                    // {
-                    //     echo "<li>ECHEC de l'inscription de occasion</li><br/>";
-                    // }
+                    $sql = "INSERT INTO occasion (id, modificateur, miseEnCirculation,imageClef,descriptions,caracteristiques,marque,model,prix,Kilometrage,options,galette_de_Secour) 
+                    VALUES (2, 
+                    'jean',
+                    '2003',
+                    '../image/occasion/voiture1.jpg',
+                    'Je vends ma voiture pour acheter une familiale ! Et oui, notre famille grandit mais cette voiture était encore très bien',
+                    '1',
+                    'Porsh',
+                    'Cayène',
+                    '400 000',
+                    '60 000',
+                    '1',
+                    '0');";
+                    $pdoStatement = $PDO->prepare($sql);
+                    if($pdoStatement -> execute()) { 
+                        echo "<li>véhivule 2 bien inscrit </li><br/>";                
+                    }else
+                    {
+                        echo "<li>ECHEC de l'inscription du véhicule 2</li><br/>";
+                    }
+
+ 
             }
         }
 

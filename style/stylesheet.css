@@ -145,6 +145,29 @@ header>.headerTitre{
     flex:1;
     text-decoration: none;
 }
+.headerLoger:hover > .headerCache{
+    display: flex;
+    color: #FFEDC1;
+
+}
+.headerCache{
+    display: none;
+    position: absolute;
+
+    color: #000000;
+    background-color: #000000;
+
+    text-align: center;
+
+    content: "Se déconnecter";
+    height: 15vh;
+    width: 25vw;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 1s;
+}
+
 .poste{
     font-family: "BeautifullyDeliciousSans",'Arial';
     text-transform:uppercase;
