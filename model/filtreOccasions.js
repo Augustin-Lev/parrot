@@ -116,8 +116,3 @@ $( function() {
 });
 
 
-$('#filtreOccasion').mouseup(() => {
-   
-
-})
-

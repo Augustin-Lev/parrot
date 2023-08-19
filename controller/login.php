@@ -73,6 +73,7 @@
       
         require "../view/footer.php";
     ?>
+    <script src="../model/login.js"></script>
   </body>
 
 </html>

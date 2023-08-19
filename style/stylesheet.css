@@ -461,8 +461,6 @@ footer>div{
 
 .login{
     background-color: #FFEDC1;
-
-
 }
 h1{
     font-family: "BeautifullyDeliciousSans",'Arial';
@@ -482,6 +480,30 @@ h1{
 .loginForm>a{
     margin : 4% 0 2% 0;
     text-align: center;
+}
+
+.loginForm>p{
+    text-align: justify;
+}
+
+.descritptionMDP{
+    margin: auto;
+}
+#indiceMDP{
+    height: 20px;
+    width:0 ;
+    background-color: #FF9100;
+    border-radius: 5px;
+}
+#erreur{
+    height: 20px;
+    width:100% ;
+    background-color: #FF9100;
+    border-radius: 5px;
+    background-color : #ff9999;
+    border: #6a0000 solid 4px;
+    color: #6a0000;
+    display: none;
 }
 
 /* --------------------Administration --------------------- */
