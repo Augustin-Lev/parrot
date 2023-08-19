@@ -246,8 +246,39 @@ header>.headerTitre{
 .troisServices>a>svg{
     height: 20vh;
     width: 20vh;
+    z-index: 2;
+    transition: all 1s;
 }
 
+.troisServices>a>svg:hover{
+    height: 40vh;
+    width: 40vh;
+}
+.texte1{
+    display:block;
+    color: #FFEDC1;
+    z-index: 1;
+    width: 40vh;
+    position: relative;
+    left : 0vh;
+    top : -25vh;
+    transition: all 2s;
+    opacity: 0;
+
+}
+.box1:hover > .texte1{
+    opacity: 1;
+    display:block;
+    color: #000000;
+    width: 40vh;
+    top : 0vh;
+    position: relative;
+}
+
+.box1:hover > svg{
+    height: 40vh;
+    width: 40vh;
+}
 
 .temoignage{
     margin : 0% 5% 0% 5%;
