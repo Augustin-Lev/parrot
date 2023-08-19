@@ -97,7 +97,19 @@ header>.headerTitre{
     display: flex;
     align-content: center;
     justify-content: space-evenly;
+    
 }
+.headerAdmin>.boutton{
+    animation: ombre 3s ;
+    animation-direction:normal; 
+    animation-iteration-count : infinite; 
+}
+@keyframes ombre{
+    0%   {box-shadow: transparent 0px 0px 12px -2px; }
+    50%   { box-shadow: black 0px 0px 12px -2px;}
+    100% {box-shadow: transparent 0px 0px 12px -2px;}
+}
+
 .boutton{
     font-size: inherit;
     margin : 1rem 0rem 1rem 0rem;
@@ -441,6 +453,56 @@ h1{
 }
 
 /* --------------------Administration --------------------- */
+.administrtion-view{
+    background-color:#FFEDC1;
+}
+input[type="time"]{
+    border-radius: 0;
+    border: solid 1px #1f1407;
+}
+
+#formulaireHoraire{
+    margin-bottom: 10%;
+}
+.margeAdmin{
+    padding: 0 10vw 0 10vw;
+    padding-bottom: 10vh;
+}
+
+
+.adminChoix{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin:auto;
+    
+}
+select{
+    font-size: inherit;
+    margin : 1rem 0rem 1rem 0rem;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    border-radius: 3px 3px;
+    
+    border: none;
+    text-align: center;
+    
+    color : white ;
+    text-decoration: none !important;
+    background-color: #000000;
+    color:#FFEDC1;
+    overflow: hidden;
+
+    z-index: 1;
+    transition: 0.5s ;
+    transition-timing-function: linear;
+}
+select:hover{
+    background-color: #000000;
+}
+  
+#newOccasionButton{
+    margin-bottom: 5%;
+}
 
 .horrairesModif{
     text-align: center;

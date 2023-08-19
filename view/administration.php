@@ -1,4 +1,4 @@
-<div style="background-color:white">
+<div class="administrtion-view">
 
 <?php if ($_SESSION["statut"] == "patron"){?>
     <form class="headerAdmin" action='../controller/administration.php' method=POST>
@@ -99,7 +99,7 @@
     <button class="boutton bouttonHorraire" type="submit">Changer</button>
 </form>
 
-<div>
+<div class="margeAdmin">
     <h2>Témoignage</h2>
     <form action='../controller/temoignage.php' method="POST" class="headerAdmin">
         <input type="hidden" name="action" value="newTemoignage">
@@ -168,7 +168,7 @@
     </div>
     
     <h3 id="CommStillValidate">Déjà validés</h3>
-    <form method="POST" action="../controller/administration#CommStillValidate">
+    <form class="adminChoix" method="POST" action="../controller/administration#CommStillValidate">
         <input type="hidden" name="action" value="validerTemoignage">
 
         <select name="id">
@@ -183,12 +183,13 @@
         <button class="boutton" type=submit name='valide' value='0'>Mettre en attente</button>
     </form>
 </div>
-<div>
+
+<div class="margeAdmin" id="voitureOccasionAdmin">
     <h2>Gestion des voitures d'occasion</h2>
-    <form class="headerAdmin" action='../controller/administration.php' method=POST>
+    <form class="headerAdmin" id="newOccasionButton" action='../controller/administration.php' method=POST>
         <button class="boutton" name="action" value="new-occasion">Nouvel occasion</button>
     </form>
-    <form action='../controller/administration.php' method=POST>
+    <form class="adminChoix" action='../controller/administration.php' method=POST>
         <select name="id">
         <option value="">--Choisissez un véhicule--</option>
         
