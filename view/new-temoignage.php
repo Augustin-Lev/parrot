@@ -12,7 +12,7 @@
         <label for="prenom">Prénom</label>
         <input type="text" name="prenom" required="">
 
-        <label for="Etoile">Etoile</label>
+        <label for="Etoile">Etoiles</label>
         <input type="number" name="Etoile" required="" min="0" max="5">
 
         <label for="commentaire">Commentaire</label>

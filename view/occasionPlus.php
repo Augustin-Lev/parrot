@@ -2,10 +2,10 @@
 <div class="occasionPlus">
     <form action="../controller/occasion.php" method="POST" class="occasionEnTete">
         <img src=" <?php echo $voiture["imageClef"] ?> ">
-        <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["model"]."  -  ".$voiture["prix"]."€"?></h2>
+        <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]."  -  ".$voiture["Prix"]."€"?></h2>
         
         <input type="hidden" name="id" value="<?php echo $voiture["id"] ?>">
-        <button class="boutton " type="submit" name="action" value="demandeRenseignement">Reserver</button>
+        <button class="boutton " type="submit" name="action" value="demandeRenseignement">Réserver</button>
     </form>
   
     <div class="caracteristiqueGlobal">

@@ -255,44 +255,44 @@ function fillDB($UserDB,$passwordDB,$name,$surname,$email,$password){
             echo "<li>ECHEC de l'inscription de l'horaire aprem </li><br/>";
         }
 
-        $sql = "INSERT INTO occasion (id, modificateur, miseEnCirculation,imageClef,descriptions,caracteristiques,marque,model,prix,Kilometrage,options,galette_de_Secour) 
+        $sql = "INSERT INTO occasion (id, modificateur, miseEnCirculation,imageClef,descriptions,caracteristiques,marque,modèle,Prix,kilométrage,options,galette_de_secours) 
         VALUES (1, 
         'jean',
         '2003',
         '../image/occasion/voiture1.jpg',
         'Je vends ma voiture pour acheter une familiale ! Et oui, notre famille grandit mais cette voiture était encore très bien',
         '1',
-        'Renaud',
-        'Capture',
-        '120 000',
+        'Renault',
+        'Captur',
+        '45 000',
         '140 000',
         '1',
         '1');";
         $pdoStatement = $PDO->prepare($sql);
         if($pdoStatement -> execute()) { 
-            echo "<li>véhivule 1 bien inscrit </li><br/>";                
+            echo "<li>véhicule 1 bien inscrit </li><br/>";                
         }else
         {
             echo "<li>ECHEC de l'inscription du véhicule 1</li><br/>";
         }
 
-        $sql = "INSERT INTO occasion (id, modificateur, miseEnCirculation,imageClef,descriptions,caracteristiques,marque,model,prix,Kilometrage,options,galette_de_Secour) 
+        $sql = "INSERT INTO occasion (id, modificateur, miseEnCirculation,imageClef,descriptions,caracteristiques,marque,modèle,Prix,kilométrage,options,galette_de_secours) 
         VALUES (2, 
         'jean',
         '2003',
         '../image/occasion/voiture1.jpg',
         'Je vends ma voiture pour acheter une familiale ! Et oui, notre famille grandit mais cette voiture était encore très bien',
         '1',
-        'Porsh',
-        'Cayène',
-        '400 000',
+        'Porsche',
+        'Cayenne',
+        '200 000',
         '60 000',
         '1',
         '0');";
         $pdoStatement = $PDO->prepare($sql);
 
         if($pdoStatement -> execute()) { 
-            echo "<li>véhivule 2 bien inscrit </li><br/>";                
+            echo "<li>véhicule 2 bien inscrit </li><br/>";                
         }else
         {
             echo "<li>ECHEC de l'inscription du véhicule 2</li><br/>";
@@ -363,11 +363,11 @@ function initialisation($UserDB,$passwordDB,$name,$surname,$email,$password,$fil
                 descriptions VARCHAR(10000),
                 caracteristiques VARCHAR(10),
                 marque VARCHAR(1000),
-                model VARCHAR(100),
-                prix VARCHAR(100),
-                Kilometrage VARCHAR(100),
+                modèle VARCHAR(100),
+                Prix VARCHAR(100),
+                kilométrage VARCHAR(100),
                 options VARCHAR(10),
-                galette_de_Secour VARCHAR(10)
+                galette_de_secours VARCHAR(10)
                    
                 )') !== null){
                     echo "<li>table occasion créée</li><br/>";

@@ -19,9 +19,9 @@
 
 
         <p>Ce formulaire nous permettra de vous recontacter dès que possible.<br/>
-        Si le véhicule n'est plus disponible nous vous le feront savoir également.<br/>
-        Lors de l'envois de ce formulaire, le garrage atteste avoir pris connaissance de votre désir d'aquisition.<br/>
-        Les documents necessaire à l'achat vous seront remit sous 48h.<br/>
+        Si le véhicule n'est plus disponible nous vous le ferons savoir également.<br/>
+        Lors de l'envoi de ce formulaire, le garage atteste avoir pris connaissance de votre désir d'acquisition.<br/>
+        Les documents nécessaires à l'achat vous seront remit sous 48h.<br/>
         </p>
 
         <button class="boutton" type="submit">Envoyer</button>

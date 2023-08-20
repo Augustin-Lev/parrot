@@ -53,7 +53,7 @@
     </div>
     
     <div class="bandeauImage" style="background-image:url('../image/temoignage.jpg')"></div>
-    <h2 id=temoignage>Il témoignent</h2>
+    <h2 id=temoignage>Ils témoignent</h2>
     <div class=temoignages>
         
         <?php for ($i = 0; $i<3; $i++ ){ ?>

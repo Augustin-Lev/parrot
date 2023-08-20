@@ -33,10 +33,10 @@ foreach ($occasions as $voiture){?>
     <div class="occasionVoiture" id="<?php echo $voiture["id"] ?>" >
         <img src=" <?php echo $voiture["imageClef"] ?> ">
         <div class="occasionInfos">
-            <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["model"]?></h2>
+            <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]?></h2>
             <div>
-                <p>prix</p>
-                <p class="prix"><?php echo $voiture["prix"] ?> €</p>
+                <p>Prix</p>
+                <p class="prix"><?php echo $voiture["Prix"] ?> €</p>
             </div>
             <div>
                 <?php echo $voiture["descriptions"] ?>
@@ -47,10 +47,10 @@ foreach ($occasions as $voiture){?>
             </div>
             <div>
                 <p>Kilométrage</p>
-                <p class="km"><?php echo $voiture["Kilometrage"] ?> km</p>
+                <p class="km"><?php echo $voiture["kilométrage"] ?> km</p>
             </div>
             <div class="occasionBoutton">
-                <a href="../controller/occasion.php?voiture=<?php echo $voiture["id"] ?>" class="boutton">Voire plus</a>
+                <a href="../controller/occasion.php?voiture=<?php echo $voiture["id"] ?>" class="boutton">Voir plus</a>
             </div>
         </div>
     </div>

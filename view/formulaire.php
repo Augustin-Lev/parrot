@@ -2,7 +2,7 @@
         
         <div class="textFormulaire">
             <h2>Nous contacter</h2>
-            <p>Pour toutes questions ou prises de rendez-vous, n'hésitez pas à remplir le formulaire suivant ou a nous contacter au : 07 55 44 11 33<br/>
+            <p>Pour toute question ou prise de rendez-vous, n'hésitez pas à remplir le formulaire suivant ou à nous contacter au : 07 55 44 11 33<br/>
             Rendez-vous au 1 Rue Luce Boyals, 31300 Toulouse ! 
             </p>
             <a 

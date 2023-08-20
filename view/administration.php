@@ -2,7 +2,7 @@
 
 <?php if ($_SESSION["statut"] == "Gérant"){?>
     <form class="headerAdmin" action='../controller/administration.php' method=POST>
-        <a class="boutton" href="../model/init.php?admin=au">Reinitialiser la Base</a>
+        <a class="boutton" href="../model/init.php?admin=au">Réinitialiser la Base</a>
         <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>
     </form>
 <?php } ?>
@@ -192,10 +192,9 @@
     <form class="adminChoix" action='../controller/administration.php' method=POST>
         <select name="id">
         <option value="">--Choisissez un véhicule--</option>
-        
             <?php foreach($allOccasions as $occasion){
                 ?>
-                <option value=<?php echo $occasion["id"]; ?>><?php echo $occasion["id"]." ".$occasion["marque"]." ".$occasion["model"]; ?></option>
+                <option value=<?php echo $occasion["id"]; ?>><?php echo $occasion["id"]." ".$occasion["marque"]." ".$occasion["modèle"]; ?></option>
             <?php } ?>
         </select>
         <button class="boutton" type=submit name='action' value='supprimerOccasion' >Supprimer</button>

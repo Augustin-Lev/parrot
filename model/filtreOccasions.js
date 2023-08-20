@@ -61,13 +61,12 @@ $( function() {
     $( "#sliderPrix" ).slider({
       range: true,
       min: 0,
-      max: 600,
-      values: [ 0, 600 ],
+      max: 200,
+      values: [ 0, 200 ],
       slide: function( event, ui ) {
         $( "#prix" ).val( ui.values[ 0 ] + "k € - " + ui.values[ 1 ] +"k €");
         prixMin = $( "#sliderPrix" ).slider( "values", 0 );
         prixMax = $( "#sliderPrix" ).slider( "values", 1 );
-
         miseAJour(prixMin,prixMax,kmMin,kmMax,anneeMin,anneeMax);
       }
 
@@ -83,8 +82,8 @@ $( function() {
   $( "#sliderKm" ).slider({
     range: true,
     min: 0,
-    max: 600,
-    values: [ 0, 600 ],
+    max: 300,
+    values: [ 0, 300 ],
     slide: function( event, ui ) {
       $( "#km" ).val( ui.values[ 0 ] + " 000 km - " + ui.values[ 1 ] +" 000 km");
       kmMin = $( "#sliderKm" ).slider( "values", 0 );
