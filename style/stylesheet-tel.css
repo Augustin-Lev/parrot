@@ -240,7 +240,7 @@
     .occasionVoiture{
         flex-direction: column;
         align-items: center;
-
+        
     }
     .occasionVoiture>img{
         width: 100%;
@@ -269,5 +269,13 @@
     }
     .bandeau3 {
         background-position-x: 0vw;
+    }
+}
+
+@media screen and (min-width: 738px) {
+    .occasionVoiture{
+        min-width: 200px;
+        width: 20vw;
+        float: left;
     }
 }

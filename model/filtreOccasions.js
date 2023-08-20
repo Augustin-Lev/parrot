@@ -61,8 +61,8 @@ $( function() {
     $( "#sliderPrix" ).slider({
       range: true,
       min: 0,
-      max: 200,
-      values: [ 0, 200 ],
+      max: 210,
+      values: [ 0, 210 ],
       slide: function( event, ui ) {
         $( "#prix" ).val( ui.values[ 0 ] + "k € - " + ui.values[ 1 ] +"k €");
         prixMin = $( "#sliderPrix" ).slider( "values", 0 );

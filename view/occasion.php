@@ -27,6 +27,9 @@
     </div>
 </div>
 
+
+
+
 <?php
 
 foreach ($occasions as $voiture){?>
@@ -35,18 +38,11 @@ foreach ($occasions as $voiture){?>
         <div class="occasionInfos">
             <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]?></h2>
             <div>
-                <p>Prix</p>
-                <p class="prix"><?php echo $voiture["Prix"] ?> €</p>
-            </div>
-            <div class="computer-only">
-                <?php echo $voiture["descriptions"] ?>
-            </div>
-            <div>
-                <p>année de mise en circulation</p>
+
+                <p class="prix"><?php echo $voiture["Prix"] ?> € </p>
+                
                 <p class="annee"><?php echo $voiture["miseEnCirculation"] ?></p>
-            </div>
-            <div>
-                <p>Kilométrage</p>
+                
                 <p class="km"><?php echo $voiture["kilométrage"] ?> km</p>
             </div>
             <div class="occasionBoutton">
@@ -58,3 +54,4 @@ foreach ($occasions as $voiture){?>
 }
 
 ?>
+
