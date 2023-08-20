@@ -2,15 +2,15 @@
 session_start();
 ?>
 
-<header>
-        <a class=headerLogo href="../controller/index.php">
+<header <?php if(basename ($_SERVER['PHP_SELF']) == "index.php"){echo 'class="computer-only"';} ?>>
+        <a  href="../controller/index.php" class="headerLogo" >
             <img  src="../image/logoBlack.png">
             <?php if(basename ($_SERVER['PHP_SELF']) != "index.php"){
                 echo '<h2>Menu<h2>';
             } ?>
             
         </a>
-        <h2 class=headerTitre>Garage V.Parrot</h2>
+        <h2 class="headerTitre">Garage V.Parrot</h2>
 
         <?php 
         if(isset($_SESSION)==0){

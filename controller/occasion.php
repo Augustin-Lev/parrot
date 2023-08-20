@@ -3,9 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="..\style\stylesheet.css">
+        <link rel="stylesheet" href="..\style\stylesheet-tel.css">
         <link rel="stylesheet" href="../style\jquery-ui.theme.css">
         <link rel="stylesheet" href="../style\jquery-ui.structure.css"> 
         <title>Garrage Parrot</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name= "description" content="
         Du presque neuf au peu cher, nous vous proposons tous types de voitures d'occasions !
         ">
@@ -26,7 +28,7 @@
             $voiture= occasion($PDO, $_GET["voiture"]);
             require_once "../view/occasionPlus.php";
         }
-        if (isset($_POST["action"])){
+        elseif(isset($_POST["action"])){
             if($_POST["action"]=="demandeRenseignement"){
                 require "../view/contact.php";  
             }

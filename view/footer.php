@@ -85,6 +85,54 @@
         ?>
             </table>
         </div>
+
+        <div class="horrairesPhone phone-only">
+            <h3>Horaires</h3>
+            <table class="horaireTableau ">
+
+            <?php $horaire =  getHoraires($PDO);
+                $day = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+        
+                $j = 0;
+                // var_dump($horaire);
+
+                $ligne = $horaire[0];
+                $ligne2 =$horaire[1];
+                reset($ligne);
+                reset($ligne2);
+
+                next($ligne);
+                next($ligne);
+                next($ligne2);
+                next($ligne2);
+
+                for ($jour = 0; $jour < 7; $jour++){
+                    echo '<tr>'; 
+                    echo'<th>'.$day[$jour].'</th>';
+
+                    $valeur = current($ligne);
+                    echo'<td>'.$valeur.' - ';
+
+                    next($ligne);
+                    $valeur = current($ligne);
+                    echo $valeur.'</td>';
+
+                    next($ligne);
+                    $valeur = current($ligne2);
+                    echo'<td>'.$valeur.' - ';
+                
+                    next($ligne2);
+                    $valeur = current($ligne2);
+                    echo $valeur.'</td>';
+                    echo '</tr>';
+                    next($ligne2);
+                }
+
+            ?>
+
+            </table>
+        </div>
+        
     </div>
     
 </footer>

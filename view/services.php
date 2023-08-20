@@ -7,7 +7,7 @@
             Réparation de la carrosserie
         </h2>
         <div class="groupeService">
-            <svg width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <svg width="16" height="16" fill="currentColor" class="bi bi-car-front computer-only" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <clipPath id="clip-0">
                     <path d="M 4 9 C 4 9.77 3.167 10.251 2.5 9.866 C 2.191 9.688 2 9.357 2 9 C 2 8.23 2.834 7.749 3.5 8.134 C 3.81 8.313 4 8.643 4 9 Z M 14 9 C 14 9.77 13.167 10.251 12.5 9.866 C 12.191 9.688 12 9.357 12 9 C 12 8.23 12.834 7.749 13.5 8.134 C 13.81 8.313 14 8.643 14 9 Z M 6 8 C 5.23 8 4.749 8.834 5.134 9.5 C 5.313 9.81 5.643 10 6 10 L 10 10 C 10.77 10 11.251 9.167 10.866 8.5 C 10.688 8.191 10.358 8 10 8 L 6 8 Z M 4.862 4.276 L 3.906 6.19 C 3.735 6.543 4.01 6.95 4.402 6.921 C 4.402 6.921 4.403 6.921 4.403 6.921 C 5.313 6.848 6.753 6.751 8 6.751 C 9.247 6.751 10.688 6.848 11.597 6.921 C 11.989 6.95 12.265 6.545 12.095 6.191 C 12.095 6.191 12.094 6.191 12.094 6.19 L 11.138 4.277 C 11.054 4.108 10.881 4 10.691 4 L 5.309 4 C 5.12 4 4.947 4.107 4.862 4.276 Z" style="transform-box: fill-box; transform-origin: 50% 50%;"/>
@@ -33,7 +33,7 @@
         <div class="groupeService">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis numquam voluptate nobis consequuntur labore quos hic corporis ipsa. Praesentium suscipit maiores eveniet delectus obcaecati temporibus qui repellat earum libero sed.</p>
         
-            <svg width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <svg width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable computer-only" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <rect x="10.742" y="-4.249" width="2.518" height="3.35" style="stroke: rgb(0, 0, 0); paint-order: stroke; fill-rule: nonzero; fill: rgb(255, 145, 0); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0.939693, -0.34202, -0.34202, -0.939693, -2.517996, 8.498002)"/>
                 <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z" style="fill: rgb(255, 145, 0);"/>
                 <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" style="fill: rgb(0, 0, 0);"/>
@@ -48,7 +48,7 @@
             Entretien
         </h2>
         <div class="groupeService">
-            <svg width="16" height="16" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <svg width="16" height="16" fill="currentColor" class="bi bi-clipboard2-check computer-only" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" style="fill: rgb(0, 0, 0);"/>
                 <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" style="fill: rgb(0, 0, 0);"/>
                 <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" style="fill: rgb(255, 145, 0);"/>

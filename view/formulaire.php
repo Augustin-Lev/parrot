@@ -31,7 +31,7 @@
                 <label for="tel">Téléphone</label>
                 <input type="text" name="tel"  required="">
 
-                <button class="boutton" type="submit">Envoyer</button>   
+                <button class="boutton lumiere" type="submit">Envoyer</button>   
 
             </div>
         </form>

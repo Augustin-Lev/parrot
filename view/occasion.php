@@ -1,4 +1,4 @@
-<h1>Occasions</h1>
+<h1 class="h1Occas">Occasions</h1>
 
 <div class="filtreOccasion"  >
     <div>
@@ -38,7 +38,7 @@ foreach ($occasions as $voiture){?>
                 <p>Prix</p>
                 <p class="prix"><?php echo $voiture["Prix"] ?> €</p>
             </div>
-            <div>
+            <div class="computer-only">
                 <?php echo $voiture["descriptions"] ?>
             </div>
             <div>
