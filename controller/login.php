@@ -21,8 +21,12 @@
         if (isset($_POST["action"])){
             
             if($_POST["action"]=="envoyer"){
-                envoyer($_POST["mail"]);
-                require "../view/login-sent.php";
+                
+                if (envoyer($PDO,$_POST["mail"])){
+                    require "../view/login-sent.php";
+                }else{
+                    erreur("Votre mail n'est pas dans la base");
+                }
                 
             }
             if($_POST["action"]=="verifier"){
@@ -35,7 +39,7 @@
             }
             if($_POST["action"]=="nouveau-mpd"){
                 newMdp($PDO, $_SESSION["mail"],$_POST["mdp"]);
-                // require "../view/index.php";
+                header('Location:../controller/index.php');
                 
             }
             

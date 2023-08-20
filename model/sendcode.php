@@ -1,7 +1,7 @@
 <?php
 
 
-function envoyer($mail)
+function envoyer($PDO, $mail)
 {
     $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     $shfl = str_shuffle($comb);
@@ -12,8 +12,16 @@ function envoyer($mail)
     $_SESSION["code"] = $code;
    
     $text = "Votre code de validation est le suivant : ".$code;
-
-    mail($mail,"Verrification mail Parrot",$text);
+    $employe = allEmploye($PDO);
+    $envois = 0;
+    foreach ($employe as $salarie){
+        if ($salarie["email"]==$mail){
+            mail($mail,"Verrification mail Parrot",$text);
+            $envois = 1;
+        }
+    }
+    return $envois;
+    
 }
 
 function verifier($verif){
