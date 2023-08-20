@@ -1,7 +1,23 @@
 <?php
 
+$log = fopen("../model/log.csv","r");
+
+$line = 1;
+
+while (($line = fgetcsv($log)) !== FALSE) {
+    // var_dump($line);
+    $logUserDB = $line[0];
+    $logPasswordDB = $line[1];
+    $logName = $line[2];
+    $logSurname = $line[3];
+    $logEmail = $line[4];
+    $logPassword = $line[5];
+}
+fclose($log);
+
+
 try {
-    $PDO = new PDO('mysql:host=localhost;dbname=u734868843_parrot', 'u734868843_augustin', '4a:P:N6u:LKZ');
+    $PDO = new PDO('mysql:host=localhost;dbname=parrot', $logUserDB, $logPasswordDB);
 }catch(PDOExeption $e){
     echo 'Erreur lors de la connection à la base de donées';
 }
@@ -9,7 +25,6 @@ try {
 
 function VerifierMdpBdd($PDO,$email,$motDePasse){
     foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statut FROM salaries', PDO::FETCH_ASSOC) as $user){
-        //var_dump($user);
         if ($user['email'] === $email &&
             $user['motDePasse'] === $motDePasse){
             
@@ -158,7 +173,7 @@ function modifierService($PDO, $service, $content){
     }  
   
     $sql ='INSERT INTO `contenu` (services,contenu, modificateur, parution) VALUES (:services,:contenu, :modificateur, :parution);';
-    $pdoStatement = $POD->prepare($sql);
+    $pdoStatement = $PDO->prepare($sql);
     $pdoStatement->bindValue(':services', $services);
     $pdoStatement->bindValue(':contenu', $content);
     $pdoStatement->bindValue(':modificateur', $_SESSION["nom"].' '.$_SESSION["prenom"]);

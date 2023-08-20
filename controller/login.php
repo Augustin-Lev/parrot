@@ -42,11 +42,10 @@
         if (isset($_GET["login"])){
             if($_GET["login"]=="forget"){
                 require "../view/login-forget.php";
-               
             }
             if($_GET["login"]=="verif"){
-
                 $user = VerifierMdpBdd($PDO,$_POST['id'],$_POST['mdp']);
+               
                 if ($user != 0 ){
                     // echo "mot de passe correct";
                     // var_dump ($user);
@@ -55,14 +54,14 @@
                     $_SESSION["prenom"] = $user["prenom"];
                     $_SESSION["statut"] = $user["statut"];
                     $_SESSION["email"] = $user["email"];
-                    
                     header('Location:../controller/index.php');
 
                 }else{
-                    // echo "mot de passe incorrecte";
+                    erreur("mot de passe incorrecte");
                     $_SESSION["login"] = 0;
                     $_SESSION["statut"] = "visiteur";
-                    header('Location:../controller/index.php');
+                    require '../view/login.php';
+                   
                 }             
                
             }

@@ -469,6 +469,8 @@ h1{
     margin:inherit;
     min-height: 5vh;
     padding: 2% 0 2% 0;
+    background-color:#FFEDC1;
+    color: #FF9100;
 }
 
 .loginForm{
@@ -650,10 +652,7 @@ select:hover{
     padding: 0 10% 0 10%;
 }
 
-h1{
-    background-color: black;
-    color: #FF9100;
-}
+
 
 /* -------------Témoignage---------------- */
 .temoignagesGlobale{
@@ -788,4 +787,18 @@ h1{
 }
 .erreur>a{
     background-color : #972828;
+}
+/* ---------------initialisation------------- */
+.init{
+    background-color: #000000;
+    color: #FFEDC1;
+}
+.carte{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.init>p{
+    text-align: center;
+    margin: 0 25vw 5% 25vw;
 }

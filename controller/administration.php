@@ -16,7 +16,9 @@
         require "../model/Bdd.php";
         require "../view/header.php";
         require "../view/bandeau.php";
-
+        if ( !$_SESSION["login"] ){
+            header("Location:../controller/index.php");
+        }
         $Commentaires = allCommentaires($PDO);
         $occasions = occasion($PDO,"1");
         $allOccasions = allOccasions($PDO);

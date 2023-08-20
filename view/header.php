@@ -5,10 +5,13 @@ session_start();
 <header>
         <a class=headerLogo href="../controller/index.php">
             <img  src="../image/logoBlack.png">
-            <h2>Menu<h2>
+            <?php if(basename ($_SERVER['PHP_SELF']) != "index.php"){
+                echo '<h2>Menu<h2>';
+            } ?>
+            
         </a>
         <h2 class=headerTitre>Garage V.Parrot</h2>
-        
+
         <?php 
         if(isset($_SESSION)==0){
             session_start();
@@ -33,7 +36,7 @@ session_start();
       
 </header>
 
-<?php if ($_SESSION["statut"] == "Gérant" || $_SESSION["statut"] == "salarié" ){ ?>
+<?php if (($_SESSION["statut"] == "Gérant" || $_SESSION["statut"] == "salarié") && $_SESSION["login"] ){ ?>
     <div class="headerAdmin">
         <a  class="boutton" href="administration.php">Administrer</a>
     </div>
