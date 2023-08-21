@@ -34,7 +34,7 @@
 
 foreach ($occasions as $voiture){?>
     <div class="occasionVoiture" id="<?php echo $voiture["id"] ?>" >
-        <img src=" <?php echo $voiture["imageClef"] ?> ">
+        <img src=" ../image/occasion/<?php echo $voiture["id"] ?>/image1.jpg">
         <div class="occasionInfos">
             <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]?></h2>
             <div>

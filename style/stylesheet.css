@@ -40,6 +40,8 @@ html, body{
     padding: 0;
     background-color: black;
     font-family: OpenSansMedium;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 /* ---------------------header------------------------ */
@@ -147,10 +149,18 @@ header>.headerTitre{
     display: flex;
     color: #FFEDC1;
     flex-direction: column;
-    margin: 0 2% 0 0;
+    margin: 0;
     flex:1;
     text-decoration: none;
+    justify-content: space-evenly;
 }
+.headerLoger>p{
+    margin: 0;
+}
+.headerLoger>a{
+    margin: 0;
+}
+
 .headerLoger:hover > .headerCache{
     display: flex;
     color: #FFEDC1;

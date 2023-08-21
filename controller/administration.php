@@ -31,6 +31,7 @@
                 AjouterEmploye($PDO, $_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["mdp"]);
             }
             if($_POST["action"] == "ajout-new-occasion"){
+                var_dump($_FILES);
                 $newOccasion = array();
                 foreach($_POST as $param){
                     if (key($_POST) != "ajout-new-occasion"){
@@ -41,8 +42,8 @@
                 // var_dump($newOccasion);
               
                 AjouterOccasion($PDO, $newOccasion);
-                echo("<meta http-equiv='refresh' content='1'>"); 
-                require_once "../view/administration.php";
+                // echo("<meta http-equiv='refresh' content='1'>"); 
+                // require_once "../view/administration.php";
             }
             if($_POST["action"] == "supprimerOccasion"){
                 supprimerOccasion($PDO, $_POST["id"]);

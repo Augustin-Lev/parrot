@@ -241,50 +241,65 @@ function occasion($PDO, $id){
 }
 
 function AjouterOccasion($PDO, $tableau){
-    $tableau["imageClef"] = "../image/occasion/voiture1.jpg ";
-
-    $champ = "modificateur";
-    $binValue =":modificateur";
-
+    // $tableau["imageClef"] = "../image/occasion/voiture1.jpg ";
+    // phpinfo();
+    $id=0;   
     if(isset($tableau["id"])){  
-        $sql ='DELETE FROM `occasion` WHERE `id`LIKE '.$tableau["id"].";";
-        $pdoStatement= $PDO->prepare($sql);
-        $pdoStatement -> execute();
+        if ($tableau["id"] != ""){
+            $sql ='DELETE FROM `occasion` WHERE `id`LIKE '.$tableau["id"].";";
+            $pdoStatement= $PDO->prepare($sql);
+            $pdoStatement -> execute();
+        }else{
+            unset($tableau["id"] );
+        }
     }
+    $id = oldIdOccasion($PDO)+1;
+    if (is_dir("../image/occasion/".$id) == 0){
+        mkdir("../image/occasion/".$id);
+    }
+    
+    $nbImages = 0;
+    reset($_FILES);
+    foreach($_FILES as $fichier){
+        $nbImages ++;
+        move_uploaded_file($fichier['tmp_name'], "../image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));       
+    }
+    next($_FILES);
+    
+    $champ = "modificateur, imageClef,id";
+    $binValue = "'".$_SESSION["email"]."','".$nbImages."','".$id;
+    var_dump($tableau);
 
+    reset($tableau);
     foreach($tableau as $parametre){
-        
-        // var_dump($parametre);
         if (key($tableau) != 'action'){
             $champ = $champ.",".key($tableau);
-            $binValue = $binValue.",:".key($tableau);
+            $binValue = $binValue."','".$parametre;
         }    
         next($tableau);   
     }
-    // $champ[-1]=" ";
-    // $binValue[-1]=" ";
-    // $binValue[-2]=" ";
 
-    $sql ='INSERT INTO occasion ('.$champ.') VALUES ('.$binValue.');';
+    $sql ="INSERT INTO occasion (".$champ.") VALUES (".$binValue."');";
+    // var_dump($sql);
     $pdoStatement= $PDO->prepare($sql);
-
     // echo $sql.'<br/>';
-
-    reset($tableau);
-    $pdoStatement->bindValue(':modificateur',$_SESSION["email"], PDO::PARAM_STR);
-    foreach($tableau as $parametre){
-        if (key($tableau) != 'action'){      
-            $pdoStatement->bindValue(':'.key($tableau),$parametre, PDO::PARAM_STR);
-            // echo ':'.key($tableau).'--------'.$parametre.'<br/>';
-        }
-        next($tableau);
-    }      
     
     if($pdoStatement -> execute()) { 
         return "1";                
     }
     return "0";
 
+}
+function oldIdOccasion($PDO){
+    $grand = 1;
+    foreach ($PDO-> query('SELECT id FROM occasion ORDER BY id' , PDO::FETCH_ASSOC) as $id){
+        // var_dump($id);
+        if($id['id'] >= $grand){
+            $grand = $id['id'];
+        }
+    }
+    return $grand;
+    
 }
 function supprimerOccasion($PDO, $id){
     $sql = 'DELETE FROM occasion WHERE id like '.$id.';';

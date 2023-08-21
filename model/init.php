@@ -47,7 +47,8 @@
 function printForm(){
     echo'
     
-    <p>En vue de la bonne installation du site, nous vous demandons les information suivantes :</p>
+    <p>En vue de la bonne installation du site, nous vous demandons les information suivantes :<br/>
+    - Si un bug persiste au niveau du téléchargement des images, reconfigurez le php.ini et augmentez "upload_max_filesize"</p>
     <form class="loginForm" action="init.php" method="POST">
         <label for="UserDB">Utilisateur de la base de donnée</label>
         <input type="text" name="UserDB" value="u734868843_augustin" required="">
@@ -70,7 +71,6 @@ function printForm(){
         <button class="boutton" type="submit" name="action" value="stockInfos" >initialisation</button>
         <button class="boutton" type="submit" name="action" value="fillDB" > remplissage de la base</button>
     </form>
-    
     ';
 }
 
