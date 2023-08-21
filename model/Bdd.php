@@ -212,65 +212,54 @@ function allOccasions($PDO){
 }
 
 function occasion($PDO, $id){
-    foreach ($PDO-> query('SELECT id, modificateur,miseEnCirculation, imageClef,descriptions,caracteristiques, marque, modèle, Prix,kilométrage,options,galette_de_secours FROM occasion WHERE id LIKE '.$id , PDO::FETCH_ASSOC) as $vehicule){
-        //var_dump($vehicule);
-
-        $occasion = array(
-            "id" => $vehicule["id"],
-            "modificateur" => $vehicule["modificateur"],
-            "miseEnCirculation" => $vehicule ["miseEnCirculation"],
-            "imageClef" => $vehicule ["imageClef"],
-            "descriptions" => $vehicule ["descriptions"],
-
-            "caracteristiques" => $vehicule["caracteristiques"],
-            "marque" => $vehicule["marque"],
-            "modèle" => $vehicule["modèle"],
-            "Prix" => $vehicule ["Prix"],
-            "kilométrage" => $vehicule ["kilométrage"],
-
-            "options" => $vehicule["options"],
-            "galette_de_secours" => $vehicule["galette_de_secours"]
-            
-        );
+    foreach ($PDO-> query('SELECT * FROM occasion WHERE id LIKE '.$id , PDO::FETCH_ASSOC) as $vehicule){
+        return $vehicule;
     }
-    if(isset($occasion)){
-        return $occasion;
-
-    }
-  
 }
 
 function AjouterOccasion($PDO, $tableau){
     // $tableau["imageClef"] = "../image/occasion/voiture1.jpg ";
     // phpinfo();
+   
     $id=0;   
     if(isset($tableau["id"])){  
         if ($tableau["id"] != ""){
             $sql ='DELETE FROM `occasion` WHERE `id`LIKE '.$tableau["id"].";";
             $pdoStatement= $PDO->prepare($sql);
             $pdoStatement -> execute();
-        }else{
             unset($tableau["id"] );
         }
     }
+    if(isset($tableau["nbImagesDeja"])){  
+        if ($tableau["nbImagesDeja"] != ""){
+            $nbImagesDeja = $tableau["nbImagesDeja"];
+            unset($tableau["nbImagesDeja"] );
+        }
+    }
+   
     $id = oldIdOccasion($PDO)+1;
     if (is_dir("../image/occasion/".$id) == 0){
         mkdir("../image/occasion/".$id);
     }
     
     $nbImages = 0;
+    
     reset($_FILES);
     foreach($_FILES as $fichier){
         if($fichier['name'] != ""){
             $nbImages ++;
-            move_uploaded_file($fichier['tmp_name'], "../image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));       
+            move_uploaded_file($fichier['tmp_name'], "../image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));
         }
     }
+    if ($nbImagesDeja > $nbImages){
+        $nbImages = $nbImagesDeja;
+    }
+
     next($_FILES);
     
     $champ = "modificateur, imageClef,id";
     $binValue = "'".$_SESSION["email"]."','".$nbImages."','".$id;
-    var_dump($tableau);
+    // var_dump($tableau);
 
     reset($tableau);
     foreach($tableau as $parametre){
@@ -436,4 +425,10 @@ function mailGestion($PDO){
     return $liste;
    
   
+}
+function ajouterChamp($PDO,$apres,$table,$champ){
+    $sql ="ALTER TABLE `".$table."` ADD `".$champ."` VARCHAR(100) AFTER `".$apres."` ";
+    $pdoStatement = $PDO->prepare($sql);
+    $pdoStatement -> execute();
+
 }

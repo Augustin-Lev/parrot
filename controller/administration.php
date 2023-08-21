@@ -21,7 +21,7 @@
             header("Location:../controller/index.php");
         }
         $Commentaires = allCommentaires($PDO);
-        $occasions = occasion($PDO,"1");
+        $occasions = occasion($PDO,"id IS NOT NULL");
         $allOccasions = allOccasions($PDO);
         if (isset($_POST["action"])){
             if($_POST["action"] == "new-salarie"){
@@ -51,11 +51,15 @@
                 require_once "../view/administration.php";
             }
             if($_POST["action"] == "modifierOccasion"){
-                $voiture = occasion($PDO, $_POST["id"]);
-                require_once "../view/new-occasion.php";
+                if($_POST["id"]!=""){
+                    $voiture = occasion($PDO, $_POST["id"]);
+                    require_once "../view/new-occasion.php";
+                }else{
+                    erreur("il faut choisir une voiture avant de la modifier ;)");
+                    require_once "../view/administration.php";
+                }
+               
             }
-
-
 
             if($_POST["action"] == "changerHoraire"){
                 $horaires=$_POST;
@@ -68,14 +72,20 @@
                 validerTemoignage($PDO, $_POST["id"], $_POST["valide"]);
                 echo("<meta http-equiv='refresh' content='1'>");
             }
-           
-        }
-        if (isset($_POST["action"])){
             if($_POST["action"] == "new-occasion"){
                 require "../view/new-occasion.php";
             }
+            if($_POST["action"] == "ajouterChamp"){
+                ajouterChamp($PDO,$_POST["champ"],"occasion",$_POST["name"]);
+                bandeau("le champ ".$_POST["name"]." a bien été ajouté");
+            }
+           
         }else{
-            require_once "../view/administration.php";
+            if (isset($_GET["action"])){
+                require "../view/newFiel.php";
+            }else{
+                require_once "../view/administration.php";
+            }
         }
       
         require "../view/footer.php";

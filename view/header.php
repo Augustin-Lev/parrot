@@ -42,8 +42,8 @@ session_start();
     </div>
 
 <?php }
-// echo "POST";
-// var_dump($_POST);
-// echo "SESSION";
-// var_dump($_SESSION);
+echo "POST";
+var_dump($_POST);
+echo "SESSION";
+var_dump($_SESSION);
  ?> 
