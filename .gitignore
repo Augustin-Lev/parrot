@@ -1,3 +1,4 @@
 # ignore tous les fichier csv
-*.csv
+
 /image/occasion/
+/model/log.csv
