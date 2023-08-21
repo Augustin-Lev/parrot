@@ -6,18 +6,19 @@ $line = 1;
 
 while (($line = fgetcsv($log)) !== FALSE) {
     // var_dump($line);
-    $logUserDB = $line[0];
-    $logPasswordDB = $line[1];
-    $logName = $line[2];
-    $logSurname = $line[3];
-    $logEmail = $line[4];
-    $logPassword = $line[5];
+    $NameDB = $line[0];
+    $logUserDB = $line[1];
+    $logPasswordDB = $line[2];
+    $logName = $line[3];
+    $logSurname = $line[4];
+    $logEmail = $line[5];
+    $logPassword = $line[6];
 }
 fclose($log);
 
 
 try {
-    $PDO = new PDO('mysql:host=localhost;dbname=parrot', $logUserDB, $logPasswordDB);
+    $PDO = new PDO('mysql:host=localhost;dbname='.$NameDB, $logUserDB, $logPasswordDB);
 }catch(PDOExeption $e){
     echo 'Erreur lors de la connection à la base de donées';
 }

@@ -28,7 +28,7 @@
                 $fichier = fopen("../model/log.csv", "w");
                 fwrite($fichier, "UserDB,passwordDB,name,surname,email,password \r\n");
                 fwrite($fichier, $_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
-                initialisation($_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
+                initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
             }
         }
         if($_POST['action']=="fillDB"){
@@ -36,9 +36,9 @@
                 unlink('../model/log.csv');
             }else{
                 $fichier = fopen("../model/log.csv", "w");
-                fwrite($fichier, "UserDB,passwordDB,name,surname,email,password \r\n");
-                fwrite($fichier, $_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
-                initialisation($_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
+                fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password \r\n");
+                fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
+                initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
             }
         }
 
@@ -50,6 +50,9 @@ function printForm(){
     <p>En vue de la bonne installation du site, nous vous demandons les information suivantes :<br/>
     - Si un bug persiste au niveau du téléchargement des images, reconfigurez le php.ini et augmentez "upload_max_filesize"</p>
     <form class="loginForm" action="init.php" method="POST">
+        <label for="NameDB">Nom de la base de donnée</label>
+        <input type="text" name="NameDB" value="u734868843_parrot" required="">
+
         <label for="UserDB">Utilisateur de la base de donnée</label>
         <input type="text" name="UserDB" value="u734868843_augustin" required="">
 
@@ -74,10 +77,10 @@ function printForm(){
     ';
 }
 
-function fillDB($UserDB,$passwordDB,$name,$surname,$email,$password){
+function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
  
     try {
-        $PDO = new PDO('mysql:host=localhost;dbname=parrot', $UserDB, $passwordDB);
+        $PDO = new PDO('mysql:host=localhost;dbname='.$NameDB, $UserDB, $passwordDB);
     }catch(PDOExeption $e){
         echo '<li>Erreur lors de la connection à la base de donées</li>';
     }
@@ -300,7 +303,7 @@ function fillDB($UserDB,$passwordDB,$name,$surname,$email,$password){
 
 }
 
-function initialisation($UserDB,$passwordDB,$name,$surname,$email,$password,$fillDB){
+function initialisation($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password,$fillDB){
     echo '<body>
         <h2 >Creation de la base de donnée</h2> 
         <div class="carte" style="margin: 5% 20% 0% 20%;">
@@ -313,11 +316,11 @@ function initialisation($UserDB,$passwordDB,$name,$surname,$email,$password,$fil
         echo 'Erreur lors de la connection à la base de donées';
     }
     require "../model/Bdd.php";
-    if ($PDO->exec('DROP DATABASE IF EXISTS Parrot') !== false) {
-        if ($PDO -> exec('CREATE DATABASE Parrot') !==null){
+    if ($PDO->exec('DROP DATABASE IF EXISTS '.$NameDB) !== false) {
+        if ($PDO -> exec('CREATE DATABASE '.$NameDB) !==null){
             echo "<li>création de la base réussi !</li> <br/>";
             try{
-                $tablePDO = new PDO('mysql:host=localhost;dbname=Parrot', $UserDB, $passwordDB);
+                $tablePDO = new PDO('mysql:host=localhost;dbname='.$NameDB, $UserDB, $passwordDB);
                 echo '<li>liaison à la base de donnée réussie</li><br/>';
             }catch(PDOExeption $e){
                 echo '<li>echec de la liaison à la base de données</li><br/>';
@@ -403,7 +406,7 @@ function initialisation($UserDB,$passwordDB,$name,$surname,$email,$password,$fil
     }
 
     if($fillDB){
-        fillDB($UserDB,$passwordDB,$name,$surname,$email,$password);
+        fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password);
     }
     
     echo ' </ul>';
