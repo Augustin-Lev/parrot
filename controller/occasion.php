@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="..\style\stylesheet.css">
         <link rel="stylesheet" href="..\style\stylesheet-tel.css">
+        <link rel="stylesheet" href="..\style\carroussel.css">
         <link rel="stylesheet" href="../style\jquery-ui.theme.css">
         <link rel="stylesheet" href="../style\jquery-ui.structure.css"> 
         <title>Garrage Parrot</title>

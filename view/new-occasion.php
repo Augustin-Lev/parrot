@@ -6,12 +6,14 @@
                 next($occasions);
             }else{
                 if(substr(key($occasions),0,5) == "image"){
-                    ?>
-                    <div>
-                        <label for="<?php echo key($occasions);  ?>"><?php echo key($occasions);  ?></label>
-                        <input type="file" accept="image/png, image/jpeg" multiple  name="<?php echo key($occasions);  ?>">
-                    </div>
-                    <?php 
+                    for ($nbImages = 1; $nbImages <10; $nbImages++ ){
+                        ?>
+                        <div>
+                            <label for="<?php echo key($occasions);  ?>"><?php echo key($occasions);  ?></label>
+                            <input type="file" accept="image/png, image/jpeg" multiple="1" name="image<?php echo $nbImages;?>">
+                        </div>
+                        <?php 
+                    }
                     next($occasions);
 
                 }else{

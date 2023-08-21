@@ -261,8 +261,10 @@ function AjouterOccasion($PDO, $tableau){
     $nbImages = 0;
     reset($_FILES);
     foreach($_FILES as $fichier){
-        $nbImages ++;
-        move_uploaded_file($fichier['tmp_name'], "../image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));       
+        if($fichier['name'] != ""){
+            $nbImages ++;
+            move_uploaded_file($fichier['tmp_name'], "../image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));       
+        }
     }
     next($_FILES);
     
