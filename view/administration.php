@@ -49,6 +49,8 @@
 <form action = "../controller/administration.php#formulaireHoraire" method="POST" id="formulaireHoraire">
     <input type="hidden" name="action" value="changerHoraire">
     <h2>Horaires</h2>
+    <p class='description'>Changez les horraires d'ouverture directement via se pannel ! <br/>
+    Pour indiquer la fermeture d'un matin ou après-midi, appuyez sur "à".</p>
     <table class="horrairesModif">
         <thead>
             <th></th>
@@ -60,7 +62,7 @@
         </thead>
 
         <?php $horaire =  getHoraires($PDO);
-        //var_dump($horaire);
+        //  var_dump($horaire);
         
 
         $Jour = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
@@ -68,6 +70,7 @@
         reset($horaire[0]);
         next($horaire[0]);
         next($horaire[0]);
+
         reset($horaire[1]);
         next($horaire[1]);
         next($horaire[1]);
@@ -75,24 +78,54 @@
         for($i=0; $i<7; $i++){
             $text1 = $jour[$i]."1";
             $text2 = $jour[$i]."2";
-            echo ' 
-            <tr>
-                <th>'.$Jour[$i].'</th>
-                <td><input type=time name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text1].'"></td>';
-                next($horaire[0]);
-            echo'
-                <td class="accent">à</td>
+
+            echo '<tr>
+            <th>'.$Jour[$i].'</th>';
+            if($horaire[0][$text1] != "CLOSE"){
+                echo ' 
+                    <td><input type=time name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text1].'"></td>';
+                   
+            }else{
+                echo '<td>CLOSED</td>
+                <input type=hidden name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text1].'">';
+            }
+            next($horaire[0]);
+            
+            if($horaire[0][$text2] != "CLOSE"){
+                echo'
+                <td class="accent"><button type="submit" name="close" value="matin-'.$jour[$i].'">à</a></td>
                 <td><input type=time name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text2].'"></td>';
-                next($horaire[0]);
-            echo'
-                <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text1].'"></td>';
-                next($horaire[1]);
-            echo'
-                <td class="accent">à</td>
-                <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text2].'"></td> ';
-                next($horaire[1]);
-            echo'     
-            </tr>';
+            }else{
+                echo '
+                <td class="accent"><button type="submit" name="open" value="matin-'.$jour[$i].'">à</a></td>
+                <td>CLOSED</td>
+                <input type=hidden name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text2].'">';
+            }
+            next($horaire[0]);
+
+            if($horaire[1][$text1] != "CLOSE"){
+                echo'
+                    <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text1].'"></td>';
+            }else{
+                echo '
+                <td>CLOSED</td>
+                <input type=hidden name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text1].'">';
+            }
+            next($horaire[1]);
+            
+            if($horaire[1][$text2] != "CLOSE"){
+                echo'
+                    <td class="accent"><button type="submit" name="close" value="aprem-'.$jour[$i].'">à</a></td>
+                    <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text2].'"></td> ';
+            }else{
+                echo '
+                <td class="accent"><button type="submit" name="open" value="aprem-'.$jour[$i].'">à</a></td>
+                <td>CLOSED</td>
+                <input type=hidden name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text2].'">';
+            }
+            next($horaire[1]);
+            
+            echo'</tr>';
         }
 ?>
     </table>

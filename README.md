@@ -91,21 +91,16 @@ ajout du fichier readme
 SEO
 sitemap
 ajouter un fichier robot
+servir les images en format next-gen
 ***
 
 ### Taches à réaliser
 ***
 
 
-
-servir les images en format next-gen
-
-mettre le prix en fonction de la voiture la plus haute
 horraire fermé le dimanche
-
 changer les nom des adresses 
-
-mettre sur serveur
+améliorer front-end des témoignages
 
 
 ## CREDITS

@@ -356,6 +356,20 @@ function getHoraires($PDO){
 }
 
 function changerHoraire($PDO, $tableau){
+    reset($tableau);
+    foreach ($tableau as $valeur){
+        if (key($tableau) == "close"){
+            $tableau[$valeur."1"] = "CLOSE";
+            $tableau[$valeur."2"] = "CLOSE";
+            
+        }elseif(key($tableau) == "open"){
+            $tableau[$valeur."1"] = "00:00";
+            $tableau[$valeur."2"] = "00:00";
+        }
+        next($tableau);
+    }
+    // var_dump($tableau);
+
     $sql = 'DELETE FROM horaire WHERE id like 1';
     $pdoStatement= $PDO->prepare($sql);
     $pdoStatement -> execute();
@@ -365,7 +379,7 @@ function changerHoraire($PDO, $tableau){
 
     $sql ='INSERT INTO `horaire` (id, journee,lundi1,lundi2,mardi1,mardi2,mercredi1,mercredi2,jeudi1,jeudi2,vendredi1,vendredi2,samedi1,samedi2,dimanche1,dimanche2) VALUES (:id, :journee,:lundi1,:lundi2,:mardi1,:mardi2,:mercredi1,:mercredi2,:jeudi1,:jeudi2,:vendredi1,:vendredi2,:samedi1,:samedi2,:dimanche1,:dimanche2);';
     $pdoStatement = $PDO->prepare($sql);
-    
+
     $pdoStatement->bindValue(':id', 1,PDO::PARAM_STR);
     $pdoStatement->bindValue(':journee','matin',PDO::PARAM_STR);
     $pdoStatement->bindValue(':lundi1',$tableau["matin-lundi1"],PDO::PARAM_STR);

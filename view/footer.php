@@ -39,20 +39,27 @@
         
         <?php $horaire =  getHoraires($PDO);
         // var_dump($horaire);
+        $write =1;
         foreach($horaire as $ligne){
             if($ligne["id"]== 1){
             echo ' <tr>';           
             reset($ligne);
             $i = 1;
             foreach($ligne as $valeur){
-                if (key($ligne) != 'id' && key($ligne) != 'journee' ){
+                if (key($ligne) != 'id' && key($ligne) != 'journee' && $write){
                     $i ++;
-                    if (($i%2) == 0){
+                    if($valeur == "CLOSE"){
+                        echo'<td>Fermé</td>';
+                        $write = 0;
+                        $i++;
+                    }elseif (($i%2) == 0){
                        echo'<td>'.$valeur.' - ';
                     }
                     else{
                         echo $valeur.'</td>';
                     }
+                }elseif($write == 0){
+                    $write =1;
                 }
             next($ligne);
            
@@ -66,14 +73,20 @@
             reset($ligne);
             $i = 1;
             foreach($ligne as $valeur){
-                if (key($ligne) != 'id' && key($ligne) != 'journee' ){
+                if (key($ligne) != 'id' && key($ligne) != 'journee' && $write ){
                     $i ++;
-                    if (($i%2) == 0){
+                    if($valeur == "CLOSE"){
+                        echo'<td>Fermé</td>';
+                        $write = 0;
+                        $i++;
+                    }elseif (($i%2) == 0){
                        echo'<td>'.$valeur.' - ';
                     }
                     else{
                         echo $valeur.'</td>';
                     }
+                }elseif($write == 0){
+                    $write =1;
                 }
             next($ligne);
            

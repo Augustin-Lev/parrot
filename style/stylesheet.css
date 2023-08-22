@@ -459,6 +459,10 @@ footer>div{
 .footerContainerGlobal>div>a{
     text-decoration: none;
 }
+.description{
+    margin:  5% 10% 5% 10%;
+    text-align: center;
+}
 .horraires{
     display: flex;
     flex-direction: column;
@@ -585,6 +589,10 @@ select:hover{
 
 .accent{
     text-align: center;
+}
+.accent>button:hover{
+    background-color: #972828;
+    content: "x";
 }
 
 .bouttonHorraire{

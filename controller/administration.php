@@ -31,7 +31,7 @@
                 AjouterEmploye($PDO, $_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["mdp"]);
             }
             if($_POST["action"] == "ajout-new-occasion"){
-                var_dump($_FILES);
+                // var_dump($_FILES);
                 $newOccasion = array();
                 foreach($_POST as $param){
                     if (key($_POST) != "ajout-new-occasion"){
