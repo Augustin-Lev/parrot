@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /model/log.csv
+Disallow: /model/init.php
+Disallow: /controller/modifService.php
+Disallow: /controller/administration.php

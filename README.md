@@ -89,13 +89,15 @@ ajouter des options aux voitures d'occasion
 ajouter des images aux voitures d'occasion
 ajout du fichier readme
 SEO
+sitemap
+ajouter un fichier robot
 ***
 
 ### Taches à réaliser
 ***
 
-sitemap
-ajouter un fichier robot
+
+
 modifier page 404
 Schema.org et les microdonnées
 Ajouter une balise Canonique
