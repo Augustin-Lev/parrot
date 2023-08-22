@@ -30,7 +30,9 @@
 
                 <label for="tel">Téléphone</label>
                 <input type="text" name="tel"  required="">
-
+                <?php if(isset($sujet)){
+                    echo '<input type="hidden" name="sujet"  value="'.$sujet.'>';
+                } ?>
                 <button class="boutton lumiere" type="submit">Envoyer</button>   
 
             </div>

@@ -742,7 +742,9 @@ select:hover{
     font-size: 30px;
     background-color: transparent;
 }
-
+.occasionInfos>h2{
+   color : black;
+}
 .filtreOccasion{
     width: 100%;
     display: flex;
@@ -780,7 +782,7 @@ select:hover{
 }
 .bouttonReserver{
     text-align: center;
-    margin: 5% 0 5% 0;
+    margin: 5%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -5,7 +5,7 @@
         <a title="Réinitialiser la base de donnée" class="boutton" href="../model/init.php">Réinitialiser la Base</a>
         <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>
     </form>
-<?php } ?>
+
 
 <div>
     <h2>Que souhaitez-vous modifier ?</h2>
@@ -131,6 +131,7 @@
     </table>
     <button class="boutton bouttonHorraire" type="submit">Changer</button>
 </form>
+<?php } ?>
 
 <div class="margeAdmin">
     <h2>Témoignage</h2>

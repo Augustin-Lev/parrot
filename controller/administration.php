@@ -29,6 +29,7 @@
             }
             if($_POST["action"] == "ajout-new-employe"){
                 AjouterEmploye($PDO, $_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["mdp"]);
+                require_once "../view/administration.php";
             }
             if($_POST["action"] == "ajout-new-occasion"){
                 // var_dump($_FILES);
@@ -42,7 +43,7 @@
                 // var_dump($newOccasion);
               
                 AjouterOccasion($PDO, $newOccasion);
-                // echo("<meta http-equiv='refresh' content='1'>"); 
+                echo("<meta http-equiv='refresh' content='1'>"); 
                 // require_once "../view/administration.php";
             }
             if($_POST["action"] == "supprimerOccasion"){

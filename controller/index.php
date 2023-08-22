@@ -30,17 +30,23 @@
                 bandeau("Vous êtes bien déconnecté");
             }
         }
-        require_once "../view/index.php";
+        
         if(isset($_POST["message"])){
             $employes = allEmploye($PDO);
             foreach($employes as $employe){
                 if ($employe["statut"] == "patron"){
                     $message = "nom : ".$_POST["nom"]."<br/> prenom : ".$_POST["prenom"]."<br/> tel : ".$_POST["tel"]."<br/> message : ".$_POST["message"];
-                    mail($employe["email"],"Message Client Site Internet",$message);
+                    if(isset($_POST["sujet"])){
+                        $sujet = $_POST["sujet"];
+                    }else{
+                        $sujet = "Message Client Site Internet";
+                    }   
+                    mail($employe["email"],$sujet,$message);
                 }
             }
             bandeau("le message a bien été envoyé");
         }
+        require_once "../view/index.php";
       
        
         require "../view/footer.php";

@@ -79,35 +79,9 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
             <p>Pour toute demande d'information suplémentaire, n'hésitez pas à nous contacter au 07 66 55 44 33 </p>
         </form>
         
-        <div class="formulaire" id="formulaire">
-        <div>
-            <h2>Nous contacter</h2>
-            <p>Pour toutes questions ou prises de rendez-vous, n'hésitez pas à remplir le formulaire suivant ou a nous contacter au : 07 55 44 11 33</p>
-        </div>
-        
-        <form action="../controller/index.php" method="POST">
-            <div class="formulaireMessage">
-                <label for="message">Votre message</label>
-                <input type="textarea" name="message" required="">
-            </div>
-            
-            <div class="renseignement">
-                <label for="nom">Nom</label>
-                <input type="text" name="nom" required="">
-
-                <label for="prenom">Prénom</label>
-                <input type="text" name="prenom"  required="">
-
-                <label for="mail">Email</label>
-                <input type="mail" name="mail"  required="">
-
-                <label for="tel">Téléphone</label>
-                <input type="text" name="tel"  required="">
-
-                <button class="boutton" type="submit">Envoyer</button>   
-
-            </div>
-        </form>
+        <?php 
+        $sujet = "reservation voiture:".$voiture["id"]."|".$voiture["marque"]."-".$voiture["modèle"].
+        require "../view/formulaire.php"; ?>
     </div>
 
       
