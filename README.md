@@ -98,9 +98,6 @@ ajouter un fichier robot
 
 
 
-modifier page 404
-Schema.org et les microdonnées
-Ajouter une balise Canonique
 servir les images en format next-gen
 
 mettre le prix en fonction de la voiture la plus haute

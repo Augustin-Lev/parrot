@@ -1,6 +1,6 @@
 <footer>
     <a  href="../controller/index.php">
-        <img src="../image/logoBlack.png" alt="Logo Garrage Parrot">
+        <img src="../image/logoBlack.webp" alt="Logo Garrage Parrot">
     </a>
     <div>
 
