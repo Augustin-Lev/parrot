@@ -88,11 +88,12 @@ envoyer un mail avec code seulement aux personnes administrateurs
 ajouter des options aux voitures d'occasion
 ajouter des images aux voitures d'occasion
 ajout du fichier readme
+SEO
 ***
 
 ### Taches à réaliser
 ***
-SEO
+
 sitemap
 ajouter un fichier robot
 modifier page 404
