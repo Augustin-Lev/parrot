@@ -1,3 +1,4 @@
+<h1>Nouvelle occasion</h1>
 <form class="new_occasion" action="../controller/administration.php" method="POST" enctype="multipart/form-data">
     <?php 
         // var_dump($occasions);
@@ -34,10 +35,11 @@
         }
         
     ?>
-    <a href="../controller/administration.php?action=newCaracteristique" target="_blank" class="boutton">Ajouter une caractéristique</a>
-    <a href="../controller/administration.php?action=newOption" target="_blank" class="boutton">Ajouter une Option</a>
+    <a title="Nouvelle caractéristique" href="../controller/administration.php?action=newCaracteristique" target="_blank" class="boutton">Ajouter une caractéristique</a>
+    <a title="Nouvelle option" href="../controller/administration.php?action=newOption" target="_blank" class="boutton">Ajouter une Option</a>
     <input style="display:none" type="text" name="action" value="ajout-new-occasion">
     <input type="hidden" name="id" value=  <?php if(isset($_POST["id"])) {echo $_POST["id"];} ?>>
 
     <button class="boutton" type="submit">Ajouter</button>
+    <a title="Retour vers le panneau d'administration"href="../controller/administration.php">Retour</a>
 </form>

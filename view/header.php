@@ -4,7 +4,7 @@ session_start();
 
 <header <?php if(basename ($_SERVER['PHP_SELF']) == "index.php"){echo 'class="computer-only"';} ?>>
         <a  href="../controller/index.php" class="headerLogo" >
-            <img  src="../image/logoBlack.png">
+            <img src="../image/logoBlack.png" alt="Logo noir du Garage V.Parrot>
             <?php if(basename ($_SERVER['PHP_SELF']) != "index.php"){
                 echo '<h2>Menu<h2>';
             } ?>

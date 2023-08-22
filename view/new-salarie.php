@@ -1,3 +1,4 @@
+<h1>Nouvel employé</h1>
 <form class="new_employee" action="../controller/administration.php" method=POST>
 
     <div>
@@ -23,4 +24,5 @@
     <input style="display:none" type="text" name="action" value="ajout-new-employe">
 
     <button class="boutton" type="submit">Ajouter</button>
+    <a title="Retour vers le panneau d'administration" href="../controller/administration.php">Retour</a>
 </form>

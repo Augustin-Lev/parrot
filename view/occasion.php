@@ -46,7 +46,7 @@ foreach ($occasions as $voiture){?>
                 <p class="km"><?php echo $voiture["kilométrage"] ?> km</p>
             </div>
             <div class="occasionBoutton">
-                <a href="../controller/occasion.php?voiture=<?php echo $voiture["id"] ?>" class="boutton">Voir plus</a>
+                <a title="avoir plus d'informations" href="../controller/occasion.php?voiture=<?php echo $voiture["id"] ?>" class="boutton">Voir plus</a>
             </div>
         </div>
     </div>

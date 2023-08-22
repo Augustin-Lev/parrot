@@ -1,14 +1,21 @@
-#Garage V.PARROT
+# Garage V.PARROT
 Salut, je suis Augustin étudiant devellopeur web full stack passionné ! 
+J'aime bien tout maitriser et de ce fait j'utilise très peu de framework...
 
-##INTRODUCTION
+## INTRODUCTION
 ***
 Le but de cette application web est de certifier des compétences pour un diplome Dev Web Full Stack !
 Le garage Parrot à Toulouse vient d'ouvrir ses portes, il veux donc se faire connaitre sur le web.
 Cette application web est la plus chouette du monde car c'est la plus chouette gars du monde qui l'a faite na!
 
-##Déploiement
-###Via Github
+## SOMMAIRE
+1. [DEPLOIEMENT](#Déploiement)
+2. [INFORMATIONS](#INFORMATIONS)
+3. [CREDITS](#CREDITS)
+4. [LISCENCE](#LISCENCE)
+
+## DEPLOIEMENT
+### Via Github
 - connectez-vous à votre hébergeur
 - créez une base de donnée Mysql
 - déployez la branche main dans le repertoire "public_html"
@@ -18,7 +25,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - ouvrir la page web à la racine de votre site
 - remplir le formulaire et selectionner remplir la base de donnée
 
-###Client FTP / SSH
+### Client FTP / SSH
 - connectez-vous à votre hébergeur
 - créez une base de donnée Mysql
 - connectez votre client FTP à votre hebergeur
@@ -28,7 +35,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - ouvrir la page web à la racine de votre site
 - remplir le formulaire et selectionner remplir la base de donnée
 
-###Via votre hébergeur
+### Via votre hébergeur
 - connectez-vous à votre hébergeur
 - créez une base de donnée Mysql
 - rendez-vous dans "gerer les fichier" ou quelque chose qui y ressemble
@@ -36,9 +43,9 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - charger l'intégralité sur dossier Git exepté [model/log.csv]
 
 
-##INFORMATIONS
+## INFORMATIONS
 
-###Langages Utilisés:
+### Langages Utilisés:
 ***
 - html
 - php
@@ -46,7 +53,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - css
 - sql
 
-###Logiciels de developement
+### Logiciels de developement
 ***
 - Visual Studio Code
 - Opera et Chrome DevTools
@@ -55,7 +62,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 
 
 
-###Taches réalisés
+### Taches réalisés
 ***
 modification des horaires
 bouton ajouter un nouveau témoignage dans admin
@@ -80,22 +87,32 @@ faire des cartes pour les voitures d'occasion
 envoyer un mail avec code seulement aux personnes administrateurs
 ajouter des options aux voitures d'occasion
 ajouter des images aux voitures d'occasion
+ajout du fichier readme
 ***
 
-###Taches à réaliser
+### Taches à réaliser
 ***
+SEO
+sitemap
+ajouter un fichier robot
+modifier page 404
+Schema.org et les microdonnées
+Ajouter une balise Canonique
+servir les images en format next-gen
+
 mettre le prix en fonction de la voiture la plus haute
 horraire fermé le dimanche
-SEO
+
 changer les nom des adresses 
-ajouter un fichier robot
+
 mettre sur serveur
 
 
-##CREDITS
+## CREDITS
 -STUDI
+-Google Map
 
-##LISCENCE
+## LISCENCE
 MIT License
 
 Copyright (c) [2023] [Augustin-Levasseur]

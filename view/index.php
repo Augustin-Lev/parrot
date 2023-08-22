@@ -2,7 +2,7 @@
     <img src="../image/logoBlack.png" alt="Logo Parrot">
 </div>
 
-<a href="../controller/index.php#debut" class="phone-only">
+<a title="Descends au début" href="../controller/index.php#debut" class="phone-only">
     <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
             <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -10,8 +10,8 @@
 </a>
 
 <div class=containerTwoImg>
-    <a href="../controller/service.php" style="background-image: url(../image/service.jpg)">Services</a>
-    <a href="../controller/occasion.php" style="background-image: url(../image/occasion.jpg)">Occasion</a>
+    <a title="voir les services" href="../controller/service.php" style="background-image: url(../image/service.jpg)">Services</a>
+    <a title="voir les occasions" href="../controller/occasion.php" style="background-image: url(../image/occasion.jpg)">Occasion</a>
 </div>
 
 <a href="../controller/index.php#debut" class="chevronContainer">
@@ -22,9 +22,9 @@
 </a>
 
 <div class=containerIndex id="debut">
-    <h2>Que souhaitez vous ?</h2>
+    <h2>Nos services</h2>
     <div class= troisServices>
-        <a class="box1 lumiere" href="../controller/service.php#carrosserie">
+        <a title="découvrez nos services de carrosserie" class="box1 lumiere" href="../controller/service.php#carrosserie">
             
             <svg  width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -43,7 +43,7 @@
             <h2 class=texte1>Carrosserie</h2>
          
         </a>
-        <a class="box1 lumiere"  href="../controller/service.php#moteur">
+        <a title="découvrez nos services moteur" class="box1 lumiere"  href="../controller/service.php#moteur">
             <svg width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <rect x="10.742" y="-4.249" width="2.518" height="3.35" style="stroke: rgb(0, 0, 0); paint-order: stroke; fill-rule: nonzero; fill: rgb(255, 145, 0); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0.939693, -0.34202, -0.34202, -0.939693, -2.517996, 8.498002)"/>
             <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z" style="fill: rgb(255, 145, 0);"/>
@@ -52,7 +52,7 @@
             <h2 class=texte1>Moteur</h2>
           
         </a>
-        <a class="box1 lumiere" href="../controller/service.php#entretien">
+        <a title="découvrer nos services d'entretien" class="box1 lumiere" href="../controller/service.php#entretien">
             <svg width="16" height="16" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" style="fill: rgb(0, 0, 0);"/>
             <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" style="fill: rgb(0, 0, 0);"/>

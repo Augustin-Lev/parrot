@@ -8,8 +8,8 @@
         <label for="mpd">Mot de passe</label>
         <input type="password" id="mdp" name="mdp" required="">
 
-        <a href="../controller/login?login=forget ">mot de passe oublié ou inexistant</a>
-        <a href="../controller/index.php">retour au site</a>
+        <a title="créer un nouveau mot de passe" href="../controller/login?login=forget ">mot de passe oublié ou inexistant</a>
+        <a title="Retour vers le menu"href="../controller/index.php">retour au site</a>
 
         <button class="boutton" type='submit'>Se connecter</button>
     </form>

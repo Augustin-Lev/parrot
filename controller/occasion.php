@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="..\style\stylesheet.css">
@@ -7,10 +7,12 @@
         <link rel="stylesheet" href="..\style\carroussel.css">
         <link rel="stylesheet" href="../style\jquery-ui.theme.css">
         <link rel="stylesheet" href="../style\jquery-ui.structure.css"> 
-        <title>Garrage Parrot</title>
+        <title>Véhicule d'occasions V.Parrot</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name= "description" content="
-        Du presque neuf au peu cher, nous vous proposons tous types de voitures d'occasions !
+        Quelque soit votre budget, nous vous proposons tous types de voitures d'occasions !
+        Filtrez par prix, kilolétrage ou année de mise en service pour affiner vos recherches. 
+        Une page d'informations détaillé vous est proposé pour chaque véhicule, il n'y a plus qu'à reserver !
         ">
     </head>
 

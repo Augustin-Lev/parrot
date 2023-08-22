@@ -21,7 +21,7 @@
         </p>
 
         <button class="boutton" type="submit">Envoyer</button>
-        <a href="../controller/index.php">Annuler</a>
+        <a title="Retour vers le menu" href="../controller/index.php">Annuler</a>
 
     </form>
 </div>

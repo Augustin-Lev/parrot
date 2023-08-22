@@ -9,7 +9,7 @@
         <p>Un code valable pendant 1 heure va vous être envoyé à votre adresse mail</p>
 
         <button class="boutton" type="submit">Envoyer</button>
-        <a href="../controller/index.php">Annuler</a>
+        <a title="Retour au menu" href="../controller/index.php">Annuler</a>
 
     </form>
 </div>

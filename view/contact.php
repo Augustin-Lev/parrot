@@ -1,7 +1,7 @@
 <div class=login class="formulaire">
 
     
-    <h2>Reserver un véhicule</h2>
+    <h1>Reserver un véhicule</h1>
     
           
     <form class="loginForm" action="../controller/occasion.php" method="POST">
@@ -25,7 +25,7 @@
         </p>
 
         <button class="boutton" type="submit">Envoyer</button>
-        <a href="../controller/occasion.php">Annuler</a>
+        <a title="Retour vers le menu occasion" href="../controller/occasion.php">Annuler</a>
 
     </form>
 </div>

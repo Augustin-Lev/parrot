@@ -6,7 +6,7 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
         <input type="radio" name="slider" title="slide<?php echo $i+1; ?>" for="slide<?php echo $i+1; ?>" class="slider__nav"/>
 <?php }?>
     <div class="slider__inner" style="width:<?php echo $voiture["imageClef"]; ?>00%;">
-        <?php for( $i=1; $i<$voiture["imageClef"]+1;$i++){ ?>
+        <?php for( $i=1; $i<(intval($voiture["imageClef"])+1);$i++){ ?>
             <div class="slider__contents">
             <img class="slider__txt" src="../image/occasion/<?php echo $voiture["id"] ?>/image<?php echo $i; ?>.jpg">
             </div>
@@ -18,7 +18,7 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
 <div class="occasionPlus">
 
     <form action="../controller/occasion.php" method="POST" class="occasionEnTete">
-    <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]."  <br/ class='phone_only'>  ".$voiture["Prix"]."€"?></h2>
+    <h1 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]."  <br/ class='phone_only'>  ".$voiture["Prix"]."€"?></h1>
         <input type="hidden" name="id" value="<?php echo $voiture["id"] ?>">
         <button class="boutton " type="submit" name="action" value="demandeRenseignement">Réserver</button>
     </form>

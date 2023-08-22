@@ -27,7 +27,6 @@ h2{
     font-family: "BeautifullyDeliciousSans",'Arial';
     text-transform:uppercase;
     text-align: center;
-    
     font-size: 30px;
 }
 
@@ -487,7 +486,7 @@ h1{
     margin:inherit;
     min-height: 5vh;
     padding: 2% 0 2% 0;
-    background-color:#FFEDC1;
+    background-color:transparent;
     color: #FF9100;
 }
 
@@ -728,6 +727,12 @@ select:hover{
 }
 .occasionTitre{
     font-size: 20px;
+    color: #FFEDC1;
+    font-family: "BeautifullyDeliciousSans",'Arial';
+    text-transform:uppercase;
+    text-align: center;
+    font-size: 30px;
+    background-color: transparent;
 }
 
 .filtreOccasion{
