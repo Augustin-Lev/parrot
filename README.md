@@ -24,6 +24,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
     - si c'est le cas, le supprimer
 - ouvrir la page web à la racine de votre site
 - remplir le formulaire et selectionner remplir la base de donnée
+    - attention les données entrés sont considérés celles du gérant
 
 ### Client FTP / SSH
 - connectez-vous à votre hébergeur
@@ -34,6 +35,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
     - si c'est le cas, le supprimer
 - ouvrir la page web à la racine de votre site
 - remplir le formulaire et selectionner remplir la base de donnée
+	- attention les données entrés sont considérés celles du gérant
 
 ### Via votre hébergeur
 - connectez-vous à votre hébergeur
@@ -41,6 +43,9 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - rendez-vous dans "gerer les fichier" ou quelque chose qui y ressemble
 - selectionner upload files
 - charger l'intégralité sur dossier Git exepté [model/log.csv]
+- ouvrir la page web à la racine de votre site
+- remplir le formulaire et selectionner remplir la base de donnée
+	- attention les données entrés sont considérés celles du gérant
 
 
 ## INFORMATIONS
@@ -92,20 +97,21 @@ SEO
 sitemap
 ajouter un fichier robot
 servir les images en format next-gen
+horraire fermé le dimanche
+ajouter un qui sommes-nous
 ***
 
 ### Taches à réaliser
 ***
-
-
-horraire fermé le dimanche
-changer les nom des adresses 
+changer les nom des adresses
 améliorer front-end des témoignages
 
 
 ## CREDITS
 -STUDI
 -Google Map
+-Pexel
+-Bootstrap ICONS
 
 ## LISCENCE
 MIT License

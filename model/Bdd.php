@@ -320,7 +320,13 @@ function nouveauTemoignage($PDO, $valide, $Nom,  $Prenom, $Etoile, $Commentaire)
     return "0";
 
 }
-
+function getServices($PDO){
+    $tableau = array();
+    foreach ($PDO-> query('SELECT * FROM contenu', PDO::FETCH_ASSOC) as $ligne){
+        array_push($tableau, $ligne);
+     }
+    return($tableau);
+}
 function getHoraires($PDO){
     $horaires = array();
 

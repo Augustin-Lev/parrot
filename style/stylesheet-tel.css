@@ -41,8 +41,12 @@
         50%   { left:0px; top:-40vh;}
         100% { left:0px; top:0px;}
     }
+    .motParrot>p{
+        width: 90vw;
+    }
     .containerIndex{
         background-color: black;
+        padding-top: 10%;
     }
     .containerTwoImg{
         flex-direction: column;
@@ -55,7 +59,9 @@
     }
     .troisServices{
         flex-direction: column;
+        min-height: 80vh;
     }
+
     .troisServices>a>svg{
         height : auto;
         width: 100%;

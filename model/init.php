@@ -166,7 +166,11 @@ function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
         $pdoStatement = $PDO->prepare($sql);
         $pdoStatement->bindValue(':id', 1,PDO::PARAM_STR);
         $pdoStatement->bindValue(':services', 'carrosserie',PDO::PARAM_STR);
-        $pdoStatement->bindValue(':contenu', $lorem,PDO::PARAM_STR);
+        $pdoStatement->bindValue(':contenu',"
+        
+        Découvrez l'excellence en réparation de carrosserie avec V.Parrot Garage. Notre équipe d'experts dévoués s'efforce de restaurer chaque détail de votre véhicule, des éraflures aux dommages plus importants. Grâce à des techniques avancées de redressage, de peinture et de polissage, nous garantissons des résultats exceptionnels. Chez V.Parrot, chaque voiture est traitée avec le plus grand soin, préservant sa valeur et son apparence. Faites-nous confiance pour ramener votre voiture à son état optimal, en toute confiance sur la route. 
+
+        ",PDO::PARAM_STR);
         $pdoStatement->bindValue(':modificateur', $email,PDO::PARAM_STR);
         $pdoStatement->bindValue(':parution', "10/08/2023",PDO::PARAM_STR);
         if($pdoStatement -> execute()) { 
@@ -180,7 +184,11 @@ function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
         $pdoStatement = $PDO->prepare($sql);
         $pdoStatement->bindValue(':id', 2,PDO::PARAM_STR);
         $pdoStatement->bindValue(':services', 'mecanique',PDO::PARAM_STR);
-        $pdoStatement->bindValue(':contenu', $lorem,PDO::PARAM_STR);
+        $pdoStatement->bindValue(':contenu', "
+        Découvrez notre expertise en réparation de moteurs et mécanique chez V.Parrot Garage. Nos techniciens qualifiés résolvent avec précision les problèmes mécaniques, des moteurs aux systèmes de freinage. Grâce à des outils de diagnostic avancés et à des normes rigoureuses, nous garantissons des réparations fiables. Votre sécurité et satisfaction sont notre priorité, vous assurant une conduite sereine avec V.Parrot.
+
+
+        ",PDO::PARAM_STR);
         $pdoStatement->bindValue(':modificateur',$email,PDO::PARAM_STR);
         $pdoStatement->bindValue(':parution', "10/08/2023",PDO::PARAM_STR);
         if($pdoStatement -> execute()) { 
@@ -194,7 +202,10 @@ function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
         $pdoStatement = $PDO->prepare($sql);
         $pdoStatement->bindValue(':id', 3,PDO::PARAM_STR);
         $pdoStatement->bindValue(':services', 'entretien',PDO::PARAM_STR);
-        $pdoStatement->bindValue(':contenu', $lorem,PDO::PARAM_STR);
+        $pdoStatement->bindValue(':contenu', "
+        V.Parrot Garage offre un entretien régulier de qualité supérieure. En tant que lieu de confiance pour nos clients et leurs véhicules, nous préservons la performance de chaque voiture grâce à des procédures méticuleuses et des normes élevées. Avec V.Parrot, votre tranquillité d'esprit est garantie à chaque trajet.
+        
+        ",PDO::PARAM_STR);
         $pdoStatement->bindValue(':modificateur',$email,PDO::PARAM_STR);
         $pdoStatement->bindValue(':parution', "10/08/2023",PDO::PARAM_STR);
         if($pdoStatement -> execute()) { 

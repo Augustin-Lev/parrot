@@ -20,6 +20,21 @@
             <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
     </svg>
 </a>
+<div class="presentation">
+    <h1>Qui sommes nous ?</h1>
+    <div class="tiret"></div>
+    <div class="motParrot" >
+        <p>Fort de mes 15ans d'experience dans la réparation automobile, j'ai ouvert mon propre garage à Toulouse. 
+            Depuis deux ans, je propose une large gamme de service : réparation de la carrosserie et de la mécanique des voitures ainsi que leur entretien régulier pour garantir leur performanche et leur sécurité. 
+            Je me suis aussi lancé dans la vente de véhicule d'occasion pour satisfaire le plus possible mes clients !
+            Je souhaite que mon atelier soit un véritable lieu de confiance pour vous, clients et pour vos voitures. En effet, elles doivent être a tout prix entre de bonne main.
+            Avec le garage V.Parrot, investissez dans la sécurité !
+        </p>
+        <img class="signature" alt="signature" src="../image/signature.png">
+    </div>
+   
+ 
+</div>
 
 <div class=containerIndex id="debut">
     <h2>Nos services</h2>
@@ -62,6 +77,7 @@
          
         </a>
     </div>
+
     
     <div class="bandeauImage" style="background-image:url('../image/temoignage.jpg')"></div>
     <h2 id=temoignage>Ils témoignent</h2>
