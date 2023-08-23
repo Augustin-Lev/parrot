@@ -48,7 +48,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 	- attention les données entrés sont considérés celles du gérant
 
 
-## INFORMATIONS
+## DOCUMENTATION TECHNIQUE
 
 ### Langages Utilisés:
 ***
@@ -57,6 +57,27 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - javascript
 - css
 - sql
+
+### Serveur
+***
+- Wampserver
+- Version PHP 8.0.26
+- Extention PHP : PDO
+- Version MySQL :8.0.31
+
+### Font-end
+***
+- HTML5
+- CSS3
+- Javascript
+- Jquery
+- Jquery UI
+
+### Back-end
+***
+- PHP 8.0.26 (PDO)
+- MySQL
+
 
 ### Logiciels de developement
 ***
@@ -101,12 +122,16 @@ horraire fermé le dimanche
 ajouter un qui sommes-nous
 améliorer front-end des témoignages
 ameliorer le frontend des services
+gesion des erreurs
 ***
 
 ### Taches à réaliser
 ***
-
+hasher le mot de passe
 changer les nom des adresses
+passer en POO
+changer login 
+
 
 
 

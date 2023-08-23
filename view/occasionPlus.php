@@ -86,9 +86,6 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
             <?php 
             $sujet = "reservation voiture:".$voiture["id"]."|".$voiture["marque"]."-".$voiture["modèle"].
             require "../view/formulaire.php"; ?>
-    
-
-      
-       
+           
     </div>
 </div>
