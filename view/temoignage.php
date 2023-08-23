@@ -6,6 +6,11 @@
     
             <div class=temoignage>
                 <div class=enTete>
+                    <div class="nomTemoignage">
+                        <p><?php echo $temoignage["nom"]." ".$temoignage["prenom"]; ?> 
+                        <p>
+                    </div>
+
                     <div>
 
                         <?php 
@@ -30,10 +35,7 @@
                     <div>
                         le <?php echo $temoignage["parution"]; ?> 
                     </div>
-                    <div>
-                        <p><?php echo $temoignage["nom"]." ".$temoignage["prenom"]; ?> 
-                        <p>
-                    </div>
+
 
                 </div>
                 

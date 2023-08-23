@@ -99,12 +99,14 @@ ajouter un fichier robot
 servir les images en format next-gen
 horraire fermé le dimanche
 ajouter un qui sommes-nous
+améliorer front-end des témoignages
 ***
 
 ### Taches à réaliser
 ***
+ameliorer le frontend des services
 changer les nom des adresses
-améliorer front-end des témoignages
+
 
 
 ## CREDITS

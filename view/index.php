@@ -86,6 +86,11 @@
         <?php for ($i = 0; $i<3; $i++ ){ ?>
             <div class=temoignage>
                 <div class=enTete>
+                    <div class="nomTemoignage">
+                        <span><?php echo $TroisCommentaires[$i]["nom"]." ".$TroisCommentaires[$i]["prenom"]; ?> 
+                        </span>
+                    </div>
+
                     <div>
 
                         <?php 
@@ -109,10 +114,6 @@
 
                     <div>
                         le <?php echo $TroisCommentaires[$i]["parution"]; ?> 
-                    </div>
-                    <div>
-                        <p><?php echo $TroisCommentaires[$i]["nom"]." ".$TroisCommentaires[$i]["prenom"]; ?> 
-                        <p>
                     </div>
 
                 </div>

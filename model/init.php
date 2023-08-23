@@ -105,8 +105,8 @@ function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
         $pdoStatement->bindValue(':parution', "10/08/2023",PDO::PARAM_STR);
         $pdoStatement->bindValue(':etoile', 4,PDO::PARAM_STR);
         $pdoStatement->bindValue(':valide', 1,PDO::PARAM_STR);
-        $pdoStatement->bindValue(':nom', 'Monaco',PDO::PARAM_STR);
-        $pdoStatement->bindValue(':prenom', 'Stephanie',PDO::PARAM_STR);
+        $pdoStatement->bindValue(':nom', 'Ouraïe',PDO::PARAM_STR);
+        $pdoStatement->bindValue(':prenom', 'Sam',PDO::PARAM_STR);
         $pdoStatement->bindValue(':commentaire', $lorem,PDO::PARAM_STR);
         if($pdoStatement -> execute()) { 
             echo "<li>témoignage 1 bien inscrit </li><br/>";                
@@ -120,8 +120,8 @@ function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
         $pdoStatement->bindValue(':parution', "10/08/2023",PDO::PARAM_STR);
         $pdoStatement->bindValue(':etoile', 3,PDO::PARAM_STR);
         $pdoStatement->bindValue(':valide', 1,PDO::PARAM_STR);
-        $pdoStatement->bindValue(':nom', 'Lebon',PDO::PARAM_STR);
-        $pdoStatement->bindValue(':prenom', 'Emmanuel',PDO::PARAM_STR);
+        $pdoStatement->bindValue(':nom', 'Ptitghoute',PDO::PARAM_STR);
+        $pdoStatement->bindValue(':prenom', 'Justine',PDO::PARAM_STR);
         $pdoStatement->bindValue(':commentaire', "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, accusantium. Quidem obcaecati tempore harum distinctio, minus a, suscipit, esse consectetur rem qui officiis ex! Tempore maiores tempora error recusandae expedita.    ",PDO::PARAM_STR);
         if($pdoStatement -> execute()) { 
             echo "<li>témoignage 2 bien inscrit </li><br/>";                
@@ -136,8 +136,8 @@ function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
         $pdoStatement->bindValue(':parution', "10/08/2023",PDO::PARAM_STR);
         $pdoStatement->bindValue(':etoile', 4,PDO::PARAM_STR);
         $pdoStatement->bindValue(':valide', 1,PDO::PARAM_STR);
-        $pdoStatement->bindValue(':nom', 'Creig',PDO::PARAM_STR);
-        $pdoStatement->bindValue(':prenom', 'Daniel',PDO::PARAM_STR);
+        $pdoStatement->bindValue(':nom', 'Hun',PDO::PARAM_STR);
+        $pdoStatement->bindValue(':prenom', 'Jeff',PDO::PARAM_STR);
         $pdoStatement->bindValue(':commentaire', "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, accusantium. Quidem obcaecati tempore harum distinctio, minus a, suscipit, esse consectetur rem qui officiis ex! Tempore maiores tempora error recusandae expedita.    ",PDO::PARAM_STR);
         if($pdoStatement -> execute()) { 
             echo "<li>témoignage 3 bien inscrit </li><br/>";                
