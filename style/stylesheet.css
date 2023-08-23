@@ -447,10 +447,15 @@ input{
     height: 90%;
     width: 100%;
 }
+.formulaireMessage>label{
+    padding-bottom: 10%;
+    display: block;
+}
 
 .formulaireMessage{
     padding: 5%;
     text-align: center;
+    flex:1;
 }
 .textFormulaire{
     text-align: justify;
@@ -849,7 +854,13 @@ select:hover{
     justify-content: center;
     flex-direction: column;
 }
-
+.occasionPlusContenu{
+    display: flex;
+    flex-direction: row;
+}
+.caracteristiqueGlobal, .optionGlobales{
+    flex:1;
+}
 /* -----------------new Occasion------------------ */
 .new_occasion{
     color: #FFEDC1;

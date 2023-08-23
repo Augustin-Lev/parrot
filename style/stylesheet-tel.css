@@ -264,12 +264,13 @@
     .occasionInfos>.computer-only{
         display: none;
     }  
+    .occasionPlusContenu{
+        flex-direction: column;
+    }
 }
 
 @media screen and (min-width: 432px) and (max-width: 738px) {
-    h1{
-        color: aqua !important;
-    }
+
     .bandeau1 {
         background-position-x: 0vw;
     }

@@ -22,7 +22,8 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
         <input type="hidden" name="id" value="<?php echo $voiture["id"] ?>">
         <button class="boutton " type="submit" name="action" value="demandeRenseignement">Réserver</button>
     </form>
-  
+
+    <div class="occasionPlusContenu">
     <div class="caracteristiqueGlobal">
         <h2>Caractéristiques</h2>
         <div>
@@ -51,11 +52,11 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
                 next($voiture);
             } ?>
         </div>
-        </div>
-
+    </div>
+    <div class="optionGlobales">
         <h2>Options</h2>
         <div>
-        <?php 
+            <?php 
             $passer = 1;
             reset($voiture);
             while ($caracteristique = current($voiture)) {
@@ -73,16 +74,19 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
                 next($voiture);
             } ?>
         </div>
+    </div>
+    </div>
+
         <form action="../controller/occasion.php" method="POST" class="bouttonReserver">
             <input type="hidden" name="id" value="<?php echo $voiture["id"] ?>">
             <button class="boutton " type="submit" name="action" value="demandeRenseignement">Reserver</button>
             <p>Pour toute demande d'information suplémentaire, n'hésitez pas à nous contacter au 07 66 55 44 33 </p>
         </form>
         
-        <?php 
-        $sujet = "reservation voiture:".$voiture["id"]."|".$voiture["marque"]."-".$voiture["modèle"].
-        require "../view/formulaire.php"; ?>
-    </div>
+            <?php 
+            $sujet = "reservation voiture:".$voiture["id"]."|".$voiture["marque"]."-".$voiture["modèle"].
+            require "../view/formulaire.php"; ?>
+    
 
       
        
