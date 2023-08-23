@@ -713,13 +713,14 @@ select:hover{
 }
 
 .service>div>h2{
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .groupeService{
     display: flex;
     flex-direction: row;
     align-items: center;
+
 }
 .groupeService>svg{
     flex:1;
@@ -727,11 +728,16 @@ select:hover{
     height: 100%;
     padding: 5%;
 }
-.groupeService>p{
+.groupeService>div{
     flex:3;
-    padding: 0 10% 0 10%;
+    padding: 2% 5% 2% 5%;
+    background-color: #ffe39d;
+    border-radius: 15px;
+    margin: 2%;
 }
-
+.groupeService>div>h2{
+    font-size: 1rem;
+}
 
 
 /* -------------Témoignage---------------- */
@@ -916,4 +922,11 @@ select:hover{
 .init>p{
     text-align: center;
     margin: 0 25vw 5% 25vw;
+}
+/* -----------------modifierServices----------------- */
+.grandTextInput{
+    min-height:10vh ;
+}
+.modif-service{
+    color: #FFEDC1;
 }

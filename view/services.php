@@ -20,7 +20,11 @@
                 <rect x="0.718" y="3.484" width="14.086" height="3.974" style="stroke: rgb(0, 0, 0); clip-path: url(#clip-0); fill: rgb(255, 145, 0); isolation: isolate; mix-blend-mode: saturation;"/>
                 <rect x="4.694" y="7.791" width="6.604" height="3.779" style="stroke: rgb(0, 0, 0); paint-order: stroke; clip-path: url(#clip-1); fill: rgb(255, 145, 0);"/>
             </svg>
-            <p><?php echo $Services[0]['contenu'] ;?></p>
+            <div>
+                <h2><?php echo $Services[0]['titre'] ;?></h2> 
+                <p><?php echo $Services[0]['contenu'] ;?></p>
+            </div>
+            
         </div>
     </div>
     <div class="bandeau3">  </div>
@@ -30,7 +34,10 @@
             Pannes moteurs
         </h2>
         <div class="groupeService">
-             <p><?php echo $Services[1]['contenu'] ;?></p>
+        <div>
+                <h2><?php echo $Services[1]['titre'] ;?></h2> 
+                <p><?php echo $Services[1]['contenu'] ;?></p>
+            </div>
             <svg width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable computer-only" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <rect x="10.742" y="-4.249" width="2.518" height="3.35" style="stroke: rgb(0, 0, 0); paint-order: stroke; fill-rule: nonzero; fill: rgb(255, 145, 0); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0.939693, -0.34202, -0.34202, -0.939693, -2.517996, 8.498002)"/>
                 <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z" style="fill: rgb(255, 145, 0);"/>
@@ -51,7 +58,10 @@
                 <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" style="fill: rgb(0, 0, 0);"/>
                 <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" style="fill: rgb(255, 145, 0);"/>
             </svg>
-             <p><?php echo $Services[2]['contenu'] ;?></p>
+            <div>
+                <h2><?php echo $Services[2]['titre'] ;?></h2> 
+                <p><?php echo $Services[2]['contenu'] ;?></p>
+            </div>
         </div>
     </div>
     <div class="bandeau1"></div>

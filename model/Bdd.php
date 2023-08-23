@@ -162,7 +162,7 @@ function allEmploye($PDO){
     }
     return $employes;
 }
-function modifierService($PDO, $service, $content){
+function modifierService($PDO, $service, $content, $titre){
 
     $sql ='DELETE FROM `contenu` WHERE `services`LIKE :services';
     $pdoStatement= $PDO->prepare($sql);
@@ -173,10 +173,11 @@ function modifierService($PDO, $service, $content){
         echo  'ERREUR au niveau de la suppression du contenu';
     }  
   
-    $sql ='INSERT INTO `contenu` (services,contenu, modificateur, parution) VALUES (:services,:contenu, :modificateur, :parution);';
+    $sql ='INSERT INTO `contenu` (services,contenu,titre, modificateur, parution) VALUES (:services,:contenu, :titre, :modificateur, :parution);';
     $pdoStatement = $PDO->prepare($sql);
-    $pdoStatement->bindValue(':services', $services);
+    $pdoStatement->bindValue(':services', $service);
     $pdoStatement->bindValue(':contenu', $content);
+    $pdoStatement->bindValue(':titre', $titre);
     $pdoStatement->bindValue(':modificateur', $_SESSION["nom"].' '.$_SESSION["prenom"]);
     $pdoStatement->bindValue(':parution', "METTRE LA DATE");
 

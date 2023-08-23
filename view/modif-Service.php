@@ -1,8 +1,14 @@
 <h1>Modification <?php echo $_GET["service"] ?> </h1>
-<div>
-    <form action="../controller/modifService.php" action=POST>
+<div class="modif-service">
+    <form action="../controller/modifService.php" class="loginForm" method="POST">
+
         <input style="display:none" type="text" name="service" value=<?php echo $_GET["service"] ?>>
-        <input type="text" name="content">
+        <label for="titre">Titre</label>
+        <input type="text" name="titre" require="">
+
+        <label for="content">Contenu</label>
+        <input class="grandTextInput" type="textarea" name="content" require="">
+
         <button type="submit" class="boutton">Modifier</button>
     </form>
 </div>

@@ -16,8 +16,8 @@
         require "../model/Bdd.php";
         require "../view/header.php";  
         if(isset($_POST["service"])){
-                modifierService($PDO, $_POST["service"], $_POST["content"]);
-                header("Location: ../controller/index.php");
+                modifierService($PDO, $_POST["service"], $_POST["content"],$_POST['titre']);
+                header("Location: ../controller/service.php");
             
         }else{  
             require "../view/modif-Service.php";
