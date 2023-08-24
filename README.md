@@ -60,7 +60,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 
 ### Serveur
 ***
-- Wampserver
+- Wampserver- Apache 2.4.54
 - Version PHP 8.0.26
 - Extention PHP : PDO
 - Version MySQL :8.0.31
