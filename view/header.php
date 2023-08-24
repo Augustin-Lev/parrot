@@ -13,6 +13,7 @@ session_start();
         <h2 class="headerTitre">Garage V.Parrot</h2>
 
         <?php 
+        
         if(isset($_SESSION)==0){
             session_start();
             $_SESSION["login"] = 0;
@@ -33,7 +34,6 @@ session_start();
             echo '<a class="headerCache" href="../controller/index.php?action=unlog">Se deconnecter</a>';
             echo '</div>'; 
         } ?>
-      
 </header>
 
 <?php if (($_SESSION["statut"] == "Gérant" || $_SESSION["statut"] == "salarié") && $_SESSION["login"] ){ ?>
