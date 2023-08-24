@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="..\style\stylesheet.css">
         <link rel="stylesheet" href="..\style\stylesheet-tel.css">
-        <title>Lgin Garrage V.Parrot</title>
+        <title>Se connecter Garrage V.Parrot</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name= "description" content="
         Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.

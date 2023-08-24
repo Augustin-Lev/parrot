@@ -1,7 +1,6 @@
 <?php 
 function bandeau($text){
-    $path = $_SERVER['PHP_SELF'];
-    $file = basename ($path);
+    $file = $_SERVER['REQUEST_URI'];
     echo "
         <div class='headerBandeau succes'>
                 <h2>". $text ."</h2>
@@ -10,8 +9,7 @@ function bandeau($text){
     ";
 }
 function erreur($text){
-    $path = $_SERVER['PHP_SELF'];
-    $file = basename ($path);
+    $file = $_SERVER['REQUEST_URI'];
     echo "
         <div class='headerBandeau erreur'>
                 <h2>". $text ."</h2>

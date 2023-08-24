@@ -34,7 +34,7 @@
 
 foreach ($occasions as $voiture){?>
     <div class="occasionVoiture" id="<?php echo $voiture["id"] ?>" >
-        <img src=" ../image/occasion/<?php echo $voiture["id"] ?>/image1.jpg">
+        <img src="views/image/occasion/<?php echo $voiture["id"] ?>/image1.jpg">
         <div class="occasionInfos">
             <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]?></h2>
             <div>
@@ -46,7 +46,7 @@ foreach ($occasions as $voiture){?>
                 <p class="km"><?php echo $voiture["kilométrage"] ?> km</p>
             </div>
             <div class="occasionBoutton">
-                <a title="avoir plus d'informations" href="../controller/occasion.php?voiture=<?php echo $voiture["id"] ?>" class="boutton">Voir plus</a>
+                <a title="avoir plus d'informations" href="occasions.php?voiture=<?php echo $voiture["id"] ?>" class="boutton">Voir plus</a>
             </div>
         </div>
     </div>

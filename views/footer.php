@@ -1,24 +1,24 @@
 <footer>
-    <a  href="../controller/index.php">
-        <img src="../image/logoBlack.webp" alt="Logo Garrage Parrot">
+    <a  href="<?php echo BASE_URL;?>/">
+        <img src="views/image/logoBlack.webp" alt="Logo Garrage Parrot">
     </a>
     <div>
 
         <div class="footerContainerGlobal">
             <div class=footerContainer>
-                <a href="../controller/index.php#formulaire">Prendre rendez-vous</a>
-                <a href="../controller/service.php#carrosserie">Réparation carroserie</a>
+                <a href="<?php echo BASE_URL;?>/#formulaire">Prendre rendez-vous</a>
+                <a href="<?php echo BASE_URL;?>/services#carrosserie">Réparation carroserie</a>
                 
             </div>
             <div class=footerContainer>
-                <a href="../controller/service.php#moteur">Mécanique</a>
-                <a href="../controller/service.php#entretien">Entretien</a>
-                <a href="../controller/index.php">Menu</a>
+                <a href="<?php echo BASE_URL;?>/services#moteur">Mécanique</a>
+                <a href="<?php echo BASE_URL;?>/services#entretien">Entretien</a>
+                <a href="<?php echo BASE_URL;?>/">Menu</a>
                 
             </div>
             <div class=footerContainer>
-                <a href="../controller/occasion.php">Véhicule d'occasion</a>
-                <a href="../controller/temoignage.php">Témoignage</a>
+                <a href="<?php echo BASE_URL;?>/occasions">Véhicule d'occasion</a>
+                <a href="<?php echo BASE_URL;?>/temoignage">Témoignage</a>
             </div>
         </div>
         
@@ -37,8 +37,8 @@
                     <th>Dimanche</th>
                 </thead>
         
-        <?php $horaire =  getHoraires($PDO);
-        // var_dump($horaire);
+        <?php 
+
         $write =1;
         foreach($horaire as $ligne){
             if($ligne["id"]== 1){
@@ -103,7 +103,7 @@
             <h3>Horaires</h3>
             <table class="horaireTableau ">
 
-            <?php $horaire =  getHoraires($PDO);
+            <?php
                 $day = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
         
                 $j = 0;

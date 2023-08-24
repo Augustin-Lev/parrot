@@ -1,6 +1,6 @@
 <?php
 
-$log = fopen("../model/log.csv","r");
+$log = fopen("models/ancien/log.csv","r");
 
 $line = 1;
 

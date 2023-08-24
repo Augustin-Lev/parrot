@@ -131,8 +131,13 @@ hasher le mot de passe
 changer les nom des adresses
 passer en POO
 changer login 
+probleme login
+commentaire height : plus large
 
-
+###Conventions
+- Nom des classes en anglais et PascalCase
+- Nom des fichiers commencent par Maj
+- Variables en Camel Case
 
 
 ## CREDITS

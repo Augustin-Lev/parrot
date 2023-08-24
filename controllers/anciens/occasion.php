@@ -27,27 +27,7 @@
         require "../view/bandeau.php";
         require "../view/header.php";
         
-        if (isset($_GET["voiture"])){
-            $voiture= occasion($PDO, $_GET["voiture"]);
-            require_once "../view/occasionPlus.php";
-        }
-        elseif(isset($_POST["action"])){
-            if($_POST["action"]=="demandeRenseignement"){
-                require "../view/contact.php";  
-            }
-            if($_POST["action"]=="reserver"){
-                $mail = mailGestion($PDO);
-                reserver($mail, $_POST["id"],$_POST["nom"],$_POST["prenom"],$_POST["mail"],$_POST["tel"]);
-                bandeau("votre véhicule à bien été reservé");
-
-                $voiture= occasion($PDO, $_POST["id"]);
-                require_once "../view/occasionPlus.php";  
-            }
-        }else{
-            $occasions= allOccasions($PDO);
-            require_once "../view/occasion.php";      
-        }
-       
+      
         require "../view/footer.php";
     ?>
    

@@ -12,7 +12,7 @@
             </a>
         </div>
         
-        <form action="../controller/index.php" method="POST">
+        <form action="<?php echo BASE_URL; ?>/" method="POST">
             <div class="formulaireMessage">
                 <label for="message">Votre message</label>
                 <input type="textarea" name="message" required="">

@@ -1,14 +1,11 @@
-<?php 
-session_start();
-?>
 
-<header <?php if(basename ($_SERVER['PHP_SELF']) == "index.php"){echo 'class="computer-only"';} ?>>
-        <a  href="../controller/index.php" class="headerLogo" >
+    <header 
+        <?php if(basename ($_SERVER['PHP_SELF']) == "index.php"){echo 'class="computer-only"';} ?>>
+        <a  href="<?php echo BASE_URL;?>/" class="headerLogo" >
             <img src= "<?php echo BASE_URL; ?>/views/image/logoBlack.webp" alt="Logo noir du Garage V.Parrot">
             <?php if(basename ($_SERVER['PHP_SELF']) != "index.php"){
                 echo '<h2>Menu<h2>';
             } ?>
-            
         </a>
         <h2 class="headerTitre">Garage V.Parrot</h2>
 
@@ -22,28 +19,29 @@ session_start();
             $_SESSION["statut"] = "";
             $_SESSION["email"] = "";
         }
-        
+       
         if ($_SESSION["login"] == 0){ ?>
             <div class="headerLogin">
-                <a class="boutton" href="login.php">login</a>
+                <a class="boutton" href="<?php echo BASE_URL;?>/login">login</a>
             </div>
         <?php }else{
             echo '<div href="../controller/login.php" class="headerLoger">';
             echo '<p class="poste">'.$_SESSION['statut'].'</p>';
             echo '<p class="nom">'.$_SESSION['nom']." ".$_SESSION['prenom'].'</p>';
-            echo '<a class="headerCache" href="../controller/index.php?action=unlog">Se deconnecter</a>';
+            echo '<a class="headerCache" href="<?php echo BASE_URL;?>/?action=unlog">Se deconnecter</a>';
             echo '</div>'; 
         } ?>
 </header>
 
 <?php if (($_SESSION["statut"] == "Gérant" || $_SESSION["statut"] == "salarié") && $_SESSION["login"] ){ ?>
     <div class="headerAdmin">
-        <a  class="boutton" href="administration.php">Administrer</a>
+        <a  class="boutton" href="<?php echo BASE_URL;?>/administration">Administrer</a>
     </div>
 
 <?php }
-// echo "POST";
-// var_dump($_POST);
-// echo "SESSION";
-// var_dump($_SESSION);
+
+echo "POST";
+var_dump($_POST);
+echo "SESSION";
+var_dump($_SESSION);
  ?> 

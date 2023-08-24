@@ -11,19 +11,18 @@
     <body class="init">
     <?php
         // require "../model/Bdd.php";
-        require '../view/bandeau.php';
-        require "../model/sendcode.php";
-
-
+        require 'views/bandeau.php';
+        require "models/ancien/sendcode.php";
     ?>
+
     <h1 style="background-color:black">Initialisation</h1>
     <?php 
     printForm();
 
     if(isset($_POST["action"])){
         if($_POST['action']=="stockInfos"){
-            if(file_exists("../model/log.csv")){
-                unlink('../model/log.csv');
+            if(file_exists("models/ancien/log.csv")){
+                unlink('model/ancien/log.csv');
             }else{
                 $fichier = fopen("../model/log.csv", "w");
                 fwrite($fichier, "UserDB,passwordDB,name,surname,email,password \r\n");
@@ -32,10 +31,10 @@
             }
         }
         if($_POST['action']=="fillDB"){
-            if(file_exists("../model/log.csv")){
-                unlink('../model/log.csv');
+            if(file_exists("models/ancien/log.csv")){
+                unlink('models/ancien/log.csv');
             }else{
-                $fichier = fopen("../model/log.csv", "w");
+                $fichier = fopen("models/ancien/log.csv", "w");
                 fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password \r\n");
                 fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
                 initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
@@ -48,8 +47,9 @@ function printForm(){
     echo'
     
     <p>En vue de la bonne installation du site, nous vous demandons les information suivantes :<br/>
-    - Si un bug persiste au niveau du téléchargement des images, reconfigurez le php.ini et augmentez "upload_max_filesize"</p>
-    <form class="loginForm" action="init.php" method="POST">
+    - Si un bug persiste au niveau du téléchargement des images, reconfigurez le php.ini et augmentez "upload_max_filesize"<br/>
+    - Vérifie que les variables "display_startup_errors" et "display_errors" du php.ini du serveur soit à "OFF" </p>
+    <form class="loginForm" action="" method="POST">
         <label for="NameDB">Nom de la base de donnée</label>
         <input type="text" name="NameDB" value="u734868843_parrot" required="">
 
@@ -335,7 +335,7 @@ function initialisation($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$passw
     }catch(PDOExeption $e){
         echo 'Erreur lors de la connection à la base de donées';
     }
-    require "../model/Bdd.php";
+    require "models/ancien/Bdd.php";
     if ($PDO->exec('DROP DATABASE IF EXISTS '.$NameDB) !== false) {
         if ($PDO -> exec('CREATE DATABASE '.$NameDB) !==null){
             echo "<li>création de la base réussi !</li> <br/>";
@@ -439,7 +439,7 @@ function initialisation($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$passw
             </form>';
     }
     echo '
-    <a class="boutton" href="../controller/index.php"> Menu </a>
+    <a class="boutton" href="'.BASE_URL.'/"> Menu </a>
     </div>
     </body>';
 }

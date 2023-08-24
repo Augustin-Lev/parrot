@@ -34,12 +34,6 @@ function verifier($verif){
     }
 }
 
-function reserver($admin, $id,$nom,$prenom ,$mail ,$tel ){
-    $text = $prenom." ".$nom."souhaite reserver le véhicule : ".$id."<br/> Numero : ".$tel;
-    $headers = 'From: '.$mail. "\r\n" .
-    'Reply-To: '.$mail;
-    mail($admin,"Reservation Véhicule",$text, $headers);
-}
 
 
 ?>

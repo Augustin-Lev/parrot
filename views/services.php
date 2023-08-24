@@ -1,6 +1,5 @@
 <div class="service">
     <h1>Services</h1>
-    <?php $Services = getServices($PDO);?>  
     <div id="carrosserie">
         <h2>
             Réparation de la carrosserie
@@ -65,6 +64,6 @@
         </div>
     </div>
     <div class="bandeau1"></div>
-    <?php require "../view/formulaire.php"; ?>
+    <?php require "views/formulaire.php"; ?>
 
 </div>

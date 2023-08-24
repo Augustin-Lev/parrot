@@ -1,7 +1,7 @@
 <div class="administrtion-view">
 <h1>Administration</h1>
 <?php if ($_SESSION["statut"] == "Gérant"){?>
-    <form class="headerAdmin" action='../controller/administration.php' method=POST>
+    <form class="headerAdmin" action='<?php echo BASE_URL;?>/administration' method=POST>
         <a title="Réinitialiser la base de donnée" class="boutton" href="../model/init.php">Réinitialiser la Base</a>
         <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>
     </form>
@@ -61,7 +61,7 @@
             <th>Après-midi</th>
         </thead>
 
-        <?php $horaire =  getHoraires($PDO);
+        <?php
         //  var_dump($horaire);
         
 
