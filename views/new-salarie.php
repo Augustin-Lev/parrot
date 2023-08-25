@@ -1,5 +1,5 @@
 <h1>Nouvel employé</h1>
-<form class="new_employee" action="../controller/administration.php" method=POST>
+<form class="new_employee" action="<?php echo BASE_URL;?>\ajout\employee" method=POST>
 
     <div>
         <label for="nom">Nom</label>
@@ -24,5 +24,5 @@
     <input style="display:none" type="text" name="action" value="ajout-new-employe">
 
     <button class="boutton" type="submit">Ajouter</button>
-    <a title="Retour vers le panneau d'administration" href="../controller/administration.php">Retour</a>
+    <a title="Retour vers le panneau d'administration" href="<?php echo BASE_URL;?>\administration">Retour</a>
 </form>

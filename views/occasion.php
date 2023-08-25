@@ -50,6 +50,7 @@ foreach ($occasions as $voiture){?>
             </div>
         </div>
     </div>
+    <script src="<?php echo BASE_URL;?>\views/script/filtreOccasions.js"></script>
 <?php
 }
 

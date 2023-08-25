@@ -8,13 +8,12 @@ class User{
     private $statut;
     private $id;
 
-    public function __construct($email, $motDePasse, $nom, $prenom, $statut, $id ){
+    public function __construct($email, $motDePasse, $nom, $prenom, $statut){
         $this -> email = $email;
         $this -> motDePasse = $motDePasse;
         $this -> nom = $nom;
         $this -> prenom = $prenom;
         $this -> statut = $statut;
-        $this -> id = $id;
     }
 
     public function setEmail($set){
@@ -54,9 +53,6 @@ class User{
     public function getId(){
         return $this-> id;
     }
-
-
-    
     
 }
 

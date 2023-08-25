@@ -37,8 +37,7 @@ class DataBase{
         return 0;
     }
    
-    public 
-    function newMdp($mail, $motDePasse){
+    public function newMdp($mail, $motDePasse){
         //verification de la validité du mot de passe
         foreach ($this-> PDO-> query('SELECT email, motDePasse, nom, prenom, statut, id FROM salaries', PDO::FETCH_ASSOC) as $user){
             //var_dump($user);
@@ -106,18 +105,16 @@ class DataBase{
         return $TroisCommentaire;
     
     }
-
     
-    
-    function AjouterEmploye(User $employe){
+    function AjouterEmploye(User $employee){
         
         $sql ='INSERT INTO salaries (statut, nom, prenom, email, motDePasse) VALUES ( :statut, :nom, :prenom, :email, :motDePasse);';
         $this-> PDOStatement= $this-> PDO->prepare($sql);
         $this-> PDOStatement->bindValue(':statut',"salarié", PDO::PARAM_STR);
-        $this-> PDOStatement->bindValue(':nom',$employe->getNom(),PDO::PARAM_STR);
-        $this-> PDOStatement->bindValue(':prenom',$employe->getPrenom(),PDO::PARAM_STR);
-        $this-> PDOStatement->bindValue(':email',$employe->getEmail(),PDO::PARAM_STR);
-        $this-> PDOStatement->bindValue(':motDePasse',$employe->getMdp(),PDO::PARAM_STR);
+        $this-> PDOStatement->bindValue(':nom',$employee->getNom(),PDO::PARAM_STR);
+        $this-> PDOStatement->bindValue(':prenom',$employee->getPrenom(),PDO::PARAM_STR);
+        $this-> PDOStatement->bindValue(':email',$employee->getEmail(),PDO::PARAM_STR);
+        $this-> PDOStatement->bindValue(':motDePasse',$employee->getMotDePasse(),PDO::PARAM_STR);
         
         if($this-> PDOStatement -> execute()) { 
             return "1";                
@@ -125,8 +122,6 @@ class DataBase{
         return "0";
     
     }
-
-
     
     public function modifierService($service, $content, $titre){
 
@@ -152,6 +147,7 @@ class DataBase{
         }
         return "0";
     }
+
     public function occasion($id){
         foreach ($this-> PDO-> query('SELECT * FROM occasion WHERE id LIKE '.$id , PDO::FETCH_ASSOC) as $vehicule){
             return $vehicule;
@@ -177,19 +173,20 @@ class DataBase{
                 unset($tableau["nbImagesDeja"] );
             }
         }
-       
-        $id = oldIdOccasion($this-> PDO)+1;
-        if (is_dir("../image/occasion/".$id) == 0){
-            mkdir("../image/occasion/".$id);
+               
+        $id = $this->maxIdOccasion($this-> PDO)+1;
+               
+        if (is_dir("views/image/occasion/".$id) == 0){
+            mkdir("views/image/occasion/".$id);
         }
-        
+              
         $nbImages = 0;
         
         reset($_FILES);
         foreach($_FILES as $fichier){
             if($fichier['name'] != ""){
                 $nbImages ++;
-                move_uploaded_file($fichier['tmp_name'], "../image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));
+                move_uploaded_file($fichier['tmp_name'], "views/image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));
             }
         }
         if ($nbImagesDeja > $nbImages){
@@ -204,7 +201,7 @@ class DataBase{
     
         reset($tableau);
         foreach($tableau as $parametre){
-            if (key($tableau) != 'action'){
+            if (key($tableau) != 'action' && key($tableau) != 'id'){
                 $champ = $champ.",".key($tableau);
                 $binValue = $binValue."','".$parametre;
             }    
@@ -215,14 +212,14 @@ class DataBase{
         // var_dump($sql);
         $this-> PDOStatement= $this-> PDO->prepare($sql);
         // echo $sql.'<br/>';
-        
+
         if($this-> PDOStatement -> execute()) { 
             return "1";                
         }
         return "0";
     }
 
-    public function MaxIdOccasion(){
+    public function maxIdOccasion(){
         $grand = 1;
         foreach ($this->PDO-> query('SELECT id FROM occasion ORDER BY id' , PDO::FETCH_ASSOC) as $id){
             // var_dump($id);
@@ -251,6 +248,7 @@ class DataBase{
         return "0";
 
     }
+
     public function changerHoraire($tableau){
         reset($tableau);
         foreach ($tableau as $valeur){
@@ -317,9 +315,10 @@ class DataBase{
         $this-> PDOStatement -> execute();
     
     }
+
     public function validerTemoignage($id, $valide){
         $sql = "UPDATE `temoignage` SET `valide` = '".$valide."' WHERE `temoignage`.`id` = ".$id.";";
-        $this-> PDOStatement = $this-> PDO->prepare($sql);
+        $this-> PDOStatement = $this->PDO->prepare($sql);
         $this-> PDOStatement -> execute();
     }
 
@@ -338,8 +337,11 @@ class DataBase{
     public function ajouterChamp($apres,$table,$champ){
         $sql ="ALTER TABLE `".$table."` ADD `".$champ."` VARCHAR(100) AFTER `".$apres."` ";
         $this-> PDOStatement = $this-> PDO->prepare($sql);
-        $this-> PDOStatement -> execute();
-    
+        try{
+            $this-> PDOStatement -> execute();
+        }catch( Exception $erreur){
+            return 'error';
+        }      
     }
 
     public function allHoraires(){

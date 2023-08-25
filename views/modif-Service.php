@@ -1,8 +1,8 @@
-<h1>Modification <?php echo $_GET["service"] ?> </h1>
+<h1>Modification <?php echo $service ?> </h1>
 <div class="modif-service">
-    <form action="../controller/modifService.php" class="loginForm" method="POST">
+    <form action="<?php echo BASE_URL;?>/modifier" class="loginForm" method="POST">
 
-        <input style="display:none" type="text" name="service" value=<?php echo $_GET["service"] ?>>
+        <input style="display:none" type="text" name="service" value=<?php echo $service ?>>
         <label for="titre">Titre</label>
         <input type="text" name="titre" require="">
 

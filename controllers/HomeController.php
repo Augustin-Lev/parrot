@@ -31,6 +31,16 @@ class HomeController {
         require_once "views/footer.php";
     }
 
+    public function unlog(){
+
+        $_SESSION["login"] = 0;
+        $_SESSION["nom"] = "";
+        $_SESSION["prenom"] = "";
+        $_SESSION["statut"] = "";
+        $_SESSION["email"] = "";
+
+        header("Location:".BASE_URL);
+    }
     public function message(){
         $DB = new DataBase();
         $TroisCommentaires = $DB->TroisCommentaires();

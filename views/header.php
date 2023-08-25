@@ -28,7 +28,7 @@
             echo '<div href="../controller/login.php" class="headerLoger">';
             echo '<p class="poste">'.$_SESSION['statut'].'</p>';
             echo '<p class="nom">'.$_SESSION['nom']." ".$_SESSION['prenom'].'</p>';
-            echo '<a class="headerCache" href="<?php echo BASE_URL;?>/?action=unlog">Se deconnecter</a>';
+            echo '<a class="headerCache" href="'.BASE_URL.'/deconexion">Se deconnecter</a>';
             echo '</div>'; 
         } ?>
 </header>

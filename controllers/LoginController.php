@@ -37,9 +37,8 @@ class LoginController{
             $_SESSION["statut"] = $user["statut"];
             $_SESSION["email"] = $user["email"];
             var_dump($_SESSION);
-            require 'views/login.php';
-            // header('Location:'.BASE_URL);
-
+            // require 'views/login.php';
+            header('Location:'.BASE_URL);
         }else{
             require_once "views/bandeau.php";
             erreur("mot de passe incorrecte");

@@ -23,6 +23,7 @@ class UsedCarController{
     }
 
     public function action(){
+        
         if(isset($_POST["action"])){
             if($_POST["action"]=="demandeRenseignement"){
                 require "views/contact.php";  
@@ -41,9 +42,70 @@ class UsedCarController{
                 $voiture= occasion($PDO, $_POST["id"]);
                 require_once "views/occasionPlus.php";  
             }
-        }else{
-            error_reporting(3);//test
         }
+    }
+
+    public function newField(){       
+        $DB = new DataBase();
+        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $header = [
+            "javascript"=>0,
+            "titre"=>"Administration Garage V.Parrot",
+            "content"=>"Administration, do not import on web."]; //necessaire au header de model
+        require "models/Header.php";
+        require_once "views/header.php";
+
+        require "views/newField.php";
+
+        require_once "views/footer.php";
+    }
+
+    public function addField(){
+        $DB = new DataBase();
+        if($DB->ajouterChamp($_POST["champ"],'occasion',$_POST["name"]) == 'error'){
+
+            $horaire =  $DB->allHoraires(); // necessaire pour le footer
+            $header = [
+                "javascript"=>0,
+                "titre"=>"Administration Garage V.Parrot",
+                "content"=>"Administration, do not import on web."]; //necessaire au header de model
+            require "models/Header.php";
+            require_once "views/header.php";
+            require_once "views/bandeau.php";
+            erreur("ce champs existe surement déjà");
+            require_once "views/footer.php";
+
+        }else{
+            echo  "<script type='text/javascript'>";
+            echo "window.close();";
+            echo "</script>";
+        }
+       
+
+    }
+
+    public function newCar(){
+        $DB = new DataBase();
+        $occasions = $DB->occasion("id IS NOT NULL");
+        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $header = [
+            "javascript"=>0,
+            "titre"=>"Administration Garage V.Parrot",
+            "content"=>"Administration, do not import on web."]; //necessaire au header de model
+        require "models/Header.php";
+        require_once "views/header.php";
+
+        require "views/new-occasion.php";
+
+        require_once "views/footer.php";
+
+    }
+    
+    public function addCar(){
+        $DB = new DataBase();
+        var_dump($_POST);
+        $DB->ajouterOccasion($_POST);
+        header("Location:".BASE_URL);    
     }
 
     public function OccasionPlus(){

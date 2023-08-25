@@ -41,16 +41,16 @@ class TestimonialController{
                 require_once "views/new-temoignage.php";
             }
             if ($_POST["action"]=="enregistrer"){
-                
+                $commentaire = $DB->allCommentaires();
                 $DB ->nouveauTemoignage($_POST["valide"], $_POST["Nom"], $_POST["prenom"], $_POST["Etoile"], $_POST["commentaire"]);
                 bandeau("Votre témoignage a bien été ajouté, il sera ajouté au site après validation d'un opérateur");
-                require_once "../view/temoignage.php";
+                require_once "views/temoignage.php";
 
-                
             }
             
         }else{
-            require_once "../view/temoignage.php";
+            $commentaire = $DB->allCommentaires();
+            require_once "views/temoignage.php";
         }
         $horaire =  $DB->allHoraires(); // necessaire pour le footer
         require_once "views/footer.php";

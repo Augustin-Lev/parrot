@@ -1,6 +1,6 @@
 <div class=login>
     <h1>Nouveau Témoignage</h1>
-    <form class="loginForm" action="../controller/temoignage.php" method="post">
+    <form class="loginForm" action="<?php echo BASE_URL;?>/ajout/temoignage" method="post">
         
         <input style="display:none" name="action" id="action" value="enregistrer">
         <input type="text"  style="display:none;" name="valide" value ="<?php echo $_POST["valide"]; ?>">

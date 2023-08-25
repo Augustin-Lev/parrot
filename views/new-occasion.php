@@ -1,5 +1,7 @@
+<?php if(isset($_POST["id"])) {echo "<h1>Modification occasion</h1>";}else{ ?>
 <h1>Nouvelle occasion</h1>
-<form class="new_occasion" action="../controller/administration.php" method="POST" enctype="multipart/form-data">
+<?php } ?>
+<form class="new_occasion" action="<?php echo BASE_URL;?>/ajout/occasion" method="POST" enctype="multipart/form-data">
     <?php 
         // var_dump($occasions);
         foreach($occasions as $parametre){
@@ -35,11 +37,11 @@
         }
         
     ?>
-    <a title="Nouvelle caractéristique" href="../controller/administration.php?action=newCaracteristique" target="_blank" class="boutton">Ajouter une caractéristique</a>
-    <a title="Nouvelle option" href="../controller/administration.php?action=newOption" target="_blank" class="boutton">Ajouter une Option</a>
+    <a title="Nouvelle caractéristique" href="<?php echo BASE_URL;?>/nouvelle/caracteristique" target="_blank" class="boutton">Ajouter une caractéristique</a>
+    <a title="Nouvelle option" href="<?php echo BASE_URL;?>/nouvelle/option" target="_blank" class="boutton">Ajouter une Option</a>
     <input style="display:none" type="text" name="action" value="ajout-new-occasion">
     <input type="hidden" name="id" value=  <?php if(isset($_POST["id"])) {echo $_POST["id"];} ?>>
 
     <button class="boutton" type="submit">Ajouter</button>
-    <a title="Retour vers le panneau d'administration"href="../controller/administration.php">Retour</a>
+    <a title="Retour vers le panneau d'administration" href="<?php echo BASE_URL;?>/administration">Retour</a>
 </form>

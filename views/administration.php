@@ -1,8 +1,8 @@
 <div class="administrtion-view">
 <h1>Administration</h1>
 <?php if ($_SESSION["statut"] == "Gérant"){?>
-    <form class="headerAdmin" action='<?php echo BASE_URL;?>/administration' method=POST>
-        <a title="Réinitialiser la base de donnée" class="boutton" href="../model/init.php">Réinitialiser la Base</a>
+    <form class="headerAdmin" action='<?php echo BASE_URL;?>/nouvel/employee' method=POST>
+        <a title="Réinitialiser la base de donnée" class="boutton" href="<?php echo BASE_URL;?>/reboot">Réinitialiser la Base</a>
         <button class="boutton" name="action" value="new-salarie">Nouvel employé</button>
     </form>
 
@@ -10,7 +10,7 @@
 <div>
     <h2>Que souhaitez-vous modifier ?</h2>
     <div class= troisServices>
-        <a title="modifier le texte carrosserie" class="box1" href="../controller/modifService.php?service=carrosserie">
+        <a title="modifier le texte carrosserie" class="box1" href="<?php echo BASE_URL;?>/modifier/services/carrosserie">
             <svg width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <clipPath id="clip-0">
@@ -27,7 +27,7 @@
             </svg>
             <h2 class=texte1>Carrosserie</h2>
         </a>
-        <a title="modifier le texte mécanique"class="box1" href="../controller/modifService.php?service=mecanique">
+        <a title="modifier le texte mécanique"class="box1" href="<?php echo BASE_URL;?>/modifier/services/mecanique">
             <svg width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <rect x="10.742" y="-4.249" width="2.518" height="3.35" style="stroke: rgb(0, 0, 0); paint-order: stroke; fill-rule: nonzero; fill: rgb(255, 145, 0); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0.939693, -0.34202, -0.34202, -0.939693, -2.517996, 8.498002)"/>
             <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z" style="fill: rgb(255, 145, 0);"/>
@@ -35,7 +35,7 @@
             </svg>
             <h2 class=texte1>Mécanique</h2>
         </a>
-        <a title="modifier le texte entretien" class="box1" href="../controller/modifService.php?service=entretien">
+        <a title="modifier le texte entretien" class="box1" href="<?php echo BASE_URL;?>/modifier/services/entretien">
             <svg width="16" height="16" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" style="fill: rgb(0, 0, 0);"/>
             <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" style="fill: rgb(0, 0, 0);"/>
@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<form action = "../controller/administration.php#formulaireHoraire" method="POST" id="formulaireHoraire">
+<form action = "<?php echo BASE_URL;?>/modifier/horaires#formulaireHoraire" method="POST" id="formulaireHoraire">
     <input type="hidden" name="action" value="changerHoraire">
     <h2>Horaires</h2>
     <p class='description'>Changez les horraires d'ouverture directement via se pannel ! <br/>
@@ -134,8 +134,8 @@
 <?php } ?>
 
 <div class="margeAdmin">
-    <h2>Témoignage</h2>
-    <form action='../controller/temoignage.php' method="POST" class="headerAdmin">
+    <h2 id="temoignage">Témoignage</h2>
+    <form action='<?php echo BASE_URL;?>/nouveau/temoignage' method="POST" class="headerAdmin">
         <input type="hidden" name="action" value="newTemoignage">
         <input type="hidden" name="valide" value="1">
         <button type="submit" class="boutton" >Ajouter un nouveau Témoignage</button>
@@ -180,7 +180,7 @@
                         <p ><?php echo $commentaire["commentaire"]; ?> </p>
                     </div>
 
-                    <form class=validation method='POST'>
+                    <form class=validation action="<?php echo BASE_URL;?>/valider/temoignage" method='POST'>
                         <input type="hidden" name="action" value="validerTemoignage">
                         <input type="hidden" name="id" value="<?php echo $commentaire["id"]; ?>">
                         <button type="submit" class="boutton" name="valide" value="1">
@@ -202,7 +202,7 @@
     </div>
     
     <h3 id="CommStillValidate">Déjà validés</h3>
-    <form class="adminChoix" method="POST" action="../controller/administration#CommStillValidate">
+    <form class="adminChoix" method="POST" action="<?php echo BASE_URL;?>/valider/temoignage#CommStillValidate">
         <input type="hidden" name="action" value="validerTemoignage">
 
         <select name="id">
@@ -220,10 +220,10 @@
 
 <div class="margeAdmin" id="voitureOccasionAdmin">
     <h2>Gestion des voitures d'occasion</h2>
-    <form class="headerAdmin" id="newOccasionButton" action='../controller/administration.php' method=POST>
+    <form class="headerAdmin" id="newOccasionButton" action='<?php echo BASE_URL;?>/nouvelle/occasion' method=POST>
         <button class="boutton" name="action" value="new-occasion">Nouvel occasion</button>
     </form>
-    <form class="adminChoix" action='../controller/administration.php' method=POST>
+    <form class="adminChoix" action='<?php echo BASE_URL;?>/modifier/occasion' method=POST>
         <select name="id">
         <option value="">--Choisissez un véhicule--</option>
             <?php foreach($allOccasions as $occasion){
@@ -239,3 +239,4 @@
 
 
 </div>
+<script src="<?php echo BASE_URL;?>\views/script/submitHorraire.js"></script>   

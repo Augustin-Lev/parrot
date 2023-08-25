@@ -128,7 +128,7 @@
         <?php } ?>
        
     </div>
-    <form action ="<?php echo BASE_URL;?>/temoignage" method="POST" class="footerTemoignage">
+    <form action ="<?php echo BASE_URL;?>/nouveau/temoignage" method="POST" class="footerTemoignage">
             <input type="text" name="valide" value="0" style="display:none;">
             <a class="boutton lumiere" href="<?php echo BASE_URL;?>/temoignage">Voir plus</a>
             <button type ="submit" class="boutton lumiere" name="action" value="newTemoignage">Donner son avis</button>

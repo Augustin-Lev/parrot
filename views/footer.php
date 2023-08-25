@@ -1,6 +1,6 @@
 <footer>
     <a  href="<?php echo BASE_URL;?>/">
-        <img src="views/image/logoBlack.webp" alt="Logo Garrage Parrot">
+        <img src="<?php echo BASE_URL;?>\views/image/logoBlack.webp" alt="Logo Garrage Parrot">
     </a>
     <div>
 

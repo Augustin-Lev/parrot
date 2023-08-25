@@ -138,6 +138,7 @@ commentaire height : plus large
 - Nom des classes en anglais et PascalCase
 - Nom des fichiers commencent par Maj
 - Variables en Camel Case
+- Utilisation de / pour les noms de chemins
 
 
 ## CREDITS
