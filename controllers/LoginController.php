@@ -124,8 +124,8 @@ class LoginController{
     public function nouveauMdp(){
         if($_POST["action"]=="nouveau-mpd"){
             $DB = new DataBase();
-            $DB-> newMdp($PDO, $_SESSION["mail"],$_POST["mdp"]);
-            // header('Location:'.BASE_URL);
+            $DB-> newMdp($_SESSION["mail"],$_POST["mdp"]);
+            header('Location:'.BASE_URL);
         }
     }
        

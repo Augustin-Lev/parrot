@@ -1,5 +1,5 @@
 <div class=login>
-    <h1>Réinitialisation du mot de passe</h1>
+    <h1 id="nouveauPassword">Réinitialisation du mot de passe</h1>
     <form class="loginForm" id="newPassword" action="<?php echo BASE_URL;?>/nouveau/mot_de_passe" method="POST">
         <input style="display:none" name="action" id="action" value="nouveau-mpd">
 
@@ -22,6 +22,6 @@
 
         <button class="boutton" type="submit">Envoyer</button>
         <a title="Retour vers le menu" href="<?php echo BASE_URL;?>/">Annuler</a>
-
+        
     </form>
 </div>

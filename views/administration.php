@@ -46,7 +46,106 @@
     </div>
 </div>
 
-<form action = "<?php echo BASE_URL;?>/modifier/horaires#formulaireHoraire" method="POST" id="formulaireHoraire">
+<form action = "<?php echo BASE_URL;?>/modifier/horaires#formulaireHoraire" class="phone-only" method="POST" id="formulaireHoraire">
+    <input type="hidden" name="action" value="changerHoraire">
+    <h2>Horaires</h2>
+    <p class='description'>Changez les horraires d'ouverture directement via se pannel ! <br/>
+    Pour indiquer la fermeture d'un matin ou après-midi, appuyez sur "à".</p>
+    <table class="horrairesModif">
+        <thead>
+            <th></th>
+            <th></th>
+            <th>Matin</th>
+            <th></th>
+        </thead>
+
+        <?php
+        //  var_dump($horaire);
+        
+
+        $Jour = ["L","M","M","J","V","S","D"];
+        $jour = ["lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"];
+        reset($horaire[0]);
+        next($horaire[0]);
+        next($horaire[0]);
+
+        reset($horaire[1]);
+        next($horaire[1]);
+        next($horaire[1]);
+
+        for($i=0; $i<7; $i++){
+            $text1 = $jour[$i]."1";
+            $text2 = $jour[$i]."2";
+
+            echo '<tr>
+            <th>'.$Jour[$i].'</th>';
+            if($horaire[0][$text1] != "CLOSE"){
+                echo ' 
+                    <td><input type=time name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text1].'"></td>';
+                   
+            }else{
+                echo '<td>CLOSED</td>
+                <input type=hidden name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text1].'">';
+            }
+            next($horaire[0]);
+            
+            if($horaire[0][$text2] != "CLOSE"){
+                echo'
+                <td class="accent"><button type="submit" name="close" value="matin-'.$jour[$i].'">à</a></td>
+                <td><input type=time name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text2].'"></td>';
+            }else{
+                echo '
+                <td class="accent"><button type="submit" name="open" value="matin-'.$jour[$i].'">à</a></td>
+                <td>CLOSED</td>
+                <input type=hidden name="matin-'.key($horaire[0]).'" value="'.$horaire[0][$text2].'">';
+            }
+            next($horaire[0]); 
+        }
+        echo'
+        <thead>
+        <th></th>
+        <th></th>
+        <th>Après-Midi</th>
+        <th></th>
+        </thead>';
+
+        for($i=0; $i<7; $i++){
+            $text1 = $jour[$i]."1";
+            $text2 = $jour[$i]."2";
+
+            echo '<tr>
+            <th>'.$Jour[$i].'</th>';
+            if($horaire[1][$text1] != "CLOSE"){
+                echo'
+                    <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text1].'"></td>';
+            }else{
+                echo '
+                <td>CLOSED</td>
+                <input type=hidden name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text1].'">';
+            }
+            next($horaire[1]);
+            
+            if($horaire[1][$text2] != "CLOSE"){
+                echo'
+                    <td class="accent"><button type="submit" name="close" value="aprem-'.$jour[$i].'">à</a></td>
+                    <td><input type=time name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text2].'"></td> ';
+            }else{
+                echo '
+                <td class="accent"><button type="submit" name="open" value="aprem-'.$jour[$i].'">à</a></td>
+                <td>CLOSED</td>
+                <input type=hidden name="aprem-'.key($horaire[1]).'" value="'.$horaire[1][$text2].'">';
+            }
+            next($horaire[1]);
+            
+            echo'</tr>';
+        }
+?>
+    </table>
+    <button class="boutton bouttonHorraire" type="submit">Changer</button>
+</form>
+
+
+<form action = "<?php echo BASE_URL;?>/modifier/horaires#formulaireHoraire" class="computer-only" method="POST" id="formulaireHoraire">
     <input type="hidden" name="action" value="changerHoraire">
     <h2>Horaires</h2>
     <p class='description'>Changez les horraires d'ouverture directement via se pannel ! <br/>
@@ -127,7 +226,7 @@
             
             echo'</tr>';
         }
-?>
+    ?>
     </table>
     <button class="boutton bouttonHorraire" type="submit">Changer</button>
 </form>
@@ -206,7 +305,7 @@
         <input type="hidden" name="action" value="validerTemoignage">
 
         <select name="id">
-        <option value="">--Choisissez un commentaire--</option>
+        <option value="">Choisissez un commentaire</option>
         
             <?php foreach($Commentaires as $commentaire){
                 if ($commentaire["valide"] == 1){ ?>
@@ -225,7 +324,7 @@
     </form>
     <form class="adminChoix" action='<?php echo BASE_URL;?>/modifier/occasion' method=POST>
         <select name="id">
-        <option value="">--Choisissez un véhicule--</option>
+        <option value="">Choisissez un véhicule</option>
             <?php foreach($allOccasions as $occasion){
                 ?>
                 <option value=<?php echo $occasion["id"]; ?>><?php echo $occasion["id"]." ".$occasion["marque"]." ".$occasion["modèle"]; ?></option>

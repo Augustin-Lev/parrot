@@ -155,10 +155,11 @@ header>.headerTitre{
 .headerLoger{
     display: flex;
     color: #FFEDC1;
-    flex-direction: column;
+    flex-direction: row;
     margin: 0;
-    flex:1;
+    flex: 1;
     text-decoration: none;
+    align-items: center;
     justify-content: space-evenly;
 }
 .headerLoger>p{
@@ -167,7 +168,14 @@ header>.headerTitre{
 .headerLoger>a{
     margin: 0;
 }
-
+.headerLoger>svg{
+    max-height: 80%;
+    max-width: 20%;
+}
+.headerLogin>a>svg{
+    height: 3vh;
+    width: 100%;
+}
 .headerLoger:hover > .headerCache{
     display: flex;
     color: #FFEDC1;
@@ -845,6 +853,10 @@ select:hover{
 }
 .caracteristique>p{
     flex:1;
+}
+.caracteristique>p>svg{
+    height: 1.75rem;
+    padding: 0 40%; 
 }
 .bouttonReserver{
     text-align: center;

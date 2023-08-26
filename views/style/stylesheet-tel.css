@@ -41,6 +41,13 @@
         50%   { left:0px; top:-40vh;}
         100% { left:0px; top:0px;}
     }
+
+    .presentation>h1{
+        padding: 5%;
+    }
+    .tiret{
+        margin: 0 30% 0 30%;
+    }
     .motParrot>p{
         width: 90vw;
     }
@@ -81,11 +88,18 @@
     .box1>svg{
         flex:1;
     }
+    .box1:hover > svg{
+        height: 20vh;
+        width: 20vh;
+    }
     .box1>h2{
         flex:3;
         display: block;
         opacity: 1;
         color: black;
+    }
+    #nouveauPassword{
+        font-size: 1.5rem;
     }
     h2{
         font-size: 15px;
@@ -105,7 +119,7 @@
     }
     .temoignages{
         flex-direction: column;
-        padding: 0 10% 0 10%;
+        padding: 0 5% 0 5%;
     }
     .enTete{
         flex-direction: column;
@@ -191,12 +205,13 @@
     header>.headerTitre{
         display: none;
     }
-    .headerLogo>h2{
-        display: none;
+    .headerLogo{
+        justify-content: center;
     }
     .headerLogin{
         margin: auto;
-    }   
+    } 
+
     .headerLogin>a{
         font-size: inherit;
         margin : auto;
@@ -266,6 +281,34 @@
     }  
     .occasionPlusContenu{
         flex-direction: column;
+    }
+
+    /* -------------administration--------------- */
+    .headerAdmin{
+        flex-direction: column;
+        height: 100%;
+        height: fit-content;
+        padding: 0 5% 0% 5%;
+    }
+    .administrtion-view>h1{
+        font-size: 1.5rem;
+    }
+    .box1{
+        background-color: #ffdf8f;
+    }
+    .bouttonHorraire{
+        margin: 1rem 5% 1rem 5%;
+        width: 90%;
+    }
+    .corpsCommentaire {
+        display: flex;
+        flex-direction: column;
+    }
+    .validation {
+     
+        flex-direction: row;
+        justify-content: space-evenly;
+    
     }
 }
 
