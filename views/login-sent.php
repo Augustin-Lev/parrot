@@ -1,6 +1,6 @@
 <div class=login>
     <h1>Mot de passe oublié</h1>
-    <form class="loginForm" action="<?php echo BASE_URL;?>/verifierCode" method="post">
+    <form class="loginForm" action="<?php echo BASE_URL;?>/verifier/code" method="post">
         <input style="display:none" name="action" id="action" value="verifier" required="">
 
         <?php if (isset($_GET["echec"])){?>

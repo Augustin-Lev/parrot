@@ -59,6 +59,7 @@ class LoginController{
         require_once "views/footer.php";
     }
     public function mpdOublie(){
+        $DB = new DataBase;
         $header = [
             "javascript"=>0,
             "titre"=>"Se connecter Garrage V.Parrot",
@@ -67,13 +68,16 @@ class LoginController{
             "]; //necessaire au header de model
         require "models/Header.php";
         require_once "views/header.php";
-        require "../view/login-forget.php";
+        require "views/login-forget.php";
+
         $horaire =  $DB->allHoraires(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 
     public function envoyerCode(){
-        $DB = new DataBase();
+        $DB = new DataBase;
+        $code = new Code;
+
         $header = [
             "javascript"=>0,
             "titre"=>"Se connecter Garrage V.Parrot",
@@ -83,8 +87,8 @@ class LoginController{
         require "models/Header.php";
         require_once "views/header.php";
 
-        if ($DB->envoyer($_POST["mail"])){
-            require "../view/login-sent.php";
+        if ($code->envoyer($_POST["mail"])){
+            require "views/login-sent.php";
         }else{
             require_once "views/bandeau.php";
             erreur("Votre mail n'est pas dans la base");
@@ -95,8 +99,9 @@ class LoginController{
     }
     public function verifierCode(){
         $DB = new DataBase();
+        $code = new Code;
         $header = [
-            "javascript"=>0,
+            "javascript"=>1,
             "titre"=>"Se connecter Garrage V.Parrot",
             "content"=>"
             Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
@@ -104,14 +109,14 @@ class LoginController{
         require "models/Header.php";
         require_once "views/header.php";
 
-        if ($DB->verifier($_POST["verif"]) == 1){
+        if ($code->verifier($_POST["verif"]) == 1){
             require "views/login-new.php";
         }else{
             require_once "views/bandeau.php";
             erreur("le code n'est pas bon");
             require "views/login-sent.php";
         }
-
+        echo '<script src="../views/script/login.js"></script>';
         $horaire =  $DB->allHoraires(); // necessaire pour le footer
         require_once "views/footer.php";
     }
@@ -120,7 +125,7 @@ class LoginController{
         if($_POST["action"]=="nouveau-mpd"){
             $DB = new DataBase();
             $DB-> newMdp($PDO, $_SESSION["mail"],$_POST["mdp"]);
-            header('Location:/');
+            // header('Location:'.BASE_URL);
         }
     }
        

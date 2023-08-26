@@ -12,14 +12,15 @@ if (!file_exists('models/connect.csv')){
 // inclusion des classes
 require_once 'models/Router.php';
 require_once 'models/DataBase.php';
+require_once 'models/Code.php';
 
 require_once 'controllers/HomeController.php';
 require_once 'controllers/AdministrationController.php';
 require_once 'controllers/LoginController.php';
 require_once 'controllers/ServicesController.php';
-require_once 'controllers/ModifServiceController.php';
 require_once 'controllers/UsedCarController.php';
 require_once 'controllers/TestimonialController.php';
+
 
 
 //instanciation des classes
@@ -33,7 +34,6 @@ $router->addRoute("GET",BASE_URL.'/','HomeController','index');
 $router->addRoute("GET",BASE_URL.'/administration','AdministrationController','index');
 $router->addRoute("GET",BASE_URL.'/login','LoginController','index');
 $router->addRoute("GET",BASE_URL.'/services','ServicesController','index');
-$router->addRoute("GET",BASE_URL.'/modification_des_services','ModifServiceController','index');
 $router->addRoute("GET",BASE_URL.'/occasions','UsedCarController','index');
 $router->addRoute("GET",BASE_URL.'/temoignage','TestimonialController','index');
 
@@ -114,8 +114,18 @@ $router->addRoute("GET",BASE_URL.'/modifier','AdministrationController','modify'
 $router->addRoute("POST",BASE_URL.'/reserver','UsedCarController','newBook');
 $router->addRoute("GET",BASE_URL.'/reserver','UsedCarController','newBook');
 
+$router->addRoute("POST",BASE_URL.'/envoyer/code','LoginController','envoyerCode');
+$router->addRoute("GET",BASE_URL.'/envoyer/code','LoginController','envoyerCode');
+
+$router->addRoute("POST",BASE_URL.'/verifier/code','LoginController','verifierCode');
+$router->addRoute("GET",BASE_URL.'/verifier/code','LoginController','verifierCode');
+
 $router->addRoute("POST",BASE_URL.'/occasions/*','UsedCarController','occasionPlus');
 $router->addRoute("GET",BASE_URL.'/occasions/*','UsedCarController','occasionPlus');
+
+$router->addRoute("POST",BASE_URL.'/nouveau/mot_de_passe','LoginController','nouveauMdp');
+$router->addRoute("GET",BASE_URL.'/nouveau/mot_de_passe','LoginController','nouveauMdp');
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];

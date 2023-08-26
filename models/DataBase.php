@@ -9,7 +9,7 @@ class DataBase{
 
 
     public function __construct(){
-        $log = fopen("models/ancien/log.csv","r");
+        $log = fopen("models/connect.csv","r");
         $line = 1;
         while (($line = fgetcsv($log)) !== FALSE) {
             // var_dump($line);

@@ -1,6 +1,6 @@
 <div class=login>
     <h1>Mot de passe oublié</h1>
-    <form  class="loginForm" action="<?php echo BASE_URL;?>/envoyerCode" method="POST">
+    <form  class="loginForm" action="<?php echo BASE_URL;?>/envoyer/code" method="POST">
         <input style="display:none" name="action" id="action" value="envoyer">
 
         <label for="mail">Adresse mail</label>
