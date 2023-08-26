@@ -3,7 +3,7 @@
 <?php } ?>
 <form class="new_occasion" action="<?php echo BASE_URL;?>/ajout/occasion" method="POST" enctype="multipart/form-data">
     <?php 
-        // var_dump($occasions);
+        var_dump($occasions);
         foreach($occasions as $parametre){
             if (key($occasions) == "id" || key($occasions) == "modificateur"){
                 next($occasions);
@@ -18,9 +18,11 @@
                         <?php 
                     }
                     next($occasions);
-                    if ($parametre != 0){
+                    if ($parametre != 0 && isset($_POST["id"])){
                         // var_dump($parametre);
-                        echo "<input type='hidden' name='nbImagesDeja' value='".($parametre-1)."'>";
+                        echo "<input type='hidden' name='nbImagesDeja' value='".($parametre)."'>";
+                    }else{
+                        echo "<input type='hidden' name='nbImagesDeja' value='0'>";
                     }
 
                 }else{

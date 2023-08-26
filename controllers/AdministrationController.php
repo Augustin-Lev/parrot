@@ -66,31 +66,31 @@ class AdministrationController{
         require_once "views/footer.php";
     }
 
-    public function addNewCar(){
-        $DB = new DataBase();
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
-        $header = [
-            "javascript"=>0,
-            "titre"=>"Administration Garage V.Parrot",
-            "content"=>"Administration, do not import on web."]; //necessaire au header de model
-        require "models/Header.php";
-        require_once "views/header.php";
+    // public function addNewCar(){
+    //     $DB = new DataBase();
+    //     $horaire =  $DB->allHoraires(); // necessaire pour le footer
+    //     $header = [
+    //         "javascript"=>0,
+    //         "titre"=>"Administration Garage V.Parrot",
+    //         "content"=>"Administration, do not import on web."]; //necessaire au header de model
+    //     require "models/Header.php";
+    //     require_once "views/header.php";
 
-        // var_dump($_FILES);
-        $newOccasion = array();
-        foreach($_POST as $param){
-            if (key($_POST) != "ajout-new-occasion"){
-                $newOccasion[key($_POST)] = $param;
-            }
-            next($_POST);
-        }    
-        // var_dump($newOccasion);
+    //     // var_dump($_FILES);
+    //     $newOccasion = array();
+    //     foreach($_POST as $param){
+    //         if (key($_POST) != "ajout-new-occasion"){
+    //             $newOccasion[key($_POST)] = $param;
+    //         }
+    //         next($_POST);
+    //     }    
+    //     // var_dump($newOccasion);
         
-        $DB->AjouterOccasion($newOccasion);
-        echo("<meta http-equiv='refresh' content='1'>"); 
-        // require_once "../view/administration.php";
-        require_once "views/footer.php";
-    }
+    //     $DB->AjouterOccasion($newOccasion);
+    //     // echo("<meta http-equiv='refresh' content='1'>"); 
+    //     // require_once "../view/administration.php";
+    //     require_once "views/footer.php";
+    // }
     
     public function modifyCar(){
         $DB = new DataBase();
