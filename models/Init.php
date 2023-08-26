@@ -334,7 +334,7 @@ function initialisation($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$passw
     }catch(PDOExeption $e){
         echo 'Erreur lors de la connection à la base de donées';
     }
-    require "models/ancien/Bdd.php";
+    // require "models/ancien/Bdd.php";
     if ($PDO->exec('DROP DATABASE IF EXISTS '.$NameDB) !== false) {
         if ($PDO -> exec('CREATE DATABASE '.$NameDB) !==null){
             echo "<li>création de la base réussi !</li> <br/>";
