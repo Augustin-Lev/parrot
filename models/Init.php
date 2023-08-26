@@ -5,14 +5,13 @@
         <link rel="stylesheet" href="views\style\stylesheet.css">
         <title>Initialisation</title>
         <meta name= "description" content="
-        Page de connexion
+        Page d'initialisation'
         ">
     </head>
     <body class="init">
     <?php
         // require "../model/Bdd.php";
         require 'views/bandeau.php';
-        require "models/ancien/sendcode.php";
     ?>
 
     <h1 style="background-color:black">Initialisation</h1>
@@ -21,20 +20,20 @@
 
     if(isset($_POST["action"])){
         if($_POST['action']=="stockInfos"){
-            if(file_exists("models/ancien/log.csv")){
-                unlink('model/ancien/log.csv');
+            if(file_exists("models/connect.csv")){
+                unlink('models/connect.csv');
             }else{
-                $fichier = fopen("../model/log.csv", "w");
+                $fichier = fopen("models/connect.csv", "w");
                 fwrite($fichier, "UserDB,passwordDB,name,surname,email,password \r\n");
                 fwrite($fichier, $_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
                 initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
             }
         }
         if($_POST['action']=="fillDB"){
-            if(file_exists("models/ancien/log.csv")){
-                unlink('models/ancien/log.csv');
+            if(file_exists("models/connect.csv")){
+                unlink('models/connect.csv');
             }else{
-                $fichier = fopen("models/ancien/log.csv", "w");
+                $fichier = fopen("models/connect.csv", "w");
                 fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password \r\n");
                 fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
                 initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);

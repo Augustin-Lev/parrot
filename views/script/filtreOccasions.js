@@ -1,5 +1,6 @@
 // récuperer les valeurs dec occasions
 // changer le css des occasions concernés
+console.log("chargéFiltre")
 function miseAJourPrix(prixMin,prixMax){
     $('.prix').each(function() {
         console.log($(this).text())

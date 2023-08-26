@@ -1,7 +1,13 @@
 <?php
 session_start();
 // phpinfo();
+
 define("BASE_URL",'/garrage');
+if (!file_exists('models/connect.csv')){
+    require_once 'models/Init.php';
+}else{
+    
+
 
 // inclusion des classes
 require_once 'models/Router.php';
@@ -104,6 +110,13 @@ $router->addRoute("GET",BASE_URL.'/modifier/services/entretien','AdministrationC
 $router->addRoute("POST",BASE_URL.'/modifier','AdministrationController','modify');
 $router->addRoute("GET",BASE_URL.'/modifier','AdministrationController','modify');
 
+
+$router->addRoute("POST",BASE_URL.'/reserver','UsedCarController','newBook');
+$router->addRoute("GET",BASE_URL.'/reserver','UsedCarController','newBook');
+
+$router->addRoute("POST",BASE_URL.'/occasions/*','UsedCarController','occasionPlus');
+$router->addRoute("GET",BASE_URL.'/occasions/*','UsedCarController','occasionPlus');
+
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 
@@ -111,7 +124,6 @@ $handler = $router->getHandler($method,$uri);
 // handler = [mehtode=>"GET",controller=>"HomeController",action=>"index"]
 
 if ($handler === NULL){
-
     header('HTTP/1.1 404 not found');
     exit();
 }
@@ -121,5 +133,5 @@ $controller = new $handler['controller']();
 $action = $handler["action"];
 $controller->$action();
 
-
+}
 ?>

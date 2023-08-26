@@ -182,7 +182,7 @@ class DataBase{
               
         $nbImages = 0;
         
-        reset($_FILES);
+       
         foreach($_FILES as $fichier){
             if($fichier['name'] != ""){
                 $nbImages ++;
@@ -192,9 +192,12 @@ class DataBase{
         if ($nbImagesDeja > $nbImages){
             $nbImages = $nbImagesDeja;
         }
-    
-        next($_FILES);
-        
+        if($nbImages==0){
+            copy("views/image/voitureSansImage.webp","views/image/occasion/".$id."/image1.webp");
+            $nbImages = 1;
+        }
+
+       
         $champ = "modificateur, imageClef,id";
         $binValue = "'".$_SESSION["email"]."','".$nbImages."','".$id;
         // var_dump($tableau);

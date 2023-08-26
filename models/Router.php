@@ -23,6 +23,15 @@ class Router {
                 'controller' => $route['controller'],
                 'action' =>$route['action'],
                 ];
+            }elseif(substr($route['path'],0,18) === substr($uri,0,18) && substr($route['path'],18) == "/*"){
+
+                // var_dump($route['path'],18);
+                // echo "ca passe dans le routeur pour occasionPlus";
+                return [
+                    'method' => $route['method'],
+                    'controller' => $route['controller'],
+                    'action' =>$route['action'],
+                    ]; 
             }
         }
     //erreur 404

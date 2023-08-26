@@ -28,22 +28,45 @@ class UsedCarController{
             if($_POST["action"]=="demandeRenseignement"){
                 require "views/contact.php";  
             }
-            if($_POST["action"]=="reserver"){
-                $DB = new DataBase();
-                $mail = $DB->mailGestion();
-
-                $text = $prenom." ".$nom."souhaite reserver le véhicule : ".$id."<br/> Numero : ".$tel;
-                $headers = 'From: '.$mail. "\r\n" .
-                'Reply-To: '.$mail;
-                mail($admin,"Reservation Véhicule",$text, $headers);
-
-                bandeau("votre véhicule à bien été reservé");
-
-                $voiture= occasion($PDO, $_POST["id"]);
-                require_once "views/occasionPlus.php";  
-            }
+            
         }
     }
+    public function newBook(){
+        $DB = new DataBase();
+        $header = [
+            "javascript"=>1,
+            "titre"=>"Véhicule d'occasions V.Parrot",
+            "content"=>"
+              Quelque soit votre budget, nous vous proposons tous types de voitures d'occasions !
+            Filtrez par prix, kilolétrage ou année de mise en service pour affiner vos recherches. 
+            Une page d'informations détaillé vous est proposé pour chaque véhicule, il n'y a plus qu'à reserver !
+            "]; //necessaire au header de model
+        require "models/Header.php";
+        require_once "views/header.php";
+
+        if($_POST["action"]=="reserver"){
+          
+            $admin = $DB->mailGestion();
+
+            $text = $_POST["prenom"]." ".$_POST["nom"]."souhaite reserver le véhicule : ".$_POST["id"]."<br/> Numero : ".$_POST["tel"];
+            $headers = 'From: '.$_POST["mail"]. "\r\n" .
+            'Reply-To: '.$_POST["mail"];
+            mail($admin,"Reservation Véhicule",$text, $headers);
+
+            require_once "views/bandeau.php";
+            bandeau("votre véhicule à bien été reservé");
+
+            $voiture= $DB->occasion($_POST["id"]);
+            require_once "views/occasionPlus.php";  
+        }else{
+            require "views/contact.php"; 
+        }
+       
+    
+        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        require_once "views/footer.php"; 
+    }
+
 
     public function newField(){       
         $DB = new DataBase();
@@ -108,10 +131,25 @@ class UsedCarController{
         header("Location:".BASE_URL);    
     }
 
-    public function OccasionPlus(){
-        if (isset($_GET["voiture"])){
-            $voiture= occasion($PDO, $_GET["voiture"]);
-            require_once "views/occasionPlus.php";
-        }
+    public function occasionPlus(){
+        echo "+0";
+        $DB = new DataBase();
+        $header = [
+            "javascript"=>1,
+            "titre"=>"Véhicule d'occasions V.Parrot",
+            "content"=>"
+              Quelque soit votre budget, nous vous proposons tous types de voitures d'occasions !
+            Filtrez par prix, kilolétrage ou année de mise en service pour affiner vos recherches. 
+            Une page d'informations détaillé vous est proposé pour chaque véhicule, il n'y a plus qu'à reserver !
+            "]; //necessaire au header de model
+        require "models/Header.php";
+        require_once "views/header.php";
+
+        $id = substr($_SERVER['REQUEST_URI'],19);
+        $voiture= $DB->occasion($id);
+        require_once "views/occasionPlus.php";
+    
+        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        require_once "views/footer.php";
     }
 }
