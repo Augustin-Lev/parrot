@@ -1,9 +1,9 @@
 
     <header 
-        <?php if(basename ($_SERVER['PHP_SELF']) == "index.php"){echo 'class="computer-only"';} ?>>
+        <?php if(basename ($_SERVER['PHP_SELF']) == "/"){echo 'class="computer-only"';} ?>>
         <a  href="<?php echo BASE_URL;?>/" class="headerLogo" >
             <img src= "<?php echo BASE_URL; ?>/views/image/logoBlack.webp" alt="Logo noir du Garage V.Parrot">
-            <?php if(basename ($_SERVER['PHP_SELF']) != "index.php"){
+            <?php if(basename ($_SERVER['PHP_SELF']) != "/"){
                 echo '<h2>Menu<h2>';
             } ?>
         </a>
@@ -40,8 +40,8 @@
 
 <?php }
 
-echo "POST";
-var_dump($_POST);
-echo "SESSION";
-var_dump($_SESSION);
+// echo "POST";
+// var_dump($_POST);
+// echo "SESSION";
+// var_dump($_SESSION);
  ?> 

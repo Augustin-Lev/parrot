@@ -914,13 +914,13 @@ select:hover{
     padding: 1rem;
     flex:4;
 }
-.headerBandeau>a{
+.headerBandeau>button{
     flex:1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding : 0;
-    margin : auto;
+    padding: 2%;
+    margin: 2%;
     width: 10vw;
 }
 
@@ -929,7 +929,7 @@ select:hover{
     border: #1a531c solid 4px;
     color: #1a531c;
 }
-.succes>a{
+.succes>button{
     background-color : #198b26;
 }
 .erreur{
@@ -937,7 +937,7 @@ select:hover{
     border: #6a0000 solid 4px;
     color: #6a0000;
 }
-.erreur>a{
+.erreur>button{
     background-color : #972828;
 }
 /* ---------------initialisation------------- */
