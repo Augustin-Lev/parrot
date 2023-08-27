@@ -40,13 +40,25 @@ class LoginController{
             // require 'views/login.php';
             header('Location:'.BASE_URL);
         }else{
+            $header = [
+                "javascript"=>0,
+                "titre"=>"Se connecter Garrage V.Parrot",
+                "content"=>"
+                Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
+                "]; //necessaire au header de model
+            require "models/Header.php";
+            require_once "views/header.php";
             require_once "views/bandeau.php";
-            var_dump($_POST);
-            
+
             erreur("mot de passe incorrecte");
             $_SESSION["login"] = 0;
             $_SESSION["statut"] = "visiteur";
+            
             require 'views/login.php';
+
+            $horaire =  $DB->allHoraires(); // necessaire pour le footer
+            require_once "views/footer.php";
+
         }    
         $header = [
             "javascript"=>0,

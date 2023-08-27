@@ -23,8 +23,7 @@ function erreur($text){
         </script>
         <div id='bandeau' class='headerBandeau erreur'>
                 <h2>". $text ."</h2>
-                <a class=' boutton' href=".$file.">OK</a>
-                <script>
+                <button class='boutton' onclick='masquer()'>OK</button>
         </div>
     ";
 }
