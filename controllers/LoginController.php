@@ -41,6 +41,8 @@ class LoginController{
             header('Location:'.BASE_URL);
         }else{
             require_once "views/bandeau.php";
+            var_dump($_POST);
+            
             erreur("mot de passe incorrecte");
             $_SESSION["login"] = 0;
             $_SESSION["statut"] = "visiteur";

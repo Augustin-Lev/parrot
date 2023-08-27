@@ -28,9 +28,7 @@ class DataBase{
 
     public function VerifierMdpBdd($email,$motDePasse){
         foreach ($this-> PDO-> query('SELECT email, motDePasse, nom, prenom, statut FROM salaries', PDO::FETCH_ASSOC) as $user){
-            if ($user['email'] === $email &&
-                $user['motDePasse'] === $motDePasse){
-                    
+            if ($user['email'] === $email && password_verify($motDePasse,$user['motDePasse']) ){ 
                 return $user;
             }
         }
@@ -67,7 +65,7 @@ class DataBase{
                 $this-> PDOStatement->bindValue(':nom',$nom,PDO::PARAM_STR);
                 $this-> PDOStatement->bindValue(':prenom',$prenom,PDO::PARAM_STR);
                 $this-> PDOStatement->bindValue(':email',$email,PDO::PARAM_STR);
-                $this-> PDOStatement->bindValue(':motDePasse',$motDePasse,PDO::PARAM_STR);
+                $this-> PDOStatement->bindValue(':motDePasse',password_hash($motDePasse,PASSWORD_DEFAULT),PDO::PARAM_STR);
     
                 if($this-> PDOStatement -> execute()) { 
                     return "1";                
@@ -114,7 +112,7 @@ class DataBase{
         $this-> PDOStatement->bindValue(':nom',$employee->getNom(),PDO::PARAM_STR);
         $this-> PDOStatement->bindValue(':prenom',$employee->getPrenom(),PDO::PARAM_STR);
         $this-> PDOStatement->bindValue(':email',$employee->getEmail(),PDO::PARAM_STR);
-        $this-> PDOStatement->bindValue(':motDePasse',$employee->getMotDePasse(),PDO::PARAM_STR);
+        $this-> PDOStatement->bindValue(':motDePasse',password_hash($employee->getMotDePasse(),PASSWORD_DEFAULT),PDO::PARAM_STR);
         
         if($this-> PDOStatement -> execute()) { 
             return "1";                
