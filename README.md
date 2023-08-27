@@ -1,20 +1,20 @@
 # Garage V.PARROT
-Salut, je suis Augustin étudiant devellopeur web full stack passionné ! 
+👋 Salut, je suis Augustin étudiant devellopeur web full stack passionné ! 
 J'aime bien tout maitriser et de ce fait j'utilise très peu de framework...
 
-## INTRODUCTION
+## 🖋️ INTRODUCTION
 ***
 Le but de cette application web est de certifier des compétences pour un diplome Dev Web Full Stack !
 Le garage Parrot à Toulouse vient d'ouvrir ses portes, il veux donc se faire connaitre sur le web.
 Cette application web est la plus chouette du monde car c'est la plus chouette gars du monde qui l'a faite na!
 
-## SOMMAIRE
+## 📖 SOMMAIRE
 1. [DEPLOIEMENT](#Déploiement)
 2. [INFORMATIONS](#INFORMATIONS)
 3. [CREDITS](#CREDITS)
 4. [LISCENCE](#LISCENCE)
 
-## DEPLOIEMENT
+## 🚀 DEPLOIEMENT
 ### Via Github
 - connectez-vous à votre hébergeur
 - créez une base de donnée Mysql
@@ -48,7 +48,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 	- attention les données entrés sont considérés celles du gérant
 
 
-## DOCUMENTATION TECHNIQUE
+## ℹ️ DOCUMENTATION TECHNIQUE
 
 ### Langages Utilisés:
 ***
@@ -90,65 +90,68 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 
 ### Taches réalisés
 ***
-modification des horaires
-bouton ajouter un nouveau témoignage dans admin
-validation des témoignages (mise en attente etc..)
-modifier les véhicules d'occasion
-rajouter des boutons menu
-ajouter une animation sur les boutons lors de leurs survol
-ajouter des images
-fonction réserver des véhicules d'occasions
-changer la police de base
-animation sur les 3 grands logos
-ameliorer le front-end de l'administration
-ajouter un bandeau à la place de l'alerte, pour l'envois du mail
-ajouter l'adresse du bail
-enregistrer des véhicule à l'initialisation
-se deconnecter
-securiser le login
-creer l'installateur
-corriger l'orthographe
-faire la version pour téléphone
-faire des cartes pour les voitures d'occasion
-envoyer un mail avec code seulement aux personnes administrateurs
-ajouter des options aux voitures d'occasion
-ajouter des images aux voitures d'occasion
-ajout du fichier readme
-SEO
-sitemap
-ajouter un fichier robot
-servir les images en format next-gen
-horraire fermé le dimanche
-ajouter un qui sommes-nous
-améliorer front-end des témoignages
-ameliorer le frontend des services
-gesion des erreurs
-changer les nom des adresses
-passer en POO
-changer login 
-probleme login
-hasher le mot de passe
-faire une page 404
+- modification des horaires
+- bouton ajouter un nouveau témoignage dans admin
+- validation des témoignages (mise en attente etc..)
+- modifier les véhicules d'occasion
+- rajouter des boutons menu
+- ajouter une animation sur les boutons lors de leurs survol
+- ajouter des images
+- fonction réserver des véhicules d'occasions
+- changer la police de base
+- animation sur les 3 grands logos
+- ameliorer le front-end de l'administration
+- ajouter un bandeau à la place de l'alerte, pour l'envois du mail
+- ajouter l'adresse du bail
+- enregistrer des véhicule à l'initialisation
+- se deconnecter
+- securiser le login
+- creer l'installateur
+- corriger l'orthographe
+- faire la version pour téléphone
+- faire des cartes pour les voitures d'occasion
+- envoyer un mail avec code seulement aux personnes administrateurs
+- ajouter des options aux voitures d'occasion
+- ajouter des images aux voitures d'occasion
+- ajout du fichier readme
+- SEO
+- sitemap
+- ajouter un fichier robot
+- servir les images en format next-gen
+- horraire fermé le dimanche
+- ajouter un qui sommes-nous
+- améliorer front-end des témoignages
+- ameliorer le frontend des services
+- gesion des erreurs
+- changer les nom des adresses
+- passer en POO
+- changer login 
+- probleme login
+- hasher le mot de passe
+- faire une page 404
+- merger avec la branche main
 ***
 
 ### Taches à réaliser
 ***
-merger avec la branche main
+- passer les input en html
+- prévenir si les images ne chargent pas
 
-###Conventions
+
+### Conventions
 - Nom des classes en anglais et PascalCase
 - Nom des fichiers commencent par Maj
 - Variables en Camel Case
 - Utilisation de / pour les noms de chemins
 
 
-## CREDITS
+## 😘 CREDITS
 -STUDI
 -Google Map
 -Pexel
 -Bootstrap ICONS
 
-## LISCENCE
+## 🔒 LISCENCE
 MIT License
 
 Copyright (c) [2023] [Augustin-Levasseur]
