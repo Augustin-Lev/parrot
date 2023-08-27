@@ -133,7 +133,6 @@ faire une page 404
 
 ### Taches à réaliser
 ***
-mot de passe incorrect -> pb
 merger avec la branche main
 
 ###Conventions
