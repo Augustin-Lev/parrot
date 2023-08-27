@@ -16,7 +16,7 @@
         <input type="number" name="Etoile" required="" min="0" max="5">
 
         <label for="commentaire">Commentaire</label>
-        <input type="text" name="commentaire" required="">
+        <textarea name="commentaire" class="grandTextInput"  required=""></textarea>
 
 
         <button class="boutton" type="submit">Envoyer</button>

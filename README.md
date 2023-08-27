@@ -123,16 +123,18 @@ ajouter un qui sommes-nous
 améliorer front-end des témoignages
 ameliorer le frontend des services
 gesion des erreurs
+changer les nom des adresses
+passer en POO
+changer login 
+probleme login
 ***
 
 ### Taches à réaliser
 ***
 hasher le mot de passe
-changer les nom des adresses
-passer en POO
-changer login 
-probleme login
 commentaire height : plus large
+faire une page 404
+merger avec la branche main
 
 ###Conventions
 - Nom des classes en anglais et PascalCase

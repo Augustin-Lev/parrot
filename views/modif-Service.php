@@ -7,7 +7,7 @@
         <input type="text" name="titre" require="">
 
         <label for="content">Contenu</label>
-        <input class="grandTextInput" type="textarea" name="content" require="">
+        <textarea class="grandTextInput" type="textarea" name="content" require=""></textarea>
 
         <button type="submit" class="boutton">Modifier</button>
     </form>
