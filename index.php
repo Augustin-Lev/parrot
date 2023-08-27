@@ -134,14 +134,17 @@ $handler = $router->getHandler($method,$uri);
 // handler = [mehtode=>"GET",controller=>"HomeController",action=>"index"]
 
 if ($handler === NULL){
+    require_once 'views/lost.php';
     header('HTTP/1.1 404 not found');
-    exit();
+
+}else{
+
+    //Appel du controller
+    $controller = new $handler['controller']();
+    $action = $handler["action"];
+    $controller->$action();
 }
 
-//Appel du controller
-$controller = new $handler['controller']();
-$action = $handler["action"];
-$controller->$action();
 
 }
 ?>

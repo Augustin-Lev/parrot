@@ -127,13 +127,14 @@ changer les nom des adresses
 passer en POO
 changer login 
 probleme login
+hasher le mot de passe
+faire une page 404
 ***
 
 ### Taches à réaliser
 ***
-hasher le mot de passe
-commentaire height : plus large
-faire une page 404
+
+mot de passe incorrect -> pb
 merger avec la branche main
 
 ###Conventions

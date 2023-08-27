@@ -974,3 +974,25 @@ select:hover{
     color: #FFEDC1;
 }
 
+/* ----------------lost----------------------------- */
+.BtnLost{
+    margin: 5%;
+}
+.presentationLost{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.presentationLost>h1{
+    padding: 0;
+}
+.presentationLost>.tiret{
+    margin: 0;
+}
+.motLost{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}   
