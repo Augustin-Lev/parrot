@@ -8,7 +8,7 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
     <div class="slider__inner" style="width:<?php echo $voiture["imageClef"]; ?>00%;">
         <?php for( $i=1; $i<(intval($voiture["imageClef"])+1);$i++){ ?>
             <div class="slider__contents">
-            <img class="slider__txt" src="<?php echo BASE_URL;?>/views/image/occasion/<?php echo $voiture["id"] ?>/image<?php echo $i; ?>.jpg">
+            <img class="slider__txt" src="<?php echo BASE_URL;?>/views/image/occasion/<?php echo $voiture["id"]?>/image<?php echo $i; ?>.jpg">
             </div>
         <?php }?>
     </div>

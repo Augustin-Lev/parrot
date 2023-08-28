@@ -25,9 +25,9 @@
     <div class="tiret"></div>
     <div class="motParrot" >
         <p>Fort de mes 15ans d'experience dans la réparation automobile, j'ai ouvert mon propre garage à Toulouse. 
-            Depuis deux ans, je propose une large gamme de service : réparation de la carrosserie et de la mécanique des voitures ainsi que leur entretien régulier pour garantir leur performanche et leur sécurité. 
+            Depuis deux ans, je propose une large gamme de service : réparation de la carrosserie et de la mécanique des voitures ainsi que leur entretien régulier pour garantir leur performances et leur sécurité. 
             Je me suis aussi lancé dans la vente de véhicule d'occasion pour satisfaire le plus possible mes clients !
-            Je souhaite que mon atelier soit un véritable lieu de confiance pour vous, clients et pour vos voitures. En effet, elles doivent être a tout prix entre de bonne main.
+            Je souhaite que mon atelier soit un véritable lieu de confiance pour vous, clients et pour vos voitures. En effet, elles doivent être à tout prix entre de bonne main.
             Avec le garage V.Parrot, investissez dans la sécurité !
         </p>
         <img class="signature" alt="signature" src="views/image/signature.webp">

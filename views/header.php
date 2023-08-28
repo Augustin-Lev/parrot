@@ -9,8 +9,8 @@
         <h2 class="headerTitre">Garage V.Parrot</h2>
 
         <?php 
-        
-        if(isset($_SESSION)==0){
+
+        if(isset($_SESSION["login"])==0){
             session_start();
             $_SESSION["login"] = 0;
             $_SESSION["nom"] = "";

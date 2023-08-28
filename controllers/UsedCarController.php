@@ -143,7 +143,7 @@ class UsedCarController{
             "javascript"=>1,
             "titre"=>"Véhicule d'occasions V.Parrot",
             "content"=>"
-              Quelque soit votre budget, nous vous proposons tous types de voitures d'occasions !
+            Quelque soit votre budget, nous vous proposons tous types de voitures d'occasions !
             Filtrez par prix, kilolétrage ou année de mise en service pour affiner vos recherches. 
             Une page d'informations détaillé vous est proposé pour chaque véhicule, il n'y a plus qu'à reserver !
             "]; //necessaire au header de model
