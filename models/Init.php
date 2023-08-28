@@ -10,6 +10,7 @@
     </head>
     <body class="init">
     <?php
+        var_dump($_POST);
         // require "../model/Bdd.php";
         require 'views/bandeau.php';
         function printForm(){
@@ -41,7 +42,7 @@
                 <label for="password">Mot de passe du site</label>
                 <input type="text" name="password" value="mod" required="">
 
-                <label for="base_url">Nom de domaine</label>
+                <label for="base_url">URI depuis nom de domaine (mettre "")</label>
                 <input type="text" name="base_url" value="/garrage" required="">
         
                 <button class="boutton" type="submit" name="action" value="stockInfos" >initialisation</button>
@@ -302,7 +303,9 @@
                 <div class="carte" style="margin: 5% 20% 0% 20%;">
                 <h2>Action :</h2>
                 <ul>';
-            
+            viderFichier();
+            echo "<li>Les anciennes images de voitures sont supprimés</li> <br/>";
+
             try {
                 $PDO = new PDO('mysql:host=localhost', $UserDB, $passwordDB);
             }catch(PDOExeption $e){
@@ -417,6 +420,18 @@
             </div>
             </body>';
         }
+        function viderFichier(){
+            foreach(scandir("views/image/occasion") as $occasion){
+                if ($occasion != "." && $occasion != ".."  && $occasion != "1"  && $occasion != "2"){
+                    foreach(scandir("views/image/occasion/".$occasion) as $fichier){
+                        if ($fichier != "." && $fichier != ".."){
+                            unlink("views/image/occasion/".$occasion."/".$fichier);
+                        }
+                    }
+                    rmdir("views/image/occasion/".$occasion);
+                }
+            }
+        }
     ?>
 
     <h1 style="background-color:black">Initialisation</h1>
@@ -431,8 +446,8 @@
                 $fichier = fopen("models/connect.csv", "w");
                 fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
                 fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
-                initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
             }
+            initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
         }
         if($_POST['action']=="fillDB"){
             if(file_exists("models/connect.csv")){
@@ -441,8 +456,8 @@
                 $fichier = fopen("models/connect.csv", "w");
                 fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
                 fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
-                initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
             }
+            initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
         }
 
     }
