@@ -1,5 +1,5 @@
 <div class="phone-only acceuil">
-    <img src="views/image/logoBlack.png" alt="Logo Parrot">
+    <img src="views/image/logoBlack.webp" alt="Logo Parrot">
 </div>
 
 <a title="Descends au début" href="<?php echo BASE_URL;?>/#debut" class="phone-only">
@@ -21,7 +21,7 @@
     </svg>
 </a>
 <div class="presentation">
-    <h1>Qui sommes nous ?</h1>
+    <h1>L'histoire du Garage</h1>
     <div class="tiret"></div>
     <div class="motParrot" >
         <p>Fort de mes 15ans d'experience dans la réparation automobile, j'ai ouvert mon propre garage à Toulouse. 
@@ -30,7 +30,7 @@
             Je souhaite que mon atelier soit un véritable lieu de confiance pour vous, clients et pour vos voitures. En effet, elles doivent être a tout prix entre de bonne main.
             Avec le garage V.Parrot, investissez dans la sécurité !
         </p>
-        <img class="signature" alt="signature" src="views/image/signature.png">
+        <img class="signature" alt="signature" src="views/image/signature.webp">
     </div>
    
  
