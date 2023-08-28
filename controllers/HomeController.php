@@ -59,9 +59,9 @@ class HomeController {
             $employes = $DB->allEmploye();
             foreach($employes as $employe){
                 if ($employe["statut"] == "patron"){
-                    $message = "nom : ".$_POST["nom"]."<br/> prenom : ".$_POST["prenom"]."<br/> tel : ".$_POST["tel"]."<br/> message : ".$_POST["message"];
+                    $message = "nom : ".htmlentities($_POST["nom"])."<br/> prenom : ".htmlentities($_POST["prenom"])."<br/> tel : ".htmlentities($_POST["tel"])."<br/> message : ".htmlentities($_POST["message"]);
                     if(isset($_POST["sujet"])){
-                        $sujet = $_POST["sujet"];
+                        $sujet = htmlentities($_POST["sujet"]);
                     }else{
                         $sujet = "Message Client Site Internet";
                     } 

@@ -55,7 +55,7 @@ class AdministrationController{
         require_once "views/header.php";
         require_once "models/User.php";
 
-        $employee = new User($_POST["email"],$_POST["mdp"],$_POST["nom"],$_POST["prenom"],'salarié');
+        $employee = new User(htmlentities($_POST["email"]),htmlentities($_POST["mdp"]),htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]),'salarié');
         $DB->AjouterEmploye($employee);
         $Commentaires = $DB->allCommentaires();
         $occasions = $DB->occasion("id IS NOT NULL");
@@ -211,7 +211,7 @@ class AdministrationController{
         if(isset($_POST["service"])){
             $DB = new DataBase();
     
-            $DB->modifierService($_POST["service"], $_POST["content"],$_POST['titre']);
+            $DB->modifierService($_POST["service"], htmlentities($_POST["content"]),htmlentities($_POST['titre']));
             header("Location:".BASE_URL."/services");
         }
     }

@@ -42,7 +42,7 @@ class TestimonialController{
             }
             if ($_POST["action"]=="enregistrer"){
                 $commentaire = $DB->allCommentaires();
-                $DB ->nouveauTemoignage($_POST["valide"], $_POST["Nom"], $_POST["prenom"], $_POST["Etoile"], $_POST["commentaire"]);
+                $DB ->nouveauTemoignage($_POST["valide"], htmlentities($_POST["Nom"]), htmlentities($_POST["prenom"]), htmlentities($_POST["Etoile"]), htmlentities($_POST["commentaire"]));
                 bandeau("Votre témoignage a bien été ajouté, il sera ajouté au site après validation d'un opérateur");
                 require_once "views/temoignage.php";
 

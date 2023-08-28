@@ -48,9 +48,9 @@ class UsedCarController{
           
             $admin = $DB->mailGestion();
 
-            $text = $_POST["prenom"]." ".$_POST["nom"]."souhaite reserver le véhicule : ".$_POST["id"]."<br/> Numero : ".$_POST["tel"];
-            $headers = 'From: '.$_POST["mail"]. "\r\n" .
-            'Reply-To: '.$_POST["mail"];
+            $text = htmlentities($_POST["prenom"])." ".htmlentities($_POST["nom"])."souhaite reserver le véhicule : ".$_POST["id"]."<br/> Numero : ".htmlentities($_POST["tel"]);
+            $headers = 'From: '.htmlentities($_POST["mail"]). "\r\n" .
+            'Reply-To: '.htmlentities($_POST["mail"]);
             mail($admin,"Reservation Véhicule",$text, $headers);
 
             require_once "views/bandeau.php";
@@ -85,7 +85,7 @@ class UsedCarController{
 
     public function addField(){
         $DB = new DataBase();
-        if($DB->ajouterChamp($_POST["champ"],'occasion',$_POST["name"]) == 'error'){
+        if($DB->ajouterChamp(htmlentities($_POST["champ"]),'occasion',htmlentities($_POST["name"])) == 'error'){
 
             $horaire =  $DB->allHoraires(); // necessaire pour le footer
             $header = [

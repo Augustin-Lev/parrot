@@ -26,7 +26,7 @@ class LoginController{
     public function verification(){
         //Lancement de la connexion à la base de donnée
         $DB = new DataBase();
-        $user = $DB->VerifierMdpBdd($_POST['id'],$_POST['mdp']);
+        $user = $DB->VerifierMdpBdd($_POST['id'],htmlentities($_POST['mdp']));
         if ($user != 0 ){
             // echo "mot de passe correct";
             // var_dump ($user);
@@ -101,7 +101,7 @@ class LoginController{
         require "models/Header.php";
         require_once "views/header.php";
 
-        if ($code->envoyer($_POST["mail"])){
+        if ($code->envoyer(htmlentities($_POST["mail"]))){
             require "views/login-sent.php";
         }else{
             require_once "views/bandeau.php";
@@ -123,7 +123,7 @@ class LoginController{
         require "models/Header.php";
         require_once "views/header.php";
 
-        if ($code->verifier($_POST["verif"]) == 1){
+        if ($code->verifier(htmlentities($_POST["verif"])) == 1){
             require "views/login-new.php";
         }else{
             require_once "views/bandeau.php";
@@ -138,7 +138,7 @@ class LoginController{
     public function nouveauMdp(){
         if($_POST["action"]=="nouveau-mpd"){
             $DB = new DataBase();
-            $DB-> newMdp($_SESSION["mail"],$_POST["mdp"]);
+            $DB-> newMdp($_SESSION["mail"],htmlentities($_POST["mdp"]));
             header('Location:'.BASE_URL);
         }
     }

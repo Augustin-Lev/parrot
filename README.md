@@ -130,12 +130,12 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - hasher le mot de passe
 - faire une page 404
 - merger avec la branche main
+- prévenir si les images ne chargent pas
 ***
 
 ### Taches à réaliser
 ***
 - passer les input en html
-- prévenir si les images ne chargent pas
 - logout fix
 
 
