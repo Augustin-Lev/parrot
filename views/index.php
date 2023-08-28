@@ -10,8 +10,8 @@
 </a>
 
 <div class=containerTwoImg>
-    <a title="voir les services" href="<?php echo BASE_URL;?>/services" style="background-image: url(views/image/service.jpg)">Services</a>
-    <a title="voir les occasions" href="<?php echo BASE_URL;?>/occasions" style="background-image: url(views/image/occasion.jpg)">Occasion</a>
+    <a title="voir les services" href="<?php echo BASE_URL;?>/services" style="background-image: url(views/image/service.webp)">Services</a>
+    <a title="voir les occasions" href="<?php echo BASE_URL;?>/occasions" style="background-image: url(views/image/occasion.webp)">Occasion</a>
 </div>
 
 <a href="<?php echo BASE_URL;?>/#debut" class="chevronContainer">
@@ -79,7 +79,7 @@
     </div>
 
     
-    <div class="bandeauImage" style="background-image:url('views/image/temoignage.jpg')"></div>
+    <div class="bandeauImage" style="background-image:url('views/image/temoignage')"></div>
     <h2 id=temoignage>Ils témoignent</h2>
     <div class=temoignages>
         

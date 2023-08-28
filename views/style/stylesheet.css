@@ -218,7 +218,7 @@ header>.headerTitre{
 .presentation{
     width: 100vw;
     min-height: 100vh;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.651)50%, rgba(0, 0, 0, 0)), url("../image/garage.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.651)50%, rgba(0, 0, 0, 0)), url("../image/garage.webp");
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -723,13 +723,13 @@ select:hover{
     background-attachment: fixed;
 }
 .bandeau1{
-    background-image: url(../image/bandeau1.jpg); 
+    background-image: url(../image/bandeau1.webp); 
 }
 .bandeau2{
-    background-image: url(../image/bandeau2.jpg); 
+    background-image: url(../image/bandeau2.webp); 
 }
 .bandeau3{
-    background-image: url(../image/bandeau3.jpg); 
+    background-image: url(../image/bandeau3.webp); 
 }
 
 .service>div>h2{
