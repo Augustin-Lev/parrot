@@ -40,6 +40,9 @@
         
                 <label for="password">Mot de passe du site</label>
                 <input type="text" name="password" value="mod" required="">
+
+                <label for="base_url">Nom de domaine</label>
+                <input type="text" name="base_url" value="/garrage" required="">
         
                 <button class="boutton" type="submit" name="action" value="stockInfos" >initialisation</button>
                 <button class="boutton" type="submit" name="action" value="fillDB" > remplissage de la base</button>
@@ -305,7 +308,7 @@
             }catch(PDOExeption $e){
                 echo 'Erreur lors de la connection à la base de donées';
             }
-            // require "models/ancien/Bdd.php";
+            
             if ($PDO->exec('DROP DATABASE IF EXISTS '.$NameDB) !== false) {
                 if ($PDO -> exec('CREATE DATABASE '.$NameDB) !==null){
                     echo "<li>création de la base réussi !</li> <br/>";
@@ -408,8 +411,9 @@
                         <button type=submit class="boutton">Remplir la base de donnée</button>
                     </form>';
             }
+           
             echo '
-            <a class="boutton" href="'.BASE_URL.'/"> Menu </a>
+            <a class="boutton" href="'.$_POST["base_url"].'/"> Menu </a>
             </div>
             </body>';
         }
@@ -425,8 +429,8 @@
                 unlink('models/connect.csv');
             }else{
                 $fichier = fopen("models/connect.csv", "w");
-                fwrite($fichier, "UserDB,passwordDB,name,surname,email,password \r\n");
-                fwrite($fichier, $_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
+                fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
+                fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
                 initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
             }
         }
@@ -435,8 +439,8 @@
                 unlink('models/connect.csv');
             }else{
                 $fichier = fopen("models/connect.csv", "w");
-                fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password \r\n");
-                fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"] );
+                fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
+                fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
                 initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
             }
         }

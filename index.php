@@ -3,10 +3,21 @@ session_start();
 ini_set('upload_max_filesize','7M');
 // phpinfo();
 
-define("BASE_URL",'/garrage');
 if (!file_exists('models/connect.csv')){
     require_once 'models/Init.php';
 }else{
+    
+$log = fopen("models/connect.csv","r");
+$line = 1;
+while (($line = fgetcsv($log)) !== FALSE) {
+    // var_dump($line);
+    if ($line[0] != "NameDB"){
+        define("BASE_URL",$line[7]); 
+    }
+}
+
+fclose($log);
+   
     
 
 
@@ -136,7 +147,7 @@ $handler = $router->getHandler($method,$uri);
 
 if ($handler === NULL){
     require_once 'views/lost.php';
-    header('HTTP/1.1 404 not found');
+    // header('HTTP/1.1 404 not found');
 
 }else{
 
