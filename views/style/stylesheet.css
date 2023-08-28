@@ -170,7 +170,7 @@ header>.headerTitre{
 }
 .headerLoger>svg{
     max-height: 80%;
-    max-width: 20%;
+    max-width: 10%;
 }
 .headerLogin>a>svg{
     height: 3vh;
@@ -181,10 +181,17 @@ header>.headerTitre{
     color: #FFEDC1;
 
 }
+.headerLoger:hover > div{
+    display: none;
+}
+.headerLoger:hover > svg{
+    display: none;
+}
 .headerCache{
     display: none;
-    position: absolute;
+    position: sticky;
 
+    top:0;
     color: #000000;
     background-color: #000000;
 
@@ -192,7 +199,7 @@ header>.headerTitre{
 
     content: "Se déconnecter";
     height: 15vh;
-    width: 25vw;
+    flex:1;
     justify-content: center;
     align-items: center;
 

@@ -17,8 +17,6 @@ while (($line = fgetcsv($log)) !== FALSE) {
 }
 
 fclose($log);
-   
-    
 
 
 // inclusion des classes

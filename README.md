@@ -131,13 +131,12 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - faire une page 404
 - merger avec la branche main
 - prévenir si les images ne chargent pas
+- passer les input en html
+- logout fix
 ***
 
 ### Taches à réaliser
 ***
-- passer les input en html
-- logout fix
-
 
 ### Conventions
 - Nom des classes en anglais et PascalCase
