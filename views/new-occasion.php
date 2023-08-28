@@ -3,17 +3,18 @@
 <?php } ?>
 <form class="new_occasion" action="<?php echo BASE_URL;?>/ajout/occasion" method="POST" enctype="multipart/form-data">
     <?php 
-        var_dump($occasions);
+        // var_dump($occasions);
         foreach($occasions as $parametre){
             if (key($occasions) == "id" || key($occasions) == "modificateur"){
                 next($occasions);
             }else{
                 if(substr(key($occasions),0,5) == "image"){
-                    for ($nbImages = 1; $nbImages <10; $nbImages++ ){
+                    for ($nbImages = 1; $nbImages <8; $nbImages++ ){
                         ?>
                         <div class="parametre">
                             <label for="image">Image</label>
-                            <input type="file" accept="image/png, image/jpeg" name="image<?php echo $nbImages;?>" value="../image/occasion/<?php echo $occasions["id"].'/image'.$parametre.'.jpg';?>">
+                            <input type="file" accept="image/png, image/jpeg" name="image<?php echo $nbImages;?>">
+            
                         </div>
                         <?php 
                     }

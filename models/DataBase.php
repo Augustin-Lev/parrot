@@ -155,7 +155,7 @@ class DataBase{
     public function AjouterOccasion($tableau){
         // $tableau["imageClef"] = "../image/occasion/voiture1.jpg ";
         // phpinfo();
-       
+        
         $id=0;   
         if(isset($tableau["id"])){  
             if ($tableau["id"] != ""){
@@ -170,6 +170,8 @@ class DataBase{
                 $nbImagesDeja = $tableau["nbImagesDeja"];
                 unset($tableau["nbImagesDeja"] );
             }
+        }else{
+            $nbImagesDeja = 0;
         }
                
         $id = $this->maxIdOccasion($this-> PDO)+1;
@@ -180,11 +182,18 @@ class DataBase{
               
         $nbImages = 0;
         
-       
+        // var_dump($_FILES);
+        $erreur = "";
         foreach($_FILES as $fichier){
-            if($fichier['name'] != ""){
-                $nbImages ++;
-                move_uploaded_file($fichier['tmp_name'], "views/image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));
+            switch($fichier["error"]){
+                case 0:
+                    $nbImages ++;
+                    move_uploaded_file($fichier['tmp_name'], "views/image/occasion/".$id."/image".$nbImages.".".substr($fichier['name'],-3,4));
+                    break;
+                case 1:
+                    $erreur .= "le fichier ".$fichier['name']." est trop lourd pour être chargé <br/>";
+                    break;
+
             }
         }
         if ($nbImagesDeja > $nbImages){
@@ -215,7 +224,7 @@ class DataBase{
         // echo $sql.'<br/>';
 
         if($this-> PDOStatement -> execute()) { 
-            return "1";                
+            return $erreur;                
         }
         return "0";
     }

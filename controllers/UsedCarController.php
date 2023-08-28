@@ -127,7 +127,12 @@ class UsedCarController{
     public function addCar(){
         $DB = new DataBase();
         var_dump($_POST);
-        $DB->ajouterOccasion($_POST);
+        require_once "views/bandeau.php";
+        $erreur = $DB->ajouterOccasion($_POST);
+        var_dump($erreur);
+        if ($erreur != 0){
+            $_SESSION["erreur"] = $erreur;
+        }
         header("Location:".BASE_URL);    
     }
 

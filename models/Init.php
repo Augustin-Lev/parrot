@@ -17,7 +17,8 @@
             
             <p>En vue de la bonne installation du site, nous vous demandons les information suivantes :<br/>
             - Si un bug persiste au niveau du téléchargement des images, reconfigurez le php.ini et augmentez "upload_max_filesize"<br/>
-            - Vérifie que les variables "display_startup_errors" et "display_errors" du php.ini du serveur soit à "OFF" </p>
+            - Vérifie que les variables "display_startup_errors" et "display_errors" du php.ini du serveur soit à "OFF" 
+            - Vérifie que la variable "upload_max_filesize" soit à 7M </p>
             <form class="loginForm" action="" method="POST">
                 <label for="NameDB">Nom de la base de donnée</label>
                 <input type="text" name="NameDB" value="u734868843_parrot" required="">

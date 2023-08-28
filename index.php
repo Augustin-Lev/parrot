@@ -1,5 +1,6 @@
 <?php
 session_start();
+ini_set('upload_max_filesize','7M');
 // phpinfo();
 
 define("BASE_URL",'/garrage');

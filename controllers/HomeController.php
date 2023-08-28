@@ -16,16 +16,15 @@ class HomeController {
         $DB = new DataBase();
 
         $TroisCommentaires = $DB->TroisCommentaires();
-        if(isset($_GET["action"])){
-            if($_GET["action"]=='unlog'){
-                $_SESSION["login"] = 0;
-                $_SESSION["nom"] = "";
-                $_SESSION["prenom"] = "";
-                $_SESSION["statut"] = "";
-                $_SESSION["email"] = "";
-                bandeau("Vous êtes bien déconnecté");
-            }
+        if(isset($_SESSION["succes"])){    
+            bandeau($_SESSION["succes"]);
+            unset($_SESSION["succes"]);
         }
+        if (isset($_SESSION["erreur"])){
+            erreur($_SESSION["erreur"]);
+            unset($_SESSION["erreur"]);
+        }
+
         require_once "views/index.php";
         $horaire =  $DB->allHoraires(); // necessaire pour le footer
         require_once "views/footer.php";
@@ -38,6 +37,7 @@ class HomeController {
         $_SESSION["prenom"] = "";
         $_SESSION["statut"] = "";
         $_SESSION["email"] = "";
+        $_SESSION["succes"] = "Vous êtes bien déconnecté !";
 
         header("Location:".BASE_URL);
     }
