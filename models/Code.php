@@ -14,10 +14,10 @@ class Code{
         $_SESSION["code"] = $code;
        
         $text = "Votre code de validation est le suivant : ".$code;
-        $employe =  $DB->allEmploye();
+        $employe =  $DB->allEmployee();
         $envois = 0;
         foreach ($employe as $salarie){
-            if ($salarie["email"]==$mail){
+            if ($salarie->getEmail()==$mail){
                 mail($mail,"Verrification mail Parrot",$text);
                 $envois = 1;
             }

@@ -2,19 +2,21 @@
 
 class Manager extends Employee{
     public function addEmployee(employee $employee){
-        $PDO = $DB->setPDO();
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
 
         $sql ='INSERT INTO salaries (statut, nom, prenom, email, motDePasse) VALUES ( :statut, :nom, :prenom, :email, :motDePasse);';
         $PDOStatement= $PDO->prepare($sql);
         $PDOStatement->bindValue(':statut',"salarié", PDO::PARAM_STR);
-        $PDOStatement->bindValue(':nom',$employee->getNom(),PDO::PARAM_STR);
-        $PDOStatement->bindValue(':prenom',$employee->getPrenom(),PDO::PARAM_STR);
+        $PDOStatement->bindValue(':nom',$employee->getName(),PDO::PARAM_STR);
+        $PDOStatement->bindValue(':prenom',$employee->getFirstName(),PDO::PARAM_STR);
         $PDOStatement->bindValue(':email',$employee->getEmail(),PDO::PARAM_STR);
-        $PDOStatement->bindValue(':motDePasse',password_hash($employee->getMotDePasse(),PASSWORD_DEFAULT),PDO::PARAM_STR);
+        $PDOStatement->bindValue(':motDePasse',password_hash($employee->getPassword(),PASSWORD_DEFAULT),PDO::PARAM_STR);
         $PDOStatement -> execute();
     }  
     public function changeTimeTable($tableau){
-        $PDO = $DB->setPDO();
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
         reset($tableau);
         foreach ($tableau as $valeur){
             if (key($tableau) == "close"){
@@ -80,7 +82,8 @@ class Manager extends Employee{
         $PDOStatement -> execute();
     }
     public function modifyService($service, $content, $title){
-        $PDO = $DB->setPDO();
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
 
         $sql ='DELETE FROM `contenu` WHERE `services`LIKE :services';
         $PDOStatement= $PDO->prepare($sql);

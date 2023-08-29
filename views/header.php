@@ -15,7 +15,7 @@
             $_SESSION["login"] = 0;
             $_SESSION["nom"] = "";
             $_SESSION["prenom"] = "";
-            $_SESSION["statut"] = "";
+            $_SESSION["status"] = "";
             $_SESSION["email"] = "";
         }
        

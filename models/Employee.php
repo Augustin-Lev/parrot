@@ -1,12 +1,12 @@
 <?php
 
 class Employee extends Visitor{
-
-    private $status;
+    private $password;
+    private $statut;
     private $id;
 
-    public function __construct($status){
-        parent::__construct();
+    public function __construct($email, $name, $firstName,$status){
+        parent::__construct($email, $name, $firstName);
         $this -> status = $status;
     }
 
@@ -20,8 +20,8 @@ class Employee extends Visitor{
     public function getPassword(){
         return $this-> password;
     }
-    public function getStatus(){
-        return $this-> status;
+    public function getStatut(){
+        return $this-> statut;
     }
     public function getId(){
         return $this-> id;
@@ -30,7 +30,8 @@ class Employee extends Visitor{
     public function addUsedCar($tableau){
         // $tableau["imageClef"] = "../image/occasion/voiture1.jpg ";
         // phpinfo();
-        $PDO = $DB->setPDO();
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
 
         $id=0;   
         if(isset($tableau["id"])){  
@@ -105,20 +106,24 @@ class Employee extends Visitor{
         return "0";
     }
     public function deleteUsedCar($id){
-        $PDO = $DB->setPDO();
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
         $sql = 'DELETE FROM occasion WHERE id like '.$id.';';
         $PDOStatement= $PDO->prepare($sql);
         $PDOStatement -> execute();
     }
 
     public function validateTestimonial($id, $valide){
-        $PDO = $DB->setPDO();
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
         $sql = "UPDATE `temoignage` SET `valide` = '".$valide."' WHERE `temoignage`.`id` = ".$id.";";
         $PDOStatement = $PDO->prepare($sql);
         $PDOStatement -> execute();
     }
     public function newPassword($mail, $motDePasse){
-        $PDO = $DB->setPDO();
+
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
         //verification de la validité du mot de passe
         foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statut, id FROM salaries', PDO::FETCH_ASSOC) as $user){
             //var_dump($user);
@@ -158,7 +163,8 @@ class Employee extends Visitor{
         return 0;
     }
     public function addField($after,$table,$field){
-        $PDO = $DB->setPDO();
+        $DB = new DataBase; 
+        $PDO = $DB->getPDO();
         $sql ="ALTER TABLE `".$table."` ADD `".$field."` VARCHAR(100) AFTER `".$after."` ";
         $PDOStatement = $PDO->prepare($sql);
         try{
@@ -168,9 +174,11 @@ class Employee extends Visitor{
         }
     }
     public function verifyPassword($email,$password){
-        $PDO = $DB->setPDO();
+        $DB = new DataBase();
+        $PDO = $DB->getPDO();
+
         foreach ($PDO-> query('SELECT email, motDePasse, nom, prenom, statut FROM salaries', PDO::FETCH_ASSOC) as $user){
-            if ($user['email'] === $email && password_verify($motDePasse,$user['motDePasse']) ){ 
+            if ($user['email'] === $email && password_verify($password,$user['motDePasse']) ){ 
                 return $user;
             }
         }

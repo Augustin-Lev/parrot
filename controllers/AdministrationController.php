@@ -5,8 +5,8 @@ class AdministrationController{
         if ( !$_SESSION["login"] ){
             header("Location:".BASE_URL."/");
         }
-
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $DB = new DataBase();
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
 
         $header = [
             "javascript"=>0,
@@ -17,7 +17,7 @@ class AdministrationController{
         require_once "views/bandeau.php";
         require_once "views/header.php";
    
-        $Commentaires = $DB->allCommentaires();
+        $Commentaires = $DB->allTestimonials();
         $occasions = $DB->occasion("id IS NOT NULL");
         $allOccasions = $DB->allOccasions();
 
@@ -31,7 +31,7 @@ class AdministrationController{
 
     public function newEmployee(){
         $DB = new DataBase();
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         $header = [
             "javascript"=>0,
             "titre"=>"Administration Garage V.Parrot",
@@ -46,18 +46,21 @@ class AdministrationController{
   
     public function addNewEmployee(){
         $DB = new DataBase();
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         $header = [
             "javascript"=>0,
             "titre"=>"Administration Garage V.Parrot",
             "content"=>"Administration, do not import on web."]; //necessaire au header de model
         require "models/Header.php";
         require_once "views/header.php";
-        require_once "models/User.php";
 
-        $employee = new User(htmlentities($_POST["email"]),htmlentities($_POST["mdp"]),htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]),'salarié');
-        $DB->AjouterEmploye($employee);
-        $Commentaires = $DB->allCommentaires();
+        $employee = new Employee(htmlentities($_POST["email"]),htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]),'salarié');
+        $employee->setPassword(htmlentities($_POST["mdp"]));
+
+        $manager = new Manager($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
+        $manager->addEmployee($employee);
+       
+        $Commentaires = $DB->allTestimonials();
         $occasions = $DB->occasion("id IS NOT NULL");
         $allOccasions = $DB->allOccasions();
 
@@ -66,36 +69,10 @@ class AdministrationController{
         require_once "views/footer.php";
     }
 
-    // public function addNewCar(){
-    //     $DB = new DataBase();
-    //     $horaire =  $DB->allHoraires(); // necessaire pour le footer
-    //     $header = [
-    //         "javascript"=>0,
-    //         "titre"=>"Administration Garage V.Parrot",
-    //         "content"=>"Administration, do not import on web."]; //necessaire au header de model
-    //     require "models/Header.php";
-    //     require_once "views/header.php";
-
-    //     // var_dump($_FILES);
-    //     $newOccasion = array();
-    //     foreach($_POST as $param){
-    //         if (key($_POST) != "ajout-new-occasion"){
-    //             $newOccasion[key($_POST)] = $param;
-    //         }
-    //         next($_POST);
-    //     }    
-    //     // var_dump($newOccasion);
-        
-    //     $DB->AjouterOccasion($newOccasion);
-    //     // echo("<meta http-equiv='refresh' content='1'>"); 
-    //     // require_once "../view/administration.php";
-    //     require_once "views/footer.php";
-    // }
-    
     public function modifyCar(){
         $DB = new DataBase();
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
-        $Commentaires = $DB->allCommentaires();
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
+        $Commentaires = $DB->allTestimonials();
         $occasions = $DB->occasion("id IS NOT NULL");
         $allOccasions = $DB->allOccasions();
 
@@ -108,11 +85,11 @@ class AdministrationController{
         require_once "views/bandeau.php";
 
         if($_POST["action"] =="supprimerOccasion"){
-            $DB->supprimerOccasion($_POST["id"]);
+            $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
+            $employee->deleteUsedCar($_POST["id"]);
             bandeau("Voiture ".$_POST["id"]." bien supprimée");
             require_once "views/administration.php";
-           
-    
+
         }elseif($_POST["action"]=="modifierOccasion"){
             if($_POST["id"]!=""){
                 $voiture = $DB->occasion($_POST["id"]);
@@ -129,7 +106,7 @@ class AdministrationController{
     public function changeTimeTables(){
         $DB = new DataBase();      
       
-        $Commentaires = $DB->allCommentaires();
+        $Commentaires = $DB->allTestimonials();
         $occasions = $DB->occasion("id IS NOT NULL");
         $allOccasions = $DB->allOccasions();
 
@@ -142,8 +119,10 @@ class AdministrationController{
 
         $horaires=$_POST;
         // var_dump($horaires);
-        $DB->changerHoraire($horaires);
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+
+        $manager = new Manager($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
+        $manager->changeTimeTable($horaires);
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/administration.php";
 
         require_once "views/footer.php";
@@ -154,8 +133,8 @@ class AdministrationController{
         var_dump($_POST);
         if($_POST["id"]==""){
             $DB = new DataBase();
-            $horaire =  $DB->allHoraires(); // necessaire pour le footer
-            $Commentaires = $DB->allCommentaires();
+            $horaire =  $DB->allTimeTable(); // necessaire pour le footer
+            $Commentaires = $DB->allTestimonials();
             $occasions = $DB->occasion("id IS NOT NULL");
             $allOccasions = $DB->allOccasions();
 
@@ -174,8 +153,8 @@ class AdministrationController{
             require_once "views/footer.php";    
             
         }else{
-            $DB = new DataBase();
-            $DB-> validerTemoignage($_POST["id"], $_POST["valide"]);
+            $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
+            $employee-> validateTestimonial($_POST["id"], $_POST["valide"]);
             header("Location:".BASE_URL."/administration#temoignage");
         }
         
@@ -195,7 +174,7 @@ class AdministrationController{
 
     public function modifyService($service){
         $DB = new DataBase();
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         $header = [
             "javascript"=>0,
             "titre"=>"Administration Garage V.Parrot",
@@ -209,9 +188,8 @@ class AdministrationController{
 
     public function modify(){
         if(isset($_POST["service"])){
-            $DB = new DataBase();
-    
-            $DB->modifierService($_POST["service"], htmlentities($_POST["content"]),htmlentities($_POST['titre']));
+            $manager = new Manager($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
+            $manager->modifyService($_POST["service"], htmlentities($_POST["content"]),htmlentities($_POST['titre']));
             header("Location:".BASE_URL."/services");
         }
     }

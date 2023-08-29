@@ -109,13 +109,13 @@ class DataBase{
 
     }
     public function occasion($id){
-        $PDO = $DB->setPDO();
+       
         foreach ($this-> PDO-> query('SELECT * FROM occasion WHERE id LIKE '.$id , PDO::FETCH_ASSOC) as $vehicule){
             return $vehicule;
         }
     }
     public function maxIdOccasion(){
-        $PDO = $DB->setPDO();
+       
         $grand = 1;
         foreach ($this->PDO-> query('SELECT id FROM occasion ORDER BY id' , PDO::FETCH_ASSOC) as $id){
             // var_dump($id);
@@ -501,40 +501,40 @@ class DataBase{
     
 
     
-//     public function allOccasions(){
-//         $occasions = array();
+    public function allOccasions(){
+        $occasions = array();
 
-//         foreach ($this-> PDO-> query('SELECT id, modificateur,marque, modèle, Prix, descriptions,miseEnCirculation,kilométrage, imageClef FROM occasion', PDO::FETCH_ASSOC) as $vehicule){
-//             //var_dump($vehicule);
+        foreach ($this-> PDO-> query('SELECT id, modificateur,marque, modèle, Prix, descriptions,miseEnCirculation,kilométrage, imageClef FROM occasion', PDO::FETCH_ASSOC) as $vehicule){
+            //var_dump($vehicule);
 
-//             $occasion = array(
-//                 "id" => $vehicule["id"],
-//                 "modificateur" => $vehicule["modificateur"],
-//                 "marque" => $vehicule["marque"],
-//                 "modèle" => $vehicule["modèle"],
-//                 "Prix" => $vehicule ["Prix"],
-//                 "descriptions" => $vehicule ["descriptions"],
-//                 "miseEnCirculation" => $vehicule ["miseEnCirculation"],
-//                 "kilométrage" => $vehicule ["kilométrage"],
-//                 "imageClef" => $vehicule ["imageClef"]
+            $occasion = array(
+                "id" => $vehicule["id"],
+                "modificateur" => $vehicule["modificateur"],
+                "marque" => $vehicule["marque"],
+                "modèle" => $vehicule["modèle"],
+                "Prix" => $vehicule ["Prix"],
+                "descriptions" => $vehicule ["descriptions"],
+                "miseEnCirculation" => $vehicule ["miseEnCirculation"],
+                "kilométrage" => $vehicule ["kilométrage"],
+                "imageClef" => $vehicule ["imageClef"]
                 
-//             );
-//             array_push($occasions, $occasion);
+            );
+            array_push($occasions, $occasion);
 
             
-//         }
-//         return $occasions;
+        }
+        return $occasions;
 
-//     }
-//     function supprimerOccasion($id){
-//         $sql = 'DELETE FROM occasion WHERE id like '.$id.';';
-//         $this-> PDOStatement= $this-> PDO->prepare($sql);
-//         if($this-> PDOStatement -> execute()) { 
-//             return "1";                
-//         }
-//         return "0";
+    }
+    function supprimerOccasion($id){
+        $sql = 'DELETE FROM occasion WHERE id like '.$id.';';
+        $this-> PDOStatement= $this-> PDO->prepare($sql);
+        if($this-> PDOStatement -> execute()) { 
+            return "1";                
+        }
+        return "0";
     
-//     }
+    }
     
 
 }

@@ -21,7 +21,7 @@ class LoginController{
     public function verification(){
         //Lancement de la connexion à la base de donnée
         $DB = new DataBase();
-        $employee = new Employee();
+        $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
 
         $user = $employee->verifyPassword($_POST['id'],htmlentities($_POST['mdp']));
         if ($user != 0 ){
@@ -134,7 +134,7 @@ class LoginController{
 
     public function nouveauMdp(){
         if($_POST["action"]=="nouveau-mpd"){
-            $employee = new Employee;
+            $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
             $employee-> newPassword($_SESSION["mail"],htmlentities($_POST["mdp"]));
             header('Location:'.BASE_URL."/");
         }

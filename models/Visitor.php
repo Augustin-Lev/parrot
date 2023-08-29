@@ -33,12 +33,20 @@ class Visitor{
     }
     
     public function newTestimonial(int $stars, string $message){
-        $PDO = $DB->setPDO();
+        $DB= new DataBase;
+        $PDO = $DB->getPDO();
+
+        if ($_POST["valide"]){
+            $valide=1;
+        }else{
+            $valide =0;
+        }
+
         $sql ='INSERT INTO temoignage (parution, etoile, valide, nom, prenom, commentaire) VALUES (:parution, :etoile, :valide, :nom, :prenom, :commentaire);';
         $PDOStatement= $PDO->prepare($sql);
         $PDOStatement->bindValue(':parution', date("d/m/Y"), PDO::PARAM_STR);
         $PDOStatement->bindValue(':etoile', $stars, PDO::PARAM_STR);
-        $PDOStatement->bindValue(':valide',"0", PDO::PARAM_STR);
+        $PDOStatement->bindValue(':valide',$valide, PDO::PARAM_STR);
         $PDOStatement->bindValue(':nom', $this->name, PDO::PARAM_STR);
         $PDOStatement->bindValue(':prenom',$this->firstName, PDO::PARAM_STR);
         $PDOStatement->bindValue(':commentaire', $message , PDO::PARAM_STR);
@@ -65,7 +73,8 @@ class Visitor{
     }
 
     public function reserveCar(int $id){
-        $PDO = $DB->setPDO();
+        $DB= new DataBase;
+        $PDO = $DB->getPDO();
         foreach($PDO-> query("SELECT email FROM salaries", PDO::FETCH_ASSOC) as $mail){
             if (isset($liste)==0){
                 $liste = $mail["email"];
