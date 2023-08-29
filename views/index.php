@@ -79,7 +79,7 @@
     </div>
 
     
-    <div class="bandeauImage" style="background-image:url('views/image/temoignage')"></div>
+    <div class="bandeauImage" style="background-image:url('views/image/temoignage.webp')"></div>
     <h2 id=temoignage>Ils témoignent</h2>
     <div class=temoignages>
         

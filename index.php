@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ini_set('upload_max_filesize','7M');
 // phpinfo();
 
@@ -15,7 +16,6 @@ while (($line = fgetcsv($log)) !== FALSE) {
         define("BASE_URL",$line[7]); 
     }
 }
-
 fclose($log);
 
 
@@ -69,7 +69,7 @@ $router->addRoute("GET",BASE_URL.'/nouvel/employee','AdministrationController','
 
 $router->addRoute("GET",BASE_URL.'/nouveau/champ','AdministrationController','newField');
 
-$router->addRoute("GET",BASE_URL.'/ajout/employee','AdministrationController','addNewEmployee');
+
 $router->addRoute("GET",BASE_URL.'/ajout/voiture','AdministrationController','addNewCar');
 
 $router->addRoute("GET",BASE_URL.'/ajout/voiture','AdministrationController','addNewCar');
@@ -100,6 +100,7 @@ $router->addRoute("POST",BASE_URL.'/ajout/champ','UsedCarController','addField')
 $router->addRoute("GET",BASE_URL.'/nouvelle/caracteristique','UsedCarController','newField');
 $router->addRoute("GET",BASE_URL.'/nouvelle/option','UsedCarController','newField');
 
+$router->addRoute("POST",BASE_URL.'/ajout/employee','AdministrationController','addNewEmployee');
 $router->addRoute("GET",BASE_URL.'/ajout/employee','AdministrationController','addNewEmployee');
 $router->addRoute("POST",BASE_URL.'/ajout/voiture','AdministrationController','addNewCar');
 $router->addRoute("POST",BASE_URL.'/modifier/occasion','AdministrationController','modifyCar');

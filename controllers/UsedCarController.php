@@ -133,7 +133,7 @@ class UsedCarController{
         if ($erreur != 0){
             $_SESSION["erreur"] = $erreur;
         }
-        header("Location:".BASE_URL);    
+        header("Location:".BASE_URL."/");    
     }
 
     public function occasionPlus(){
@@ -150,7 +150,7 @@ class UsedCarController{
         require "models/Header.php";
         require_once "views/header.php";
 
-        $id = substr($_SERVER['REQUEST_URI'],19);
+        $id = basename($_SERVER['REQUEST_URI']);
         $voiture= $DB->occasion($id);
         require_once "views/occasionPlus.php";
     

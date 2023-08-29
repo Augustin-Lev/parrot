@@ -23,9 +23,10 @@ class Router {
                 'controller' => $route['controller'],
                 'action' =>$route['action'],
                 ];
-            }elseif(substr($route['path'],0,18) === substr($uri,0,18) && substr($route['path'],18) == "/*"){
 
+            }elseif(substr($route['path'],0,strlen(BASE_URL)+10) === substr($uri,0,strlen(BASE_URL)+10) && basename($route['path']) == "*"){
                 // var_dump($route['path'],18);
+                
                 // echo "ca passe dans le routeur pour occasionPlus";
                 return [
                     'method' => $route['method'],

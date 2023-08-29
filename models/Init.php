@@ -10,7 +10,7 @@
     </head>
     <body class="init">
     <?php
-        var_dump($_POST);
+        // var_dump($_POST);
         // require "../model/Bdd.php";
         require 'views/bandeau.php';
         function printForm(){

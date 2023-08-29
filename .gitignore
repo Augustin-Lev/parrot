@@ -1,5 +1,3 @@
-# ignore tous les fichier csv
-
 views/image/occasion/
 /models/connect.csv
 !views/image/occasion/1/

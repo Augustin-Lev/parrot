@@ -39,7 +39,8 @@ class HomeController {
         $_SESSION["email"] = "";
         $_SESSION["succes"] = "Vous êtes bien déconnecté !";
 
-        header("Location:".BASE_URL);
+        header("Location:".BASE_URL."/");
+
     }
     public function message(){
         $DB = new DataBase();

@@ -38,7 +38,7 @@ class LoginController{
             $_SESSION["email"] = $user["email"];
             var_dump($_SESSION);
             // require 'views/login.php';
-            header('Location:'.BASE_URL);
+            header('Location:'.BASE_URL."/");
         }else{
             $header = [
                 "javascript"=>0,
@@ -139,7 +139,7 @@ class LoginController{
         if($_POST["action"]=="nouveau-mpd"){
             $DB = new DataBase();
             $DB-> newMdp($_SESSION["mail"],htmlentities($_POST["mdp"]));
-            header('Location:'.BASE_URL);
+            header('Location:'.BASE_URL."/");
         }
     }
        
