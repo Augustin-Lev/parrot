@@ -2,7 +2,6 @@
 
 class LoginController{
     public function index(){
-        
         $DB = new DataBase();
         $header = [
             "javascript"=>0,
@@ -11,22 +10,20 @@ class LoginController{
             Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
             "]; //necessaire au header de model
         require "models/Header.php";
-        
-        require_once "models/User.php";
-   
-        
+            
         require_once "views/header.php";
        
         require_once "views/login.php";
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
-        
-       
     }
+
     public function verification(){
         //Lancement de la connexion à la base de donnée
         $DB = new DataBase();
-        $user = $DB->VerifierMdpBdd($_POST['id'],htmlentities($_POST['mdp']));
+        $employee = new Employee();
+
+        $user = $employee->verifyPassword($_POST['id'],htmlentities($_POST['mdp']));
         if ($user != 0 ){
             // echo "mot de passe correct";
             // var_dump ($user);
@@ -56,7 +53,7 @@ class LoginController{
             
             require 'views/login.php';
 
-            $horaire =  $DB->allHoraires(); // necessaire pour le footer
+            $horaire =  $DB->allTimeTable(); // necessaire pour le footer
             require_once "views/footer.php";
 
         }    
@@ -69,7 +66,7 @@ class LoginController{
         require "models/Header.php";
         require_once "models/User.php";
 
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
     public function mpdOublie(){
@@ -84,7 +81,7 @@ class LoginController{
         require_once "views/header.php";
         require "views/login-forget.php";
 
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 
@@ -108,7 +105,7 @@ class LoginController{
             erreur("Votre mail n'est pas dans la base");
             require 'views/login.php';
         }
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
     public function verifierCode(){
@@ -131,14 +128,14 @@ class LoginController{
             require "views/login-sent.php";
         }
         echo '<script src="../views/script/login.js"></script>';
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 
     public function nouveauMdp(){
         if($_POST["action"]=="nouveau-mpd"){
-            $DB = new DataBase();
-            $DB-> newMdp($_SESSION["mail"],htmlentities($_POST["mdp"]));
+            $employee = new Employee;
+            $employee-> newPassword($_SESSION["mail"],htmlentities($_POST["mdp"]));
             header('Location:'.BASE_URL."/");
         }
     }

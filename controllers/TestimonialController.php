@@ -16,11 +16,11 @@ class TestimonialController{
         $DB = new DataBase();
 
         require_once "views/header.php";
-        $commentaire = $DB->allCommentaires();
+        $commentaire = $DB->allTestimonials();
 
         require_once "views/temoignage.php";
 
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 
@@ -41,18 +41,24 @@ class TestimonialController{
                 require_once "views/new-temoignage.php";
             }
             if ($_POST["action"]=="enregistrer"){
-                $commentaire = $DB->allCommentaires();
-                $DB ->nouveauTemoignage($_POST["valide"], htmlentities($_POST["Nom"]), htmlentities($_POST["prenom"]), htmlentities($_POST["Etoile"]), htmlentities($_POST["commentaire"]));
+                $commentaire = $DB->allTestimonials();
+                if($_POST["valide"]){
+                    //
+
+                }else{
+                    $visiteur = new Visitor("fakeEmail@email.com",htmlentities($_POST["Nom"]),htmlentities($_POST["prenom"]),"33333333333");
+                    $visiteur->newTestimonial(htmlentities($_POST["Etoile"]), htmlentities($_POST["commentaire"]));
+                }
                 bandeau("Votre témoignage a bien été ajouté, il sera ajouté au site après validation d'un opérateur");
                 require_once "views/temoignage.php";
 
             }
             
         }else{
-            $commentaire = $DB->allCommentaires();
+            $commentaire = $DB->allTestimonials();
             require_once "views/temoignage.php";
         }
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 }

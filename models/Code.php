@@ -2,8 +2,7 @@
 
 class Code{
 
-    public function envoyer($mail)
-    {
+    public function envoyer($mail){
         $DB = new DataBase;
 
         $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

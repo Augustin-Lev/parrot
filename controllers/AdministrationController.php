@@ -5,7 +5,7 @@ class AdministrationController{
         if ( !$_SESSION["login"] ){
             header("Location:".BASE_URL."/");
         }
-        $DB = new DataBase();
+
         $horaire =  $DB->allHoraires(); // necessaire pour le footer
 
         $header = [

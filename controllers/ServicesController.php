@@ -16,7 +16,7 @@ class ServicesController{
 
         $Services = $DB-> allServices();
         require_once "views/services.php";
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 }

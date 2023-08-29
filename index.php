@@ -19,10 +19,17 @@ while (($line = fgetcsv($log)) !== FALSE) {
 fclose($log);
 
 
+
 // inclusion des classes
 require_once 'models/Router.php';
 require_once 'models/DataBase.php';
 require_once 'models/Code.php';
+require_once 'models/Visitor.php';
+require_once 'models/Employee.php';
+require_once 'models/Manager.php';
+require_once 'models/UsedCar.php';
+require_once 'models/Testimonial.php';
+
 
 require_once 'controllers/HomeController.php';
 require_once 'controllers/AdministrationController.php';
@@ -35,6 +42,7 @@ require_once 'controllers/TestimonialController.php';
 
 //instanciation des classes
 $router = new Router();
+$DB = new DataBase();
 
 
 

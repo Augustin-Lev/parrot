@@ -18,12 +18,11 @@ class UsedCarController{
         $occasions= $DB->allOccasions();
         require_once "views/occasion.php";      
 
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 
     public function action(){
-        
         if(isset($_POST["action"])){
             if($_POST["action"]=="demandeRenseignement"){
                 require "views/contact.php";  
@@ -46,12 +45,8 @@ class UsedCarController{
 
         if($_POST["action"]=="reserver"){
           
-            $admin = $DB->mailGestion();
-
-            $text = htmlentities($_POST["prenom"])." ".htmlentities($_POST["nom"])."souhaite reserver le véhicule : ".$_POST["id"]."<br/> Numero : ".htmlentities($_POST["tel"]);
-            $headers = 'From: '.htmlentities($_POST["mail"]). "\r\n" .
-            'Reply-To: '.htmlentities($_POST["mail"]);
-            mail($admin,"Reservation Véhicule",$text, $headers);
+            $visitor = new Visitor(htmlentities($_POST["mail"]),htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]),htmlentities($_POST["tel"]));
+            $visitor->reserveCar($_POST["id"]);          
 
             require_once "views/bandeau.php";
             bandeau("votre véhicule à bien été reservé");
@@ -63,14 +58,14 @@ class UsedCarController{
         }
        
     
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php"; 
     }
 
 
     public function newField(){       
         $DB = new DataBase();
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         $header = [
             "javascript"=>0,
             "titre"=>"Administration Garage V.Parrot",
@@ -85,9 +80,10 @@ class UsedCarController{
 
     public function addField(){
         $DB = new DataBase();
-        if($DB->ajouterChamp(htmlentities($_POST["champ"]),'occasion',htmlentities($_POST["name"])) == 'error'){
-
-            $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],"33333333",$_SESSION["status"]);
+        
+        if($employee->addField(htmlentities($_POST["champ"]),'occasion',htmlentities($_POST["name"])) == 'error'){
+            $horaire =  $DB->allTimeTable(); // necessaire pour le footer
             $header = [
                 "javascript"=>0,
                 "titre"=>"Administration Garage V.Parrot",
@@ -110,7 +106,7 @@ class UsedCarController{
     public function newCar(){
         $DB = new DataBase();
         $occasions = $DB->occasion("id IS NOT NULL");
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         $header = [
             "javascript"=>0,
             "titre"=>"Administration Garage V.Parrot",
@@ -128,7 +124,8 @@ class UsedCarController{
         $DB = new DataBase();
         var_dump($_POST);
         require_once "views/bandeau.php";
-        $erreur = $DB->ajouterOccasion($_POST);
+        $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["status"]);
+        $erreur = $employee->addUsedCar($_POST);
         var_dump($erreur);
         if ($erreur != 0){
             $_SESSION["erreur"] = $erreur;
@@ -154,7 +151,7 @@ class UsedCarController{
         $voiture= $DB->occasion($id);
         require_once "views/occasionPlus.php";
     
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 }

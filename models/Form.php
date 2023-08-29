@@ -1,6 +1,6 @@
 <?php
 
-class User{
+class Form{
     private $email;
     private $motDePasse;
     private $nom;

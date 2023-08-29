@@ -8,14 +8,12 @@ class HomeController {
             "content"=>"Réparation de la carrosserie, de la mécanique, ou entretien régulier de vos automobiles par le garrage Parrot à Toulouse. 
             "]; //necessaire au header de model
         require "models/Header.php";
-        require_once "models/User.php";
         require_once "views/header.php";
         require_once "views/bandeau.php";
 
         //Lancement de la connexion à la base de donnée
         $DB = new DataBase();
-
-        $TroisCommentaires = $DB->TroisCommentaires();
+        $TroisCommentaires = $DB->threeTestimonials();
         if(isset($_SESSION["succes"])){    
             bandeau($_SESSION["succes"]);
             unset($_SESSION["succes"]);
@@ -26,7 +24,7 @@ class HomeController {
         }
 
         require_once "views/index.php";
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 
@@ -44,7 +42,8 @@ class HomeController {
     }
     public function message(){
         $DB = new DataBase();
-        $TroisCommentaires = $DB->TroisCommentaires();
+
+        $TroisCommentaires = $DB->threeTestimonials();
         $header = [
             "javascript"=>0,
             "titre"=>"Garrage Toulousain V.Parrot",
@@ -57,23 +56,14 @@ class HomeController {
         require_once "views/header.php";
 
         if(isset($_POST["message"])){
-            $employes = $DB->allEmploye();
-            foreach($employes as $employe){
-                if ($employe["statut"] == "patron"){
-                    $message = "nom : ".htmlentities($_POST["nom"])."<br/> prenom : ".htmlentities($_POST["prenom"])."<br/> tel : ".htmlentities($_POST["tel"])."<br/> message : ".htmlentities($_POST["message"]);
-                    if(isset($_POST["sujet"])){
-                        $sujet = htmlentities($_POST["sujet"]);
-                    }else{
-                        $sujet = "Message Client Site Internet";
-                    } 
-                    mail($employe["email"],$sujet,$message);
-                }
-            }
+            $liste = $DB->mailGestion();
+            $visitor = new Visitor(htmlentities($_POST["mail"]),htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]),htmlentities($_POST["tel"]));
+            $visitor->sendMessage(htmlentities($_POST["message"]));
             bandeau("le message a bien été envoyé");
         }
 
         require_once "views/index.php";
-        $horaire =  $DB->allHoraires(); // necessaire pour le footer
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
 }
