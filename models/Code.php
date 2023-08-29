@@ -27,9 +27,9 @@ class Code{
         
     }
     
-    public function verifier($verif){
+    public function verifier($code){
         
-        if($verif == $_SESSION["code"]){
+        if($code == $_SESSION["code"]){
             return 1;
         }
         else {

@@ -15,6 +15,14 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 4. [LISCENCE](#LISCENCE)
 
 ## 🚀 DEPLOIEMENT
+### En local
+- installez Wampserver
+- dans le dossier www, creer un dossier "garage"
+- placez-y l'intégralité des dossiers
+- créez une base de donnée
+- lancer le site 
+- suivez les informations 
+
 ### Via Github
 - connectez-vous à votre hébergeur
 - créez une base de donnée Mysql
@@ -85,7 +93,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - Opera et Chrome DevTools
 - Php MyAdmin
 - WampServer
-
+- https://lucid.app
 
 
 ### Taches réalisés

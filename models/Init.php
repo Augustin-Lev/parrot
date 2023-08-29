@@ -42,7 +42,7 @@
                 <label for="password">Mot de passe du site</label>
                 <input type="text" name="password" value="mod" required="">
 
-                <label for="base_url">URI depuis nom de domaine (mettre "")</label>
+                <label for="base_url"> Dossier dans lequel se trouve le site (mettre "")</label>
                 <input type="text" name="base_url" value="/garrage" required="">
         
                 <button class="boutton" type="submit" name="action" value="stockInfos" >initialisation</button>
