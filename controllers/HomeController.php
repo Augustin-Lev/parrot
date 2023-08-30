@@ -14,13 +14,17 @@ class HomeController {
         //Lancement de la connexion à la base de donnée
         $DB = new DataBase();
         $TroisCommentaires = $DB->threeTestimonials();
-        if(isset($_SESSION["succes"])){    
-            bandeau($_SESSION["succes"]);
-            unset($_SESSION["succes"]);
+        if(isset($_SESSION["succes"])){
+            if ($_SESSION["succes"] != ""){
+                bandeau($_SESSION["succes"]);
+                unset($_SESSION["succes"]);
+            }
         }
         if (isset($_SESSION["erreur"])){
-            erreur($_SESSION["erreur"]);
-            unset($_SESSION["erreur"]);
+            if ($_SESSION["erreur"] != ""){
+                erreur($_SESSION["erreur"]);
+                unset($_SESSION["erreur"]);
+            }
         }
 
         require_once "views/index.php";
@@ -57,7 +61,10 @@ class HomeController {
 
         if(isset($_POST["message"])){
             $liste = $DB->mailGestion();
-            $visitor = new Visitor(htmlentities($_POST["mail"]),htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]),htmlentities($_POST["tel"]));
+            $visitor = new Visitor(htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]));
+            $visitor->setEmail(htmlentities($_POST["mail"]));
+            $visitor->setPhone(htmlentities($_POST["tel"]));
+            
             $visitor->sendMessage(htmlentities($_POST["message"]));
             bandeau("le message a bien été envoyé");
         }

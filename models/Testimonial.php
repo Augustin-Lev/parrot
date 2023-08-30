@@ -2,22 +2,23 @@
 
 class Testimonial{
 
-    private $authorName;
-    private $authorFirstName;
+
     private $message;
-    private $authorPhone;
     private $stars;
 
-    public function __construct($authorName,$authorFirstName,$message,$authorPhone,$stars){
-        $this->authorName=$authorName;
-        $this->authorFirstName=$authorFirstName;
+    public function __construct($message,$stars){
         $this->message=$message;    
-        $this->authorPhone=$authorPhone;
         $this->stars=$stars;
     }
 
-    
-    
-    
+    public function getStars(){
+        return $this->stars;
+    }
+    public function getMessage(){
+        return $this->message;
+    }
+
 }
+
+
 

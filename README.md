@@ -143,8 +143,10 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - logout fix
 ***
 
-### Taches à réaliser
+### Taches à améliorer
 ***
+bloquer l'envois sucessif de formulaire à chaque actualisation de la page
+
 
 ### Conventions
 - Nom des classes en anglais et PascalCase

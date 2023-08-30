@@ -42,11 +42,13 @@ class TestimonialController{
             }
             if ($_POST["action"]=="enregistrer"){
                 $commentaire = $DB->allTestimonials();
-                $visiteur = new Visitor("fakeEmail@email.com",htmlentities($_POST["Nom"]),htmlentities($_POST["prenom"]),"33333333333");
-                $visiteur->newTestimonial(htmlentities($_POST["Etoile"]), htmlentities($_POST["commentaire"]));
+
+                $visiteur = new Visitor(htmlentities($_POST["Nom"]),htmlentities($_POST["prenom"]));
+                $testimonial = new Testimonial(htmlentities($_POST["commentaire"]),htmlentities($_POST["Etoile"]));
+                $visiteur->newTestimonial($testimonial);
+
                 bandeau("Votre témoignage a bien été ajouté, il sera ajouté au site après validation d'un opérateur");
                 require_once "views/temoignage.php";
-
             }
             
         }else{

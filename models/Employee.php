@@ -5,9 +5,11 @@ class Employee extends Visitor{
     private $statut;
     private $id;
 
-    public function __construct($email, $name, $firstName,$status){
-        parent::__construct($email, $name, $firstName);
-        $this -> status = $status;
+
+    public function __construct($email, $name, $firstName,$statut){
+        parent::__construct($name,$firstName);
+        $this -> setEmail($email);
+        $this -> statut = $statut;
     }
 
     public function setPassword($set){
@@ -119,6 +121,7 @@ class Employee extends Visitor{
         $sql = "UPDATE `temoignage` SET `valide` = '".$valide."' WHERE `temoignage`.`id` = ".$id.";";
         $PDOStatement = $PDO->prepare($sql);
         $PDOStatement -> execute();
+
     }
     public function newPassword($mail, $motDePasse){
 

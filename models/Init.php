@@ -279,7 +279,7 @@
                 '2003',
                 '1',
                 'Je vends ma voiture pour acheter une familiale ! Et oui, notre famille grandit mais cette voiture était encore très bien',
-                '1',
+                '3',
                 'Porsche',
                 'Cayenne',
                 '200 000',
@@ -442,21 +442,21 @@
         if($_POST['action']=="stockInfos"){
             if(file_exists("models/connect.csv")){
                 unlink('models/connect.csv');
-            }else{
-                $fichier = fopen("models/connect.csv", "w");
-                fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
-                fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
             }
+            $fichier = fopen("models/connect.csv", "w");
+            fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
+            fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
+            
             initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
         }
         if($_POST['action']=="fillDB"){
             if(file_exists("models/connect.csv")){
                 unlink('models/connect.csv');
-            }else{
-                $fichier = fopen("models/connect.csv", "w");
-                fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
-                fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
             }
+            $fichier = fopen("models/connect.csv", "w");
+            fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
+            fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
+            
             initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
         }
 

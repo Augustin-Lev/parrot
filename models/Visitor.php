@@ -1,17 +1,19 @@
 <?php
 
 class Visitor{
-    private $email;
     private $name;
     private $firstName;
+    private $email;
     private $phone;
 
-    public function __construct($email, $name, $firstName){
-        $this -> email = $email;
-        $this -> name = $name;
-        $this -> firstName = $firstName;
+    public function __construct($name,$firstName){
+        $this->name=$name;
+        $this->firstName=$firstName;
     }
 
+    public function setPhone($set){
+        $this-> phone = $set;
+    }
     public function setEmail($set){
         $this-> email = $set;
     }
@@ -23,16 +25,20 @@ class Visitor{
     }
    
     public function getEmail(){
-        return $this-> email;
+        return $this->email;
     }
+    
     public function getName(){
         return $this-> name;
     }
     public function getFirstName(){
         return $this-> firstName;
     }
+    public function getPhone(){
+        return $this-> phone;
+    }
     
-    public function newTestimonial(int $stars, string $message){
+    public function newTestimonial(testimonial $testimonial){
         $DB= new DataBase;
         $PDO = $DB->getPDO();
 
@@ -45,11 +51,11 @@ class Visitor{
         $sql ='INSERT INTO temoignage (parution, etoile, valide, nom, prenom, commentaire) VALUES (:parution, :etoile, :valide, :nom, :prenom, :commentaire);';
         $PDOStatement= $PDO->prepare($sql);
         $PDOStatement->bindValue(':parution', date("d/m/Y"), PDO::PARAM_STR);
-        $PDOStatement->bindValue(':etoile', $stars, PDO::PARAM_STR);
+        $PDOStatement->bindValue(':etoile', $testimonial->getStars(), PDO::PARAM_STR);
         $PDOStatement->bindValue(':valide',$valide, PDO::PARAM_STR);
         $PDOStatement->bindValue(':nom', $this->name, PDO::PARAM_STR);
         $PDOStatement->bindValue(':prenom',$this->firstName, PDO::PARAM_STR);
-        $PDOStatement->bindValue(':commentaire', $message , PDO::PARAM_STR);
+        $PDOStatement->bindValue(':commentaire', $testimonial->getMessage() , PDO::PARAM_STR);
         if($PDOStatement -> execute()) { 
             return "1";          
         }
@@ -69,6 +75,7 @@ class Visitor{
         $headers = 'From: '.$this->email. "\r\n" .
         'Reply-To: '.$this->email;
 
+        $message = $message."\r\n numero de téléphone : ".$this->phone;
         mail($liste,"Message Client Site Internet",$message, $headers);
     }
 
@@ -86,7 +93,7 @@ class Visitor{
         $headers = 'From: '.$this->email. "\r\n" .
         'Reply-To: '.$this->email;
         
-        mail($admin,"Reservation Véhicule",$text, $headers);
+        mail($liste,"Reservation Véhicule",$text, $headers);
     }
 }
 

@@ -6,11 +6,15 @@ for( $i=1; $i< $voiture["imageClef"];$i++){?>
         <input type="radio" name="slider" title="slide<?php echo $i+1; ?>" for="slide<?php echo $i+1; ?>" class="slider__nav"/>
 <?php }?>
     <div class="slider__inner" style="width:<?php echo $voiture["imageClef"]; ?>00%;">
-        <?php for( $i=1; $i<(intval($voiture["imageClef"])+1);$i++){ ?>
-            <div class="slider__contents">
-            <img class="slider__txt" src="<?php echo BASE_URL;?>/views/image/occasion/<?php echo $voiture["id"]?>/image<?php echo $i; ?>.jpg">
-            </div>
-        <?php }?>
+        <?php 
+        foreach(scandir("views/image/occasion/".$voiture["id"]) as $image){
+            if($image != "." && $image != ".."){ ?>
+                <div class="slider__contents">
+                <img class="slider__txt" src="<?php echo BASE_URL;?>/views/image/occasion/<?php echo $voiture["id"]?>/<?php echo $image;?>">
+                </div>
+        
+            <?php }
+        }?>
     </div>
 </div>
 

@@ -45,7 +45,10 @@ class UsedCarController{
 
         if($_POST["action"]=="reserver"){
           
-            $visitor = new Visitor(htmlentities($_POST["mail"]),htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]),htmlentities($_POST["tel"]));
+            $visitor = new Visitor(htmlentities($_POST["nom"]),htmlentities($_POST["prenom"]));
+            $visitor->setEmail(htmlentities($_POST["mail"]));
+            $visitor->setPhone(htmlentities($_POST["tel"]));
+
             $visitor->reserveCar($_POST["id"]);          
 
             require_once "views/bandeau.php";

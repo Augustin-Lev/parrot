@@ -27,7 +27,6 @@ require_once 'models/Code.php';
 require_once 'models/Visitor.php';
 require_once 'models/Employee.php';
 require_once 'models/Manager.php';
-require_once 'models/UsedCar.php';
 require_once 'models/Testimonial.php';
 
 

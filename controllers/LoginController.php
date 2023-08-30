@@ -10,8 +10,20 @@ class LoginController{
             Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
             "]; //necessaire au header de model
         require "models/Header.php";
-            
         require_once "views/header.php";
+        require_once "views/bandeau.php";
+        if(isset($_SESSION["succes"])){
+            if ($_SESSION["succes"] != ""){
+                bandeau($_SESSION["succes"]);
+                unset($_SESSION["succes"]);
+            }
+        }
+        if (isset($_SESSION["erreur"])){
+            if ($_SESSION["erreur"] != ""){
+                erreur($_SESSION["erreur"]);
+                unset($_SESSION["erreur"]);
+            }
+        }
        
         require_once "views/login.php";
         $horaire =  $DB->allTimeTable(); // necessaire pour le footer
@@ -19,11 +31,10 @@ class LoginController{
     }
 
     public function verification(){
-        //Lancement de la connexion à la base de donnée
-        $DB = new DataBase();
+
         $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
 
-        $user = $employee->verifyPassword($_POST['id'],htmlentities($_POST['mdp']));
+        $user = $employee->verifyPassword(htmlentities($_POST['id']),htmlentities($_POST['mdp']));
         if ($user != 0 ){
             // echo "mot de passe correct";
             // var_dump ($user);
@@ -33,41 +44,17 @@ class LoginController{
             $_SESSION["prenom"] = $user["prenom"];
             $_SESSION["statut"] = $user["statut"];
             $_SESSION["email"] = $user["email"];
+            $_SESSION["succes"] = "Vous êtes bien connecté";
             var_dump($_SESSION);
             // require 'views/login.php';
             header('Location:'.BASE_URL."/");
-        }else{
-            $header = [
-                "javascript"=>0,
-                "titre"=>"Se connecter Garrage V.Parrot",
-                "content"=>"
-                Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
-                "]; //necessaire au header de model
-            require "models/Header.php";
-            require_once "views/header.php";
-            require_once "views/bandeau.php";
 
-            erreur("mot de passe incorrecte");
+        }else{
             $_SESSION["login"] = 0;
             $_SESSION["statut"] = "visiteur";
-            
-            require 'views/login.php';
-
-            $horaire =  $DB->allTimeTable(); // necessaire pour le footer
-            require_once "views/footer.php";
-
+            $_SESSION["erreur"] = "mot de passe incorrecte";
+            header('Location:'.BASE_URL."/login");
         }    
-        $header = [
-            "javascript"=>0,
-            "titre"=>"Se connecter Garrage V.Parrot",
-            "content"=>"
-            Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
-            "]; //necessaire au header de model
-        require "models/Header.php";
-        require_once "models/User.php";
-
-        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
-        require_once "views/footer.php";
     }
     public function mpdOublie(){
         $DB = new DataBase;
@@ -86,27 +73,25 @@ class LoginController{
     }
 
     public function envoyerCode(){
-        $DB = new DataBase;
         $code = new Code;
-
-        $header = [
-            "javascript"=>0,
-            "titre"=>"Se connecter Garrage V.Parrot",
-            "content"=>"
-            Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
-            "]; //necessaire au header de model
-        require "models/Header.php";
-        require_once "views/header.php";
-
         if ($code->envoyer(htmlentities($_POST["mail"]))){
+            $DB = new DataBase;
+            $header = [
+                "javascript"=>0,
+                "titre"=>"Se connecter Garrage V.Parrot",
+                "content"=>"
+                Connectez-vous à votre compte administrateur pour gerer les témoignages, les voitures d'occasions et ainsi que les horraires.
+                "]; //necessaire au header de model
+            require "models/Header.php";
+            require_once "views/header.php";
             require "views/login-sent.php";
+            $horaire =  $DB->allTimeTable(); // necessaire pour le footer
+            require_once "views/footer.php";
         }else{
-            require_once "views/bandeau.php";
-            erreur("Votre mail n'est pas dans la base");
-            require 'views/login.php';
+            $_SESSION["erreur"] = ("Votre mail n'est pas dans la base");
+            header('Location:'.BASE_URL."/login");
         }
-        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
-        require_once "views/footer.php";
+       
     }
     public function verifierCode(){
         $DB = new DataBase();
@@ -136,7 +121,7 @@ class LoginController{
         if($_POST["action"]=="nouveau-mpd"){
             $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
             $employee-> newPassword($_SESSION["mail"],htmlentities($_POST["mdp"]));
-            header('Location:'.BASE_URL."/");
+            header('Location:'.BASE_URL."/login");
         }
     }
        

@@ -1,6 +1,5 @@
 <?php 
 function bandeau($text){
-    $file = $_SERVER['REQUEST_URI'];
     echo "
         <script>
             function masquer(){
@@ -12,9 +11,9 @@ function bandeau($text){
                 <button class='boutton' onclick='masquer()'>OK</button>
         </div>
     ";
+    $_SESSION['sucess'] = "";
 }
 function erreur($text){
-    $file = $_SERVER['REQUEST_URI'];
     echo "
         <script>
             function masquer(){
@@ -26,5 +25,6 @@ function erreur($text){
                 <button class='boutton' onclick='masquer()'>OK</button>
         </div>
     ";
+    $_SESSION['erreur'] = "";
 }
 ?>

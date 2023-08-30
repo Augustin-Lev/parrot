@@ -32,10 +32,18 @@
 
 <?php
 
-foreach ($occasions as $voiture){?>
+foreach ($occasions as $voiture){
+    foreach(scandir("views/image/occasion/".$voiture["id"]) as $image){
+        if($image != "." && $image != ".."){
+            var_dump($image);
+            break;
+        }
+    }?>
+    
     <div class="occasionVoiture" id="<?php echo $voiture["id"] ?>" >
-        <img src="views/image/occasion/<?php echo $voiture["id"] ?>/image1.jpg">
+        <img src="views/image/occasion/<?php echo $voiture["id"] ?>/<?php echo $image; ?>">
         <div class="occasionInfos">
+            
             <h2 class="occasionTitre"><?php echo $voiture["marque"]."-".$voiture["modèle"]?></h2>
             <div>
 
