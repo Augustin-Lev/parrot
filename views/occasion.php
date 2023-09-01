@@ -35,7 +35,7 @@
 foreach ($occasions as $voiture){
     foreach(scandir("views/image/occasion/".$voiture["id"]) as $image){
         if($image != "." && $image != ".."){
-            var_dump($image);
+            // var_dump($image);
             break;
         }
     }?>

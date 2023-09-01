@@ -15,8 +15,8 @@ class Employee extends Visitor{
     public function setPassword($set){
         $this-> password = $set;
     }
-    public function setStatus($set){
-        $this-> status = $set;
+    public function setstatut($set){
+        $this-> statut = $set;
     }
 
     public function getPassword(){

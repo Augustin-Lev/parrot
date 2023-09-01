@@ -83,7 +83,7 @@ class UsedCarController{
 
     public function addField(){
         $DB = new DataBase();
-        $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],"33333333",$_SESSION["status"]);
+        $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],"33333333",$_SESSION["statut"]);
         
         if($employee->addField(htmlentities($_POST["champ"]),'occasion',htmlentities($_POST["name"])) == 'error'){
             $horaire =  $DB->allTimeTable(); // necessaire pour le footer
@@ -127,7 +127,7 @@ class UsedCarController{
         $DB = new DataBase();
         var_dump($_POST);
         require_once "views/bandeau.php";
-        $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["status"]);
+        $employee = new Employee($_SESSION["email"],$_SESSION["nom"],$_SESSION["prenom"],$_SESSION["statut"]);
         $erreur = $employee->addUsedCar($_POST);
         var_dump($erreur);
         if ($erreur != 0){

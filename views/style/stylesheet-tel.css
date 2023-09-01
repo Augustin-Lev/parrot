@@ -232,6 +232,12 @@
         display: flex;
         align-items: center;
     }
+    .retour{
+        flex-direction: column;
+        height: 100%;
+        height: fit-content;
+        padding: 0 5% 0% 5%;
+    }
     .loginForm {
         margin: 0 10vw 0 10vw;
     }

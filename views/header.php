@@ -11,11 +11,10 @@
         <?php 
 
         if(isset($_SESSION["login"])==0){
-            session_start();
             $_SESSION["login"] = 0;
             $_SESSION["nom"] = "";
             $_SESSION["prenom"] = "";
-            $_SESSION["status"] = "";
+            $_SESSION["statut"] = "";
             $_SESSION["email"] = "";
         }
        
@@ -41,13 +40,20 @@
         } ?>
 </header>
 
-<?php if (($_SESSION["statut"] == "Gérant" || $_SESSION["statut"] == "salarié") && $_SESSION["login"] ){ ?>
-    <div class="headerAdmin">
-        <a  class="boutton" href="<?php echo BASE_URL;?>/administration">Administrer</a>
-    </div>
+<?php 
+
+    if (($_SESSION["statut"] == "Gérant" || $_SESSION["statut"] == "salarié") && $_SESSION["login"] ){ ?>
+        <div class="headerAdmin">
+            <a  class="boutton" href="<?php echo BASE_URL;?>/administration">Administrer</a>
+        </div>
 
 <?php }
-
+if($_SERVER['REQUEST_URI'] != BASE_URL.'/'){ ?>
+            
+        <div class=" retour">
+            <a  class="" href="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>"> << Retour</a>
+        </div>
+<?php  } 
 // echo "POST";
 // var_dump($_POST);
 // echo "SESSION";

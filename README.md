@@ -19,13 +19,11 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 - installez Wampserver
 - dans le dossier www, creer un dossier "garage"
 - placez-y l'intégralité des dossiers
-- créez une base de donnée
 - lancer le site 
-- suivez les informations 
+- remplissez les informations 
 
 ### Via Github
 - connectez-vous à votre hébergeur
-- créez une base de donnée Mysql
 - déployez la branche main dans le repertoire "public_html"
 - ajoutez le webhook à Github
 - faites attention à ne pas avoir téléchargé le fichier [model/log.csv]
@@ -36,7 +34,6 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 
 ### Client FTP / SSH
 - connectez-vous à votre hébergeur
-- créez une base de donnée Mysql
 - connectez votre client FTP à votre hebergeur
 - chargez l'integralité du dossier parrot à la racine (repertoire "public_html")
 - faites attention à ne pas avoir téléchargé le fichier [model/log.csv]
@@ -47,7 +44,6 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 
 ### Via votre hébergeur
 - connectez-vous à votre hébergeur
-- créez une base de donnée Mysql
 - rendez-vous dans "gerer les fichier" ou quelque chose qui y ressemble
 - selectionner upload files
 - charger l'intégralité sur dossier Git exepté [model/log.csv]
