@@ -73,5 +73,23 @@ class HomeController {
         $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         require_once "views/footer.php";
     }
+    public function privacyPolicy(){
+        $DB = new DataBase();
+        $TroisCommentaires = $DB->threeTestimonials();
+        $header = [
+            "javascript"=>0,
+            "titre"=>"Garrage Toulousain V.Parrot",
+            "content"=>"
+            Réparation de la carrosserie, de la mécanique, ou entretien régulier de vos automobiles par le garrage Parrot à Toulouse. 
+            "]; //necessaire au header de model
+        require "models/Header.php";
+        
+        require_once "views/bandeau.php";
+        require_once "views/header.php";
+        require_once "views/privacyPolicy.php";
+        $horaire =  $DB->allTimeTable(); // necessaire pour le footer
+        require_once "views/footer.php";
+
+    }
 }
 ?>

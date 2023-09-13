@@ -144,6 +144,9 @@ $router->addRoute("GET",BASE_URL.'/occasions/*','UsedCarController','occasionPlu
 $router->addRoute("POST",BASE_URL.'/nouveau/mot_de_passe','LoginController','nouveauMdp');
 $router->addRoute("GET",BASE_URL.'/nouveau/mot_de_passe','LoginController','nouveauMdp');
 
+$router->addRoute("GET",BASE_URL.'/politique','HomeController','privacyPolicy');
+
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];

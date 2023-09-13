@@ -147,5 +147,6 @@
         </div>
         
     </div>
-    
+      
 </footer>
+<a class="politiqueLien" href="<?php echo BASE_URL;?>/politique">Politique de confidentialité</a>

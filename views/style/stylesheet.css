@@ -1013,3 +1013,21 @@ select:hover{
     flex-direction: column;
     align-items: center;
 }   
+
+/*------------------privacyPolicy------------------------*/
+.privacyPolicy{
+    margin: 5%;
+}
+.privacyPolicy>p, .privacyPolicy>ul {
+    color: #ffe39d;
+}
+.politiqueLien{
+    font-size: 0.5rem;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 2rem;
+    flex-direction: column;
+}
