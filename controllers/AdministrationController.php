@@ -176,10 +176,21 @@ class AdministrationController{
     public function modifyService($service){
         $DB = new DataBase();
         $horaire =  $DB->allTimeTable(); // necessaire pour le footer
+        $servicesDB = $DB->allServices(); // tableau avec le contenu des services
+        
         $header = [
             "javascript"=>0,
             "titre"=>"Administration Garage V.Parrot",
             "content"=>"Administration, do not import on web."]; //necessaire au header de model
+            
+        foreach ($servicesDB as $serviceDB){ //parcour des 3 services pour trouver celui en question
+            if($serviceDB["services"] == $service ){
+
+                $TitreService = trim($serviceDB["titre"], $characters = " \n\r\t\v\x00"); //trim permet d'enlever les espaces en début de chaine
+                $ContenuService = trim($serviceDB["contenu"], $characters = " \n\r\t\v\x00");         
+            }
+        }
+ 
         require "models/Header.php";
         require_once "views/header.php";
         require "views/modif-Service.php";

@@ -156,10 +156,6 @@ class DataBase{
         return($tableau);
     }
     
-    
-    
-
-    
     public function allOccasions(){
         $occasions = array();
 
