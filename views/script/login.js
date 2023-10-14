@@ -32,7 +32,8 @@ form.addEventListener('keyup', (event => {
   }
   if(compteur == 5){
     console.log("le code est bon");
-    erreur.style.display='none'; 
+    erreur.style.display='none';
+    console.log(erreur);
   }
   let taille = compteur*20;
   login.style.width = taille+'%';

@@ -20,7 +20,7 @@
             - Si un bug persiste au niveau du téléchargement des images, reconfigurez le php.ini et augmentez "upload_max_filesize"<br/>
             - Vérifie que les variables "display_startup_errors" et "display_errors" du php.ini du serveur soit à "OFF" 
             - Vérifie que la variable "upload_max_filesize" soit à 7M </p>
-            <form class="loginForm" action="" method="POST">
+            <form class="loginForm" action="" method="POST" id="newPassword">
                 <label for="NameDB">Nom de la base de donnée</label>
                 <input type="text" name="NameDB" value="u734868843_parrot" required="">
         
@@ -39,18 +39,26 @@
                 <label for="email">Adresse mail</label>
                 <input type="text" name="email" value="vp@garage.fr" required="">
         
-                <label for="password">Mot de passe du site</label>
-                <input type="text" name="password" value="mod" required="">
+                <label for="password">Mot de passe de l\'administrateur</label>
+                <input type="text" name="password" value="Respect2parrot?" id="mdp" required="">
+
+                <label for="password">Vérification du mot de passe</label>
+                <input type="text" name="confirm" value="" id="confirm" required="">
+
+                <div id="indiceMDP"> </div>
+                <p id="erreur">ERREUR, le mot de passe ne respecte pas les consignes ou n\'est pas identique</p>
 
                 <label for="base_url"> Dossier dans lequel se trouve le site (mettre "")</label>
                 <input type="text" name="base_url" value="/garrage" required="">
         
-                <button class="boutton" type="submit" name="action" value="stockInfos" >initialisation</button>
-                <button class="boutton" type="submit" name="action" value="fillDB" > remplissage de la base</button>
+                <input type="hidden" name="action" value="fillDB" >
+                <button class="boutton" type="submit"> remplissage de la base</button>
             </form>
+            <script src="views/script/login.js"></script>
             ';
+           
         }
-        
+
         function fillDB($NameDB,$UserDB,$passwordDB,$name,$surname,$email,$password){
          
             try {
@@ -81,7 +89,7 @@
                 $pdoStatement->bindValue(':valide', 1,PDO::PARAM_STR);
                 $pdoStatement->bindValue(':nom', 'Ouraïe',PDO::PARAM_STR);
                 $pdoStatement->bindValue(':prenom', 'Sam',PDO::PARAM_STR);
-                $pdoStatement->bindValue(':commentaire', $lorem,PDO::PARAM_STR);
+                $pdoStatement->bindValue(':commentaire',"J'ai récemment acheté une voiture d'occasion chez le garage Parrot, et je suis ravi de mon choix ! La qualité du véhicule, le processus d'achat transparent et le service client exceptionnel font de cette expérience d'achat une réussite totale. Je recommande chaudement le garage Parrot pour l'achat de voitures d'occasion.",PDO::PARAM_STR);
                 if($pdoStatement -> execute()) { 
                     echo "<li>témoignage 1 bien inscrit </li><br/>";                
                 }else{
@@ -96,7 +104,7 @@
                 $pdoStatement->bindValue(':valide', 1,PDO::PARAM_STR);
                 $pdoStatement->bindValue(':nom', 'Ptitghoute',PDO::PARAM_STR);
                 $pdoStatement->bindValue(':prenom', 'Justine',PDO::PARAM_STR);
-                $pdoStatement->bindValue(':commentaire', "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, accusantium. Quidem obcaecati tempore harum distinctio, minus a, suscipit, esse consectetur rem qui officiis ex! Tempore maiores tempora error recusandae expedita.    ",PDO::PARAM_STR);
+                $pdoStatement->bindValue(':commentaire', "Je suis extrêmement satisfait du service offert par le garage Parrot ! Leur expertise, leur rapidité et leur amabilité sont incomparables. Mes problèmes de voiture sont toujours résolus avec efficacité. Je les recommande vivement !",PDO::PARAM_STR);
                 if($pdoStatement -> execute()) { 
                     echo "<li>témoignage 2 bien inscrit </li><br/>";                
                 }else
@@ -112,7 +120,7 @@
                 $pdoStatement->bindValue(':valide', 1,PDO::PARAM_STR);
                 $pdoStatement->bindValue(':nom', 'Hun',PDO::PARAM_STR);
                 $pdoStatement->bindValue(':prenom', 'Jeff',PDO::PARAM_STR);
-                $pdoStatement->bindValue(':commentaire', "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, accusantium. Quidem obcaecati tempore harum distinctio, minus a, suscipit, esse consectetur rem qui officiis ex! Tempore maiores tempora error recusandae expedita.    ",PDO::PARAM_STR);
+                $pdoStatement->bindValue(':commentaire', "Le service carrosserie du garage Parrot a fait des merveilles sur ma voiture ! Leur expertise dans la réparation et la peinture est incroyable. Mon véhicule ressemble désormais à neuf, et le travail a été réalisé rapidement. Un grand merci à toute l'équipe de la carrosserie Parrot !",PDO::PARAM_STR);
                 if($pdoStatement -> execute()) { 
                     echo "<li>témoignage 3 bien inscrit </li><br/>";                
                 }else
@@ -433,33 +441,23 @@
             }
         }
     ?>
-
+    
     <h1 style="background-color:black">Initialisation</h1>
     <?php 
     printForm();
+    var_dump($_POST);
 
     if(isset($_POST["action"])){
-        if($_POST['action']=="stockInfos"){
-            if(file_exists("models/connect.csv")){
-                unlink('models/connect.csv');
-            }
-            $fichier = fopen("models/connect.csv", "w");
-            fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
-            fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
-            
-            initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],0);
-        }
-        if($_POST['action']=="fillDB"){
-            if(file_exists("models/connect.csv")){
-                unlink('models/connect.csv');
-            }
-            $fichier = fopen("models/connect.csv", "w");
-            fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
-            fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
-            
-            initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
-        }
 
+        if(file_exists("models/connect.csv")){
+            unlink('models/connect.csv');
+        }
+        $fichier = fopen("models/connect.csv", "w");
+        fwrite($fichier, "NameDB,UserDB,passwordDB,name,surname,email,password,base_url \r\n");
+        fwrite($fichier,$_POST["NameDB"].",".$_POST["UserDB"].",".$_POST["passwordDB"].",".$_POST["name"].",".$_POST["surname"].",".$_POST["email"].",".$_POST["password"].",".$_POST["base_url"] );
+        
+        initialisation($_POST["NameDB"],$_POST["UserDB"],$_POST["passwordDB"],$_POST["name"],$_POST["surname"],$_POST["email"],$_POST["password"],1);
+        
     }
 
 
