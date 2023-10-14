@@ -31,10 +31,10 @@
                 <input type="text" name="passwordDB" value="4a:P:N6u:LKZ" required="">
         
                 <label for="name">Nom</label>
-                <input type="text" name="name" value="Vincent" required="">
+                <input type="text" name="name" value="Parrot" required="">
         
                 <label for="surname">Prénom</label>
-                <input type="text" name="surname" value="Parrot" required="">
+                <input type="text" name="surname" value="Vincent" required="">
         
                 <label for="email">Adresse mail</label>
                 <input type="text" name="email" value="vp@garage.fr" required="">
@@ -445,7 +445,7 @@
     <h1 style="background-color:black">Initialisation</h1>
     <?php 
     printForm();
-    var_dump($_POST);
+    // var_dump($_POST);
 
     if(isset($_POST["action"])){
 
