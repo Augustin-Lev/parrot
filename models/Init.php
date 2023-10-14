@@ -422,9 +422,11 @@
                         <button type=submit class="boutton">Remplir la base de donnée</button>
                     </form>';
             }
-           
+            
+        
+
             echo '
-            <a class="boutton" href="'.$_POST["base_url"].'/"> Menu </a>
+            <a class="boutton" href="'.substr($_SERVER["HTTP_REFERER"], 0, -7).'/"> Menu </a>
             </div>
             </body>';
         }
