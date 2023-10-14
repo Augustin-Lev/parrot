@@ -52,13 +52,16 @@ class Employee extends Visitor{
         }else{
             $nbImagesDeja = 0;
         }
-               
+        
+        //id de l'enregistrement devient le dernier id de la base de donnée
         $id = $DB->maxIdOccasion($PDO)+1;
-               
+        
+        // création du dosser contenant les images
         if (is_dir("views/image/occasion/".$id) == 0){
             mkdir("views/image/occasion/".$id);
         }
-              
+        
+        //initialisation du compteur d'image enregistré
         $nbImages = 0;
         
         // var_dump($_FILES);
@@ -75,6 +78,8 @@ class Employee extends Visitor{
 
             }
         }
+        //les images étant été écrasé,
+        //si il y avait plus d'image avant le changement, on garde les images qui n'ont pas été remplacés
         if ($nbImagesDeja > $nbImages){
             $nbImages = $nbImagesDeja;
         }
@@ -83,11 +88,12 @@ class Employee extends Visitor{
             $nbImages = 1;
         }
 
-       
+        //initialisation des chaines de caractère
         $champ = "modificateur, imageClef,id";
         $binValue = "'".$_SESSION["email"]."','".$nbImages."','".$id;
         // var_dump($tableau);
-    
+        
+        //créaction de deux chaines de caractère qui vont être inséré dans la requête.
         reset($tableau);
         foreach($tableau as $parametre){
             if (key($tableau) != 'action' && key($tableau) != 'id'){
@@ -114,7 +120,6 @@ class Employee extends Visitor{
         $PDOStatement= $PDO->prepare($sql);
         $PDOStatement -> execute();
     }
-
     public function validateTestimonial($id, $valide){
         $DB = new DataBase; 
         $PDO = $DB->getPDO();

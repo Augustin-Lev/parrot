@@ -33,15 +33,16 @@ class AdministrationController{
         $DB = new DataBase();
         $horaire =  $DB->allTimeTable(); // necessaire pour le footer
         $header = [
-            "javascript"=>0,
+            "javascript"=>1,
             "titre"=>"Administration Garage V.Parrot",
             "content"=>"Administration, do not import on web."]; //necessaire au header de model
         require "models/Header.php";
         require_once "views/header.php";
 
         require "views/new-salarie.php";
-
+        
         require_once "views/footer.php";
+        echo '<script src="../views/script/login.js"></script>';
     }
   
     public function addNewEmployee(){

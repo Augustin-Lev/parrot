@@ -262,6 +262,7 @@
         flex-direction: column;
         min-height: 70vh;
     }
+    
     .filtreOccasion>div{
         display: flex;
         flex-direction: column;

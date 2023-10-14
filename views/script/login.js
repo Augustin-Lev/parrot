@@ -5,7 +5,7 @@ let compteur = 0;
 
 form.addEventListener('keyup', (event => {
 
-  let mdp1 = form.elements[1].value;
+  let mdp1 = form.elements["mdp"].value;
 
   var condition1 = mdp1.match(/[A-Z]/g);
   var condition2 = mdp1.match(/[a-z]/g);
@@ -41,8 +41,8 @@ form.addEventListener('keyup', (event => {
 }))
 
 form.addEventListener('submit', (event => {
-  let mdp1 = form.elements[1].value;
-  let mdp2 = form.elements[2].value;
+  let mdp1 = form.elements["mdp"].value;
+  let mdp2 = form.elements["confirm"].value;
   if(compteur == 5){
     console.log(mdp2);
     if ( mdp1 == mdp2){

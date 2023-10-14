@@ -142,6 +142,7 @@ Cette application web est la plus chouette du monde car c'est la plus chouette g
 ### Taches à améliorer
 ***
 ajouter des test automatiques
+plus documenter le code
 bloquer l'envois sucessif de formulaire à chaque actualisation de la page
 
 
